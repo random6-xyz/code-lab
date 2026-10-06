@@ -17,6 +17,8 @@ pub struct Problem {
     pub id: String,
     pub title: String,
     pub statement: String,
+    #[serde(default)]
+    pub tags: Vec<String>,
     pub time_limit_ms: u64,
     pub memory_limit_mb: u64,
     pub test_cases: Vec<TestCase>,
@@ -55,6 +57,15 @@ impl Problem {
         }
         if self.statement.trim().is_empty() {
             bail!("problem '{}' must have a non-empty statement", self.id);
+        }
+        let mut tags = HashSet::new();
+        for tag in &self.tags {
+            if tag.trim().is_empty() {
+                bail!("problem '{}' has an empty tag", self.id);
+            }
+            if !tags.insert(tag) {
+                bail!("problem '{}' has duplicate tag '{}'", self.id, tag);
+            }
         }
         if !(1..=MAX_TIME_LIMIT_MS).contains(&self.time_limit_ms) {
             bail!(
@@ -100,18 +111,36 @@ pub fn load_problem(path: &Path) -> Result<Problem> {
     Ok(problem)
 }
 
-pub fn load_problems(directory: &Path) -> Result<Vec<Problem>> {
+fn is_yaml_file(path: &Path) -> bool {
+    path.extension()
+        .and_then(|extension| extension.to_str())
+        .is_some_and(|extension| {
+            extension.eq_ignore_ascii_case("yaml") || extension.eq_ignore_ascii_case("yml")
+        })
+}
+
+fn collect_problem_files(directory: &Path, paths: &mut Vec<PathBuf>) -> Result<()> {
     let entries = fs::read_dir(directory)
         .with_context(|| format!("failed to read problems directory {}", directory.display()))?;
-    let mut paths: Vec<PathBuf> = entries
-        .map(|entry| entry.map(|entry| entry.path()))
-        .collect::<std::io::Result<_>>()?;
-    paths.retain(|path| {
-        matches!(
-            path.extension().and_then(|extension| extension.to_str()),
-            Some("yaml" | "yml")
-        )
-    });
+    for entry in entries {
+        let entry =
+            entry.with_context(|| format!("failed to read an entry in {}", directory.display()))?;
+        let path = entry.path();
+        let file_type = entry
+            .file_type()
+            .with_context(|| format!("failed to inspect problem path {}", path.display()))?;
+        if file_type.is_dir() {
+            collect_problem_files(&path, paths)?;
+        } else if file_type.is_file() && is_yaml_file(&path) {
+            paths.push(path);
+        }
+    }
+    Ok(())
+}
+
+pub fn load_problems(directory: &Path) -> Result<Vec<Problem>> {
+    let mut paths = Vec::new();
+    collect_problem_files(directory, &mut paths)?;
     paths.sort();
 
     let mut problems = Vec::with_capacity(paths.len());
@@ -152,6 +181,7 @@ mod tests {
             id: "sample".to_owned(),
             title: "Sample".to_owned(),
             statement: "Read two numbers and print their sum.".to_owned(),
+            tags: Vec::new(),
             time_limit_ms: 1_000,
             memory_limit_mb: 128,
             test_cases: vec![TestCase {
@@ -165,6 +195,29 @@ mod tests {
     #[test]
     fn accepts_valid_problem() {
         assert!(valid_problem().validate().is_ok());
+    }
+
+    #[test]
+    fn rejects_empty_and_duplicate_tags() {
+        let mut problem = valid_problem();
+        problem.tags.push("  ".to_owned());
+        assert!(
+            problem
+                .validate()
+                .unwrap_err()
+                .to_string()
+                .contains("empty tag")
+        );
+
+        let mut problem = valid_problem();
+        problem.tags = vec!["arrays".to_owned(), "arrays".to_owned()];
+        assert!(
+            problem
+                .validate()
+                .unwrap_err()
+                .to_string()
+                .contains("duplicate tag")
+        );
     }
 
     #[test]

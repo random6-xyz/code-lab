@@ -3,6 +3,9 @@ id: sum-two
 title: Sum Two
 statement: |
   Read two integers from standard input and print their sum.
+tags:
+  - math
+  - beginner
 time_limit_ms: 1000
 memory_limit_mb: 128
 test_cases:

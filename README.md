@@ -33,7 +33,7 @@ code-lab --problems-dir ./my-problems run sum-two ./solution.py
 
 ## Problem YAML format
 
-Each problem is stored in `problems/<id>.yaml`. The file stem must exactly match `id`.
+Problems are stored as `.yaml` or `.yml` files anywhere under the problems directory; nested directories are searched recursively. Each file's stem must exactly match its `id`.
 
 ```yaml
 schema_version: 1
@@ -41,6 +41,9 @@ id: sum-two
 title: Sum Two
 statement: |
   Read two integers from standard input and print their sum.
+tags:
+  - math
+  - beginner
 time_limit_ms: 1000
 memory_limit_mb: 128
 test_cases:
@@ -54,9 +57,11 @@ test_cases:
     expected_output: "5\n"
 ```
 
-All fields are required. Test case names must be unique within a problem. Time limits must be between 1 and 300,000 milliseconds; memory limits must be between 1 and 8,192 megabytes. Each limit applies independently to every test case. Compilation has separate fixed limits of 120 seconds and 2,048 MB.
+All fields except `tags` are required; tags default to an empty list and must be non-empty and unique when provided. Test case names must be unique within a problem. Time limits must be between 1 and 300,000 milliseconds; memory limits must be between 1 and 8,192 megabytes. Each limit applies independently to every test case. Compilation has separate fixed limits of 120 seconds and 2,048 MB.
 
 Output comparison is byte-exact except that one final line ending (`LF` or `CRLF`) is ignored. Other whitespace, including extra trailing spaces or additional blank lines, is significant.
+
+Use `code-lab show <id>` to view a problem's tags. The `list`, `show`, and `run` commands load and validate YAML problems recursively from the configured problems directory.
 
 ## Sandbox notes
 

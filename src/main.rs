@@ -28,6 +28,11 @@ fn main() -> Result<()> {
             let problem = find_problem(&problems, &id)?;
             println!("{} - {}\n", problem.id, problem.title);
             println!("{}\n", problem.statement);
+            if problem.tags.is_empty() {
+                println!("Tags: (none)");
+            } else {
+                println!("Tags: {}", problem.tags.join(", "));
+            }
             println!("Time limit: {} ms", problem.time_limit_ms);
             println!("Memory limit: {} MB", problem.memory_limit_mb);
             println!("Test cases: {}", problem.test_cases.len());
