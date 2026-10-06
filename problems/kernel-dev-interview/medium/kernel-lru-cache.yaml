@@ -1,0 +1,60 @@
+schema_version: 1
+id: kernel-lru-cache
+title: Simulate an LRU Cache
+statement: |
+  Implement a least-recently-used cache with capacity C and process Q commands.
+  GET key prints its value, or -1 if the key is absent. PUT key value inserts or
+  updates the key; if this exceeds capacity, evict the least recently used key.
+  A successful GET and every PUT make that key most recently used. PUT produces
+  no output. C is positive and keys and values are integers.
+tags:
+  - kernel
+  - cache
+  - data-structures
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: eviction-and-update
+    input: |
+      2 9
+      PUT 1 10
+      PUT 2 20
+      GET 1
+      PUT 3 30
+      GET 2
+      GET 3
+      PUT 1 11
+      GET 1
+      GET 2
+    expected_output: |
+      10
+      -1
+      30
+      11
+      -1
+  - name: missing-keys
+    input: |
+      1 2
+      GET 9
+      PUT 9 4
+    expected_output: |
+      -1
+  - name: capacity-one-and-overwrite
+    input: |
+      1 7
+      PUT 5 10
+      GET 5
+      PUT 5 20
+      GET 5
+      PUT 6 30
+      GET 5
+      GET 6
+    expected_output: |
+      10
+      20
+      -1
+      30
+  - name: no-operations
+    input: |
+      3 0
+    expected_output: ""

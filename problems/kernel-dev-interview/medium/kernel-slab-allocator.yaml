@@ -1,0 +1,77 @@
+schema_version: 1
+id: kernel-slab-allocator
+title: Simulate a Slab Object Allocator
+statement: |
+  Each slab contains K object slots. Slabs and slots are numbered from zero.
+  Process Q commands: ALLOC id obtains the lowest-numbered free slot, creating
+  slabs as needed, and prints slab_index slot_index. FREE id releases the slot
+  assigned to that active identifier and prints OK; an unknown identifier prints
+  INVALID. Allocations with an identifier already active fail without changing
+  the allocator and print FAIL. Freed slots may be reused.
+tags:
+  - kernel
+  - memory-management
+  - slab-allocator
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: grow-and-reuse-slots
+    input: |
+      2 8
+      ALLOC a
+      ALLOC b
+      ALLOC c
+      FREE a
+      ALLOC d
+      FREE x
+      ALLOC c
+      FREE c
+    expected_output: |
+      0 0
+      0 1
+      1 0
+      OK
+      0 0
+      INVALID
+      FAIL
+      OK
+  - name: one-object-per-slab
+    input: |
+      1 2
+      ALLOC x
+      ALLOC y
+    expected_output: |
+      0 0
+      1 0
+  - name: reuse-lowest-numbered-free-slot
+    input: |
+      2 8
+      ALLOC a
+      ALLOC b
+      ALLOC c
+      ALLOC d
+      FREE d
+      FREE a
+      ALLOC x
+      ALLOC y
+    expected_output: |
+      0 0
+      0 1
+      1 0
+      1 1
+      OK
+      OK
+      0 0
+      1 1
+  - name: free-and-reallocate
+    input: |
+      1 4
+      ALLOC x
+      FREE x
+      ALLOC y
+      FREE y
+    expected_output: |
+      0 0
+      OK
+      0 0
+      OK

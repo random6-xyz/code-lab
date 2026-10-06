@@ -1,0 +1,45 @@
+schema_version: 1
+id: kernel-bitset-first-set
+title: Find the First Set Bit in a Bitmap
+statement: |
+  A bitmap is stored as W unsigned 32-bit words. Read W followed by the W words.
+  Bits are numbered from zero: bit b of word i has global index 32*i+b. Find the
+  smallest index whose bit is 1, scanning words and bits in increasing order.
+  Print that index, or -1 if every bit is clear. W is at least 1.
+tags:
+  - kernel
+  - bit-manipulation
+  - bitmap
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: first-set-bit-in-later-word
+    input: |
+      4
+      0 0 8 3
+    expected_output: |
+      67
+  - name: no-set-bits
+    input: |
+      3
+      0 0 0
+    expected_output: |
+      -1
+  - name: highest-bit-of-first-word
+    input: |
+      2
+      2147483648 1
+    expected_output: |
+      31
+  - name: first-word-wins-over-later-words
+    input: |
+      3
+      0 1 2
+    expected_output: |
+      32
+  - name: bit-zero
+    input: |
+      1
+      1
+    expected_output: |
+      0

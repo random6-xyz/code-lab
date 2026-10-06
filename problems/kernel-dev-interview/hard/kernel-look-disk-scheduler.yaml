@@ -1,0 +1,46 @@
+schema_version: 1
+id: kernel-look-disk-scheduler
+title: Schedule Disk Requests with LOOK
+statement: |
+  Read the current disk head cylinder, direction UP or DOWN, and N pending
+  cylinder requests. Serve every request in the current direction first, in
+  nearest-first order, then reverse direction and serve the remaining requests
+  nearest-first. A request at the current cylinder is served first. Requests at
+  the same cylinder retain their input order. The head does not travel to either
+  disk boundary. Print total head movement on the first line and the served
+  cylinder sequence on the second line. N is positive.
+tags:
+  - kernel
+  - io-scheduling
+  - disk-scheduling
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: reverse-after-reaching-direction-end
+    input: |
+      50 UP 5
+      10 70 50 90 30
+    expected_output: |
+      120
+      50 70 90 30 10
+  - name: downward-scan
+    input: |
+      40 DOWN 4
+      10 35 60 20
+    expected_output: |
+      80
+      35 20 10 60
+  - name: requests-only-in-current-direction
+    input: |
+      20 UP 3
+      30 40 50
+    expected_output: |
+      30
+      30 40 50
+  - name: current-cylinder-and-duplicate-requests
+    input: |
+      5 DOWN 4
+      5 5 2 9
+    expected_output: |
+      10
+      5 5 2 9

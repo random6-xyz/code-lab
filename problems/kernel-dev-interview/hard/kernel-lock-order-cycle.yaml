@@ -1,0 +1,64 @@
+schema_version: 1
+id: kernel-lock-order-cycle
+title: Detect Lock-Order Cycles Online
+statement: |
+  There are L mutexes numbered from 0 to L-1. Process Q observed lock-order
+  pairs u v, meaning a thread acquired mutex v while already holding mutex u.
+  Add the directed edge u to v to the lock-order graph; repeated edges are
+  harmless. After each pair, print CYCLE if the graph contains a directed cycle,
+  or SAFE otherwise. Once a cycle exists it remains in the graph. A self-edge is
+  a cycle.
+tags:
+  - kernel
+  - synchronization
+  - deadlock-detection
+  - graph-algorithms
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: cycle-appears-and-persists
+    input: |
+      4 5
+      0 1
+      1 2
+      2 0
+      2 3
+      3 3
+    expected_output: |
+      SAFE
+      SAFE
+      CYCLE
+      CYCLE
+      CYCLE
+  - name: acyclic-ordering
+    input: |
+      3 3
+      0 1
+      0 2
+      1 2
+    expected_output: |
+      SAFE
+      SAFE
+      SAFE
+  - name: duplicate-edge-and-self-cycle
+    input: |
+      3 3
+      0 1
+      0 1
+      2 2
+    expected_output: |
+      SAFE
+      SAFE
+      CYCLE
+  - name: edge-closes-longer-cycle
+    input: |
+      4 4
+      0 1
+      1 2
+      2 3
+      3 0
+    expected_output: |
+      SAFE
+      SAFE
+      SAFE
+      CYCLE

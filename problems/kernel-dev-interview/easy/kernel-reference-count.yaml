@@ -1,0 +1,58 @@
+schema_version: 1
+id: kernel-reference-count
+title: Simulate a Reference Counter
+statement: |
+  Read an initial non-negative reference count and Q operations. Each operation
+  is INC, DEC, or GET. INC increases the count by one; DEC decreases it by one
+  unless it is already zero. GET does not modify it. Print one line per
+  operation: the resulting count for INC and GET, and ERROR 0 for DEC at zero.
+  A failed decrement leaves the count unchanged.
+tags:
+  - kernel
+  - resource-lifetime
+  - state-machine
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: increment-decrement-and-underflow
+    input: |
+      1 6
+      GET
+      INC
+      DEC
+      DEC
+      GET
+      INC
+    expected_output: |
+      1
+      2
+      1
+      ERROR 0
+      0
+      1
+  - name: starts-at-zero
+    input: |
+      0 2
+      DEC
+      GET
+    expected_output: |
+      ERROR 0
+      0
+  - name: no-operations
+    input: |
+      7 0
+    expected_output: ""
+  - name: balanced-updates
+    input: |
+      0 5
+      INC
+      INC
+      DEC
+      GET
+      DEC
+    expected_output: |
+      1
+      2
+      1
+      1
+      0

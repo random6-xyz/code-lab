@@ -1,0 +1,50 @@
+schema_version: 1
+id: kernel-merge-free-ranges
+title: Merge Free Memory Ranges
+statement: |
+  Read N half-open address ranges [start, end), with start < end. Merge any
+  ranges that overlap or touch, then print the merged ranges in ascending order.
+  The first output line is the number of merged ranges; each following line is
+  one start and end pair. If N is zero, print 0. Addresses fit in signed 64-bit
+  integers.
+tags:
+  - kernel
+  - memory-management
+  - intervals
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: overlap-and-adjacency
+    input: |
+      5
+      10 20
+      1 4
+      3 7
+      7 9
+      30 31
+    expected_output: |
+      2
+      1 9
+      10 20
+  - name: empty-input
+    input: |
+      0
+    expected_output: |
+      0
+  - name: nested-and-duplicate-ranges
+    input: |
+      4
+      5 8
+      1 10
+      2 3
+      1 10
+    expected_output: |
+      1
+      1 10
+  - name: single-range
+    input: |
+      1
+      42 43
+    expected_output: |
+      1
+      42 43

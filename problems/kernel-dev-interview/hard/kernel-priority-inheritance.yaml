@@ -1,0 +1,50 @@
+schema_version: 1
+id: kernel-priority-inheritance
+title: Compute Priority Inheritance
+statement: |
+  Read process count P and wait-edge count E, then P base priorities and E pairs
+  waiter owner. Each pair means the waiter is blocked on a lock held by owner.
+  Higher numeric values represent higher priority. A blocked process donates its
+  effective priority to its lock owner. Donations propagate transitively through
+  wait chains. Compute the least fixed point in which each process's effective
+  priority is the maximum of its base priority and the effective priorities of
+  all processes waiting on it. Print the P effective priorities in process order.
+tags:
+  - kernel
+  - synchronization
+  - priority-inheritance
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: transitive-donation
+    input: |
+      4 3
+      9 4 1 6
+      0 1
+      1 2
+      3 2
+    expected_output: |
+      9 9 9 6
+  - name: donation-around-a-cycle
+    input: |
+      3 3
+      3 4 1
+      0 1
+      1 2
+      2 0
+    expected_output: |
+      4 4 4
+  - name: no-blocked-processes
+    input: |
+      3 0
+      0 5 2
+    expected_output: |
+      0 5 2
+  - name: high-priority-waiter-donates-to-owner
+    input: |
+      3 2
+      1 9 4
+      1 0
+      2 0
+    expected_output: |
+      9 9 4

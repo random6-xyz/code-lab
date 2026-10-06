@@ -1,0 +1,57 @@
+schema_version: 1
+id: kernel-boot-dependency-order
+title: Order Kernel Initialization Tasks
+statement: |
+  Read N uniquely named initialization tasks and M dependency pairs A B, where
+  A must run before B. Produce the lexicographically smallest valid topological
+  ordering, printing one task name per line. If no valid ordering exists because
+  the dependency graph contains a cycle, print CYCLE. Task names are tokens
+  without whitespace. Duplicate dependency pairs have no additional effect.
+tags:
+  - kernel
+  - boot
+  - dependency-graph
+  - topological-sort
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: lexicographically-smallest-order
+    input: |
+      5 4
+      init mm fs net user
+      init mm
+      mm fs
+      init net
+      fs user
+    expected_output: |
+      init
+      mm
+      fs
+      net
+      user
+  - name: dependency-cycle
+    input: |
+      3 3
+      a b c
+      a b
+      b c
+      c a
+    expected_output: |
+      CYCLE
+  - name: lexical-ties-between-ready-tasks
+    input: |
+      4 2
+      b a d c
+      a c
+      b c
+    expected_output: |
+      a
+      b
+      c
+      d
+  - name: independent-task
+    input: |
+      1 0
+      init
+    expected_output: |
+      init

@@ -1,0 +1,61 @@
+schema_version: 1
+id: kernel-process-state
+title: Validate Process State Transitions
+statement: |
+  A process is in one of NEW, READY, RUNNING, BLOCKED, or EXITED. Read its
+  initial state and Q events. Valid transitions are: DISPATCH (READY to RUNNING),
+  PREEMPT (RUNNING to READY), BLOCK (RUNNING to BLOCKED), WAKE (BLOCKED to
+  READY), and EXIT (RUNNING to EXITED). For each event, print the new state if
+  valid. Otherwise print ERROR followed by the unchanged state. EXITED has no
+  outgoing transitions.
+tags:
+  - kernel
+  - process-management
+  - state-machine
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: valid-and-invalid-events
+    input: |
+      READY 6
+      DISPATCH
+      BLOCK
+      DISPATCH
+      EXIT
+      WAKE
+      PREEMPT
+    expected_output: |
+      RUNNING
+      BLOCKED
+      ERROR BLOCKED
+      ERROR BLOCKED
+      READY
+      ERROR READY
+  - name: exited-process
+    input: |
+      RUNNING 2
+      EXIT
+      DISPATCH
+    expected_output: |
+      EXITED
+      ERROR EXITED
+  - name: full-block-wake-exit-cycle
+    input: |
+      READY 5
+      DISPATCH
+      BLOCK
+      WAKE
+      DISPATCH
+      EXIT
+    expected_output: |
+      RUNNING
+      BLOCKED
+      READY
+      RUNNING
+      EXITED
+  - name: invalid-event-from-new
+    input: |
+      NEW 1
+      WAKE
+    expected_output: |
+      ERROR NEW

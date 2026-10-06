@@ -1,0 +1,70 @@
+schema_version: 1
+id: kernel-extent-allocator
+title: Allocate Aligned Memory Extents
+statement: |
+  Manage N addressable units in the half-open range [0, N). Process Q commands:
+  ALLOC id length alignment requests a contiguous extent whose start is divisible
+  by the positive power-of-two alignment. Choose the lowest possible start
+  address that fits in a free interval and print it, or print FAIL. FREE id
+  releases an active extent and prints OK, or INVALID for an unknown id. A
+  successful allocation occupies [start, start+length); adjacent free intervals
+  are immediately reusable. Identifiers are unique while active.
+tags:
+  - kernel
+  - memory-management
+  - extent-allocator
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: aligned-first-fit-and-fragmentation
+    input: |
+      20 8
+      ALLOC a 4 4
+      ALLOC b 3 4
+      ALLOC c 5 8
+      FREE b
+      ALLOC d 3 4
+      ALLOC e 5 8
+      FREE a
+      ALLOC f 4 4
+    expected_output: |
+      0
+      4
+      8
+      OK
+      4
+      FAIL
+      OK
+      0
+  - name: alignment-with-leading-padding
+    input: |
+      10 2
+      ALLOC a 2 1
+      ALLOC b 3 4
+    expected_output: |
+      0
+      4
+  - name: coalesce-and-allocate-the-whole-region
+    input: |
+      16 6
+      ALLOC a 8 8
+      ALLOC b 8 8
+      FREE a
+      FREE b
+      ALLOC all 16 16
+      ALLOC extra 1 1
+    expected_output: |
+      0
+      8
+      OK
+      OK
+      0
+      FAIL
+  - name: allocation-exactly-at-end
+    input: |
+      10 2
+      ALLOC a 6 1
+      ALLOC b 4 2
+    expected_output: |
+      0
+      6

@@ -1,0 +1,80 @@
+schema_version: 1
+id: kernel-file-descriptor-table
+title: Simulate a File Descriptor Table
+statement: |
+  Simulate a process file-descriptor table mapping integer descriptors to named
+  open-file objects. Process Q commands: OPEN fd object assigns an unused fd to
+  an object; DUP old_fd new_fd assigns an unused fd to the same object as an
+  existing descriptor; CLOSE fd removes an existing descriptor; COUNT object
+  prints how many live descriptors refer to that object. OPEN and DUP print OK
+  on success or FAIL if their source/target constraints are not met. CLOSE prints
+  OK or INVALID. COUNT prints zero when no descriptor refers to the object.
+  Descriptors and object names are tokens without whitespace.
+tags:
+  - kernel
+  - file-systems
+  - file-descriptors
+  - reference-counting
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: duplicate-close-and-reference-count
+    input: |
+      10
+      OPEN 3 fileA
+      DUP 3 4
+      COUNT fileA
+      DUP 3 5
+      CLOSE 4
+      COUNT fileA
+      OPEN 3 fileB
+      CLOSE 3
+      CLOSE 5
+      COUNT fileA
+    expected_output: |
+      OK
+      OK
+      2
+      OK
+      OK
+      2
+      FAIL
+      OK
+      OK
+      0
+  - name: invalid-operations
+    input: |
+      4
+      DUP 9 1
+      CLOSE 9
+      OPEN 1 x
+      OPEN 1 y
+    expected_output: |
+      FAIL
+      INVALID
+      OK
+      FAIL
+  - name: duplicate-to-occupied-fd-and-last-close
+    input: |
+      7
+      OPEN 0 x
+      DUP 0 0
+      DUP 0 1
+      CLOSE 0
+      DUP 0 2
+      COUNT x
+      CLOSE 1
+    expected_output: |
+      OK
+      FAIL
+      OK
+      OK
+      FAIL
+      1
+      OK
+  - name: count-unreferenced-object
+    input: |
+      1
+      COUNT missing
+    expected_output: |
+      0

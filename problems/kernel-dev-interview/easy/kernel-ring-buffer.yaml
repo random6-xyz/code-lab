@@ -1,0 +1,73 @@
+schema_version: 1
+id: kernel-ring-buffer
+title: Implement a Fixed-Capacity Ring Buffer
+statement: |
+  Implement a FIFO ring buffer of capacity C, initially empty, and process Q
+  commands. PUSH x appends x and prints OK, or prints FULL without changing the
+  buffer if it is full. POP removes and prints the oldest value, or prints EMPTY
+  if the buffer is empty. FRONT prints the oldest value without removing it, or
+  EMPTY if empty. C is positive. The buffer must correctly reuse slots after
+  wraparound.
+tags:
+  - kernel
+  - ring-buffer
+  - queue
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: wraparound-and-full
+    input: |
+      3 10
+      PUSH 10
+      PUSH 20
+      PUSH 30
+      PUSH 40
+      POP
+      PUSH 40
+      FRONT
+      POP
+      POP
+      POP
+    expected_output: |
+      OK
+      OK
+      OK
+      FULL
+      10
+      OK
+      20
+      20
+      30
+      40
+  - name: empty-operations
+    input: |
+      1 3
+      POP
+      FRONT
+      PUSH 7
+    expected_output: |
+      EMPTY
+      EMPTY
+      OK
+  - name: capacity-one
+    input: |
+      1 7
+      PUSH 5
+      PUSH 6
+      FRONT
+      POP
+      POP
+      PUSH 9
+      POP
+    expected_output: |
+      OK
+      FULL
+      5
+      5
+      EMPTY
+      OK
+      9
+  - name: no-commands
+    input: |
+      2 0
+    expected_output: ""

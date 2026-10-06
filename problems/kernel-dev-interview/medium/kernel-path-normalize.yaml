@@ -1,0 +1,41 @@
+schema_version: 1
+id: kernel-path-normalize
+title: Normalize a Unix Path
+statement: |
+  Read one Unix-style path token and normalize it by removing repeated slashes
+  and . components and resolving .. against the preceding normal component when
+  possible. An absolute path cannot move above /. A relative path preserves any
+  leading .. components. Print / for an empty normalized absolute path and . for
+  an empty normalized relative path. Path components contain no whitespace.
+tags:
+  - kernel
+  - filesystem
+  - path-resolution
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: absolute-path
+    input: |
+      /var//log/../lib/./kernel/
+    expected_output: |
+      /var/lib/kernel
+  - name: relative-leading-parent
+    input: |
+      ../../src/../include
+    expected_output: |
+      ../../include
+  - name: normalized-root
+    input: |
+      /../../
+    expected_output: |
+      /
+  - name: relative-parent-beyond-first-component
+    input: |
+      a/../../b/.
+    expected_output: |
+      ../b
+  - name: empty-normalized-relative-path
+    input: |
+      ./a/..
+    expected_output: |
+      .

@@ -1,0 +1,40 @@
+schema_version: 1
+id: kernel-align-up
+title: Align an Address Upward
+statement: |
+  Read an unsigned integer address x and a positive power-of-two alignment a.
+  Print the smallest address that is greater than or equal to x and divisible
+  by a. The answer fits in an unsigned 64-bit integer. This is the alignment
+  operation commonly used for kernel objects and memory regions.
+tags:
+  - kernel
+  - memory-management
+  - arithmetic
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: address-needs-rounding
+    input: |
+      13 8
+    expected_output: |
+      16
+  - name: already-aligned
+    input: |
+      16 8
+    expected_output: |
+      16
+  - name: zero-address
+    input: |
+      0 64
+    expected_output: |
+      0
+  - name: immediately-below-aligned-boundary
+    input: |
+      15 8
+    expected_output: |
+      16
+  - name: immediately-above-aligned-boundary
+    input: |
+      17 8
+    expected_output: |
+      24

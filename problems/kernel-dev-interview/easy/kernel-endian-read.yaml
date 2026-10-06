@@ -1,0 +1,40 @@
+schema_version: 1
+id: kernel-endian-read
+title: Decode a 32-Bit Integer from Bytes
+statement: |
+  The first token is LE or BE, followed by exactly four unsigned byte values
+  (0 through 255). Decode the bytes as one unsigned 32-bit integer in the given
+  byte order and print its decimal value. LE means the first byte is least
+  significant; BE means the first byte is most significant.
+tags:
+  - kernel
+  - systems-programming
+  - endianness
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: little-endian
+    input: |
+      LE 120 86 52 18
+    expected_output: |
+      305419896
+  - name: big-endian
+    input: |
+      BE 18 52 86 120
+    expected_output: |
+      305419896
+  - name: all-bits-set
+    input: |
+      LE 255 255 255 255
+    expected_output: |
+      4294967295
+  - name: all-zero-bytes
+    input: |
+      BE 0 0 0 0
+    expected_output: |
+      0
+  - name: highest-bit-set
+    input: |
+      BE 128 0 0 0
+    expected_output: |
+      2147483648

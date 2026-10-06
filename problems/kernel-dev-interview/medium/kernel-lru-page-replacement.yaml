@@ -1,0 +1,40 @@
+schema_version: 1
+id: kernel-lru-page-replacement
+title: Count LRU Page Faults
+statement: |
+  Read frame count F, reference count N, and N page numbers. Simulate demand
+  paging with initially empty frames and least-recently-used replacement. A
+  reference to a resident page is a hit and makes it most recently used; a
+  reference to a nonresident page is a fault and loads it, evicting the least
+  recently used page if all frames are occupied. Print the total number of
+  faults. F is positive.
+tags:
+  - kernel
+  - virtual-memory
+  - page-replacement
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: lru-evictions
+    input: |
+      3 8
+      1 2 3 1 4 1 2 5
+    expected_output: |
+      5
+  - name: one-frame-repeated-references
+    input: |
+      1 5
+      7 7 8 7 9
+    expected_output: |
+      3
+  - name: more-frames-than-pages
+    input: |
+      4 4
+      1 2 1 3
+    expected_output: |
+      3
+  - name: empty-reference-string
+    input: |
+      2 0
+    expected_output: |
+      0

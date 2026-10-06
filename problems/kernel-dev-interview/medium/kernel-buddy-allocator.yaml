@@ -1,0 +1,68 @@
+schema_version: 1
+id: kernel-buddy-allocator
+title: Simulate a Buddy Page Allocator
+statement: |
+  Manage a pool of N pages, where N is a power of two. Process Q commands:
+  ALLOC id pages requests a block; round pages up to the next power of two and
+  allocate the smallest available buddy block that fits, breaking ties by the
+  lowest start page. Split larger blocks as needed. Print start_page allocated
+  page_count, or FAIL. FREE id releases an active allocation, coalescing free
+  buddies recursively, and prints OK; an unknown id prints INVALID. Allocation
+  identifiers are unique while active.
+tags:
+  - kernel
+  - memory-management
+  - buddy-allocator
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: split-coalesce-and-exhaustion
+    input: |
+      16 9
+      ALLOC a 3
+      ALLOC b 4
+      ALLOC c 5
+      ALLOC d 1
+      FREE b
+      FREE a
+      ALLOC e 8
+      FREE x
+      FREE c
+    expected_output: |
+      0 4
+      4 4
+      8 8
+      FAIL
+      OK
+      OK
+      0 8
+      INVALID
+      OK
+  - name: round-up-request-size
+    input: |
+      8 1
+      ALLOC page 5
+    expected_output: |
+      0 8
+  - name: merge-both-buddies
+    input: |
+      8 5
+      ALLOC a 1
+      ALLOC b 1
+      FREE a
+      FREE b
+      ALLOC c 8
+    expected_output: |
+      0 1
+      1 1
+      OK
+      OK
+      0 8
+  - name: allocate-entire-pool
+    input: |
+      4 2
+      ALLOC all 4
+      ALLOC extra 1
+    expected_output: |
+      0 4
+      FAIL

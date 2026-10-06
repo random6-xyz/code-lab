@@ -1,0 +1,58 @@
+schema_version: 1
+id: kernel-virtual-address-translation
+title: Translate Addresses with a Page Map
+statement: |
+  Read page size S, mapping count M, and query count Q. Each mapping gives a
+  virtual page number and its physical frame number. Each query is a virtual byte
+  address. If its virtual page is mapped, print frame*S plus the offset within
+  the page; otherwise print -1. Page size is positive and mappings have unique
+  virtual page numbers.
+tags:
+  - kernel
+  - virtual-memory
+  - address-translation
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: mapped-and-unmapped-pages
+    input: |
+      4096 2 4
+      1 9
+      4 2
+      4097
+      16383
+      16384
+      4095
+    expected_output: |
+      36865
+      -1
+      8192
+      -1
+  - name: zero-offset
+    input: |
+      1024 1 2
+      0 5
+      0
+      1023
+    expected_output: |
+      5120
+      6143
+  - name: first-and-last-byte-of-page
+    input: |
+      4096 1 3
+      2 0
+      8192
+      12287
+      12288
+    expected_output: |
+      0
+      4095
+      -1
+  - name: empty-page-map
+    input: |
+      4096 0 2
+      0
+      4095
+    expected_output: |
+      -1
+      -1

@@ -1,0 +1,60 @@
+schema_version: 1
+id: kernel-bitmask-operations
+title: Apply Bitmask Operations
+statement: |
+  Read an unsigned 64-bit value mask and Q commands. Each command is followed
+  by a bit index from 0 through 63. SET sets that bit, CLEAR clears it, TOGGLE
+  flips it, and TEST leaves mask unchanged. Print the resulting unsigned decimal
+  mask after SET, CLEAR, or TOGGLE; print 1 or 0 after TEST depending on whether
+  the selected bit is set. Bits are numbered from the least significant bit.
+tags:
+  - kernel
+  - bit-manipulation
+  - bitmask
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: operations-across-word-boundary
+    input: |
+      0 5
+      SET 63
+      TEST 63
+      TOGGLE 1
+      CLEAR 63
+      TEST 1
+    expected_output: |
+      9223372036854775808
+      1
+      9223372036854775810
+      2
+      1
+  - name: clear-an-unset-bit
+    input: |
+      0 2
+      CLEAR 5
+      TEST 5
+    expected_output: |
+      0
+      0
+  - name: unsigned-high-bit-and-clear
+    input: |
+      18446744073709551615 4
+      CLEAR 0
+      TEST 0
+      CLEAR 63
+      TEST 63
+    expected_output: |
+      18446744073709551614
+      0
+      9223372036854775806
+      0
+  - name: toggle-twice-restores-bit
+    input: |
+      0 3
+      TOGGLE 7
+      TOGGLE 7
+      TEST 7
+    expected_output: |
+      128
+      0
+      0

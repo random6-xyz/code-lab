@@ -1,0 +1,83 @@
+schema_version: 1
+id: kernel-two-level-page-table
+title: Manage a Two-Level Page Table
+statement: |
+  Simulate a 32-bit virtual address space with 4 KiB pages, a 10-bit page-directory
+  index, and a 10-bit page-table index. Read Q commands: MAP address frame maps
+  the virtual page containing address to a physical frame and prints OK, or
+  EXISTS if already mapped; UNMAP address removes that page and prints OK or
+  MISSING; TRANSLATE address prints frame*4096 plus the page offset, or MISSING;
+  PAGES prints the number of allocated page-table pages plus the always-present
+  root page directory. A second-level page table is allocated when its first
+  mapping is added and freed when its last mapping is removed.
+tags:
+  - kernel
+  - virtual-memory
+  - page-tables
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: map-translate-and-reclaim-table
+    input: |
+      9
+      PAGES
+      MAP 4096 7
+      MAP 4097 8
+      TRANSLATE 4101
+      MAP 4194304 9
+      UNMAP 4096
+      PAGES
+      TRANSLATE 4096
+      UNMAP 4194304
+    expected_output: |
+      1
+      OK
+      EXISTS
+      28677
+      OK
+      OK
+      2
+      MISSING
+      OK
+  - name: root-directory-remains
+    input: |
+      3
+      MAP 0 2
+      UNMAP 0
+      PAGES
+    expected_output: |
+      OK
+      OK
+      1
+  - name: table-stays-allocated-until-last-unmap
+    input: |
+      8
+      MAP 0 10
+      MAP 4096 11
+      PAGES
+      UNMAP 0
+      PAGES
+      TRANSLATE 4097
+      UNMAP 4096
+      PAGES
+    expected_output: |
+      OK
+      OK
+      2
+      OK
+      2
+      45057
+      OK
+      1
+  - name: unmapped-address-and-separate-directory
+    input: |
+      4
+      UNMAP 8192
+      MAP 0 3
+      MAP 4194304 4
+      PAGES
+    expected_output: |
+      MISSING
+      OK
+      OK
+      3

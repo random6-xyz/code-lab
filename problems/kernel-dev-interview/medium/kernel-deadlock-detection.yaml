@@ -1,0 +1,62 @@
+schema_version: 1
+id: kernel-deadlock-detection
+title: Detect Deadlocked Processes
+statement: |
+  Read process count P and resource-type count R. Then read a P-by-R allocation
+  matrix, a P-by-R outstanding-request matrix, and an R-element available
+  vector. Repeatedly find an unfinished process whose request is componentwise
+  no greater than the current work vector; mark it finished and add its allocated
+  resources to work. Processes with no allocated resources may be considered
+  finished immediately. Print the indices of processes that remain unfinished,
+  in ascending order, or NONE if there are none. Process indices start at zero.
+tags:
+  - kernel
+  - synchronization
+  - deadlock-detection
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: two-process-deadlock
+    input: |
+      3 2
+      1 0
+      0 1
+      0 0
+      0 1
+      1 0
+      0 0
+      0 0
+    expected_output: |
+      0 1
+  - name: resources-can-be-released
+    input: |
+      2 1
+      1
+      0
+      0
+      1
+      0
+    expected_output: |
+      NONE
+  - name: no-processes-hold-resources
+    input: |
+      2 2
+      0 0
+      0 0
+      0 0
+      0 0
+      0 0
+    expected_output: |
+      NONE
+  - name: deadlocked-processes-with-gap
+    input: |
+      3 1
+      1
+      0
+      1
+      1
+      0
+      1
+      0
+    expected_output: |
+      0 2
