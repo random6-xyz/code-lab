@@ -1,0 +1,18 @@
+schema_version: 1
+id: sum-two
+title: Sum Two
+statement: |
+  Read two integers from standard input and print their sum.
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: positive-numbers
+    input: |
+      2 3
+    expected_output: |
+      5
+  - name: negative-number
+    input: |
+      -4 9
+    expected_output: |
+      5

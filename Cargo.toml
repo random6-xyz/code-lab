@@ -1,0 +1,13 @@
+[package]
+name = "code-lab"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+libc = "0.2"
+serde = { version = "1", features = ["derive"] }
+serde_yaml_ng = "0.10"
+tempfile = "3"
