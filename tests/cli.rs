@@ -2,12 +2,17 @@ use std::{fs, process::Command};
 
 use tempfile::tempdir;
 
-fn write_problem(directory: &std::path::Path) {
-    fs::write(
-        directory.join("sample.yaml"),
+fn write_problem_with_difficulty(
+    directory: &std::path::Path,
+    id: &str,
+    title: &str,
+    difficulty: &str,
+) {
+    let yaml = format!(
         r#"schema_version: 1
-id: sample
-title: Sample
+id: {id}
+difficulty: {difficulty}
+title: {title}
 statement: Read two integers and print their sum.
 time_limit_ms: 1000
 memory_limit_mb: 128
@@ -15,9 +20,16 @@ test_cases:
   - name: basic
     input: "2 3\n"
     expected_output: "5\n"
-"#,
-    )
-    .expect("write test problem");
+  - name: negative
+    input: "-4 9\n"
+    expected_output: "5\n"
+"#
+    );
+    fs::write(directory.join(format!("{id}.yaml")), yaml).expect("write test problem");
+}
+
+fn write_problem(directory: &std::path::Path) {
+    write_problem_with_difficulty(directory, "sample", "Sample", "easy");
 }
 
 fn write_problem_with_tags(directory: &std::path::Path) {
@@ -52,7 +64,29 @@ fn list_displays_problem_ids_and_titles() {
     assert!(output.status.success());
     assert_eq!(
         String::from_utf8_lossy(&output.stdout).trim(),
-        "sample - Sample"
+        "Easy\n  sample - Sample"
+    );
+}
+
+#[test]
+fn list_groups_problems_by_difficulty() {
+    let directory = tempdir().expect("temporary directory");
+    write_problem(directory.path());
+    write_problem_with_difficulty(directory.path(), "alpha-easy", "Alpha Easy", "easy");
+    write_problem_with_difficulty(directory.path(), "middle", "Middle", "medium");
+    write_problem_with_difficulty(directory.path(), "advanced", "Advanced", "hard");
+
+    let output = cli()
+        .arg("--problems-dir")
+        .arg(directory.path())
+        .arg("list")
+        .output()
+        .expect("run list command");
+
+    assert!(output.status.success());
+    assert_eq!(
+        String::from_utf8_lossy(&output.stdout).trim(),
+        "Easy\n  alpha-easy - Alpha Easy\n  sample - Sample\n\nMedium\n  middle - Middle\n\nHard\n  advanced - Advanced"
     );
 }
 
@@ -75,8 +109,28 @@ fn list_loads_yaml_from_nested_directories() {
     assert!(output.status.success());
     assert_eq!(
         String::from_utf8_lossy(&output.stdout).trim(),
-        "sample - Sample"
+        "Easy\n  sample - Sample"
     );
+}
+
+#[test]
+fn list_rejects_unknown_difficulty() {
+    let directory = tempdir().expect("temporary directory");
+    write_problem(directory.path());
+    let path = directory.path().join("sample.yaml");
+    let yaml = fs::read_to_string(&path)
+        .expect("read test problem")
+        .replacen("difficulty: easy", "difficulty: expert", 1);
+    fs::write(path, yaml).expect("set unknown difficulty");
+
+    let output = cli()
+        .arg("--problems-dir")
+        .arg(directory.path())
+        .arg("list")
+        .output()
+        .expect("run list command");
+
+    assert!(!output.status.success());
 }
 
 #[test]
@@ -118,10 +172,17 @@ fn show_displays_problem_statement_tags_and_limits() {
     assert!(output.status.success());
     let stdout = String::from_utf8_lossy(&output.stdout);
     assert!(stdout.contains("sample - Sample"));
+    assert!(stdout.contains("Difficulty: Easy"));
     assert!(stdout.contains("Read two integers and print their sum."));
     assert!(stdout.contains("Tags: arithmetic, beginner"));
     assert!(stdout.contains("Time limit: 1000 ms"));
     assert!(stdout.contains("Memory limit: 128 MB"));
+    assert!(stdout.contains("Test cases: 2"));
+    assert!(stdout.contains("Example: basic"));
+    assert!(stdout.contains("Input:\n```text\n2 3\n```"));
+    assert!(stdout.contains("Expected output:\n```text\n5\n```"));
+    assert!(!stdout.contains("Example: negative"));
+    assert!(!stdout.contains("-4 9"));
 }
 
 #[test]

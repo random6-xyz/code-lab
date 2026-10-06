@@ -1,5 +1,6 @@
 schema_version: 1
 id: sum-two
+difficulty: easy
 title: Sum Two
 statement: |
   Read two integers from standard input and print their sum.

@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-priority-inheritance
+difficulty: hard
 title: Compute Priority Inheritance
 statement: |
   Read process count P and wait-edge count E, then P base priorities and E pairs

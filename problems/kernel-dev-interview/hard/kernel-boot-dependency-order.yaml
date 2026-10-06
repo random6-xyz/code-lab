@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-boot-dependency-order
+difficulty: hard
 title: Order Kernel Initialization Tasks
 statement: |
   Read N uniquely named initialization tasks and M dependency pairs A B, where

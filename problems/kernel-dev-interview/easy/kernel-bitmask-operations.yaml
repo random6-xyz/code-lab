@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-bitmask-operations
+difficulty: easy
 title: Apply Bitmask Operations
 statement: |
   Read an unsigned 64-bit value mask and Q commands. Each command is followed

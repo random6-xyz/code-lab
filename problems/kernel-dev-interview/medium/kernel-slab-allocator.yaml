@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-slab-allocator
+difficulty: medium
 title: Simulate a Slab Object Allocator
 statement: |
   Each slab contains K object slots. Slabs and slots are numbered from zero.

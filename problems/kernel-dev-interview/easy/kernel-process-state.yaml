@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-process-state
+difficulty: easy
 title: Validate Process State Transitions
 statement: |
   A process is in one of NEW, READY, RUNNING, BLOCKED, or EXITED. Read its

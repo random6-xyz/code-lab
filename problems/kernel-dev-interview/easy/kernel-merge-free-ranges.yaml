@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-merge-free-ranges
+difficulty: easy
 title: Merge Free Memory Ranges
 statement: |
   Read N half-open address ranges [start, end), with start < end. Merge any

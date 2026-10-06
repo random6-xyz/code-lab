@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-memory-compaction
+difficulty: hard
 title: Compact Movable Memory Blocks
 statement: |
   Memory is a contiguous sequence of N segments starting at address zero. Each

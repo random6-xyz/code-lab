@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-ring-buffer
+difficulty: easy
 title: Implement a Fixed-Capacity Ring Buffer
 statement: |
   Implement a FIFO ring buffer of capacity C, initially empty, and process Q

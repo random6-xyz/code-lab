@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-look-disk-scheduler
+difficulty: hard
 title: Schedule Disk Requests with LOOK
 statement: |
   Read the current disk head cylinder, direction UP or DOWN, and N pending

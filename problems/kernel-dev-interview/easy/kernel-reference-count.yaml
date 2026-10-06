@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-reference-count
+difficulty: easy
 title: Simulate a Reference Counter
 statement: |
   Read an initial non-negative reference count and Q operations. Each operation

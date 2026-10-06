@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-lru-cache
+difficulty: medium
 title: Simulate an LRU Cache
 statement: |
   Implement a least-recently-used cache with capacity C and process Q commands.

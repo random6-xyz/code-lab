@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-path-normalize
+difficulty: medium
 title: Normalize a Unix Path
 statement: |
   Read one Unix-style path token and normalize it by removing repeated slashes

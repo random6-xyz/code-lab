@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-round-robin-scheduler
+difficulty: medium
 title: Simulate Round-Robin CPU Scheduling
 statement: |
   Read N processes and a positive time quantum T. Each process has a unique id,

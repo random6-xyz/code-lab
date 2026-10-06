@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-lru-page-replacement
+difficulty: medium
 title: Count LRU Page Faults
 statement: |
   Read frame count F, reference count N, and N page numbers. Simulate demand

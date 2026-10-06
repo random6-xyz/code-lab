@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-buddy-allocator
+difficulty: medium
 title: Simulate a Buddy Page Allocator
 statement: |
   Manage a pool of N pages, where N is a power of two. Process Q commands:

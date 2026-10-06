@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-deadlock-detection
+difficulty: medium
 title: Detect Deadlocked Processes
 statement: |
   Read process count P and resource-type count R. Then read a P-by-R allocation

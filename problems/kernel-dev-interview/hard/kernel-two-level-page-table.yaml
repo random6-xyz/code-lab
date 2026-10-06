@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-two-level-page-table
+difficulty: hard
 title: Manage a Two-Level Page Table
 statement: |
   Simulate a 32-bit virtual address space with 4 KiB pages, a 10-bit page-directory

@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-endian-read
+difficulty: easy
 title: Decode a 32-Bit Integer from Bytes
 statement: |
   The first token is LE or BE, followed by exactly four unsigned byte values

@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-lock-order-cycle
+difficulty: hard
 title: Detect Lock-Order Cycles Online
 statement: |
   There are L mutexes numbered from 0 to L-1. Process Q observed lock-order

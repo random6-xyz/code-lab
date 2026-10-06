@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-extent-allocator
+difficulty: hard
 title: Allocate Aligned Memory Extents
 statement: |
   Manage N addressable units in the half-open range [0, N). Process Q commands:

@@ -10,11 +10,32 @@ use serde::Deserialize;
 const MAX_TIME_LIMIT_MS: u64 = 300_000;
 const MAX_MEMORY_LIMIT_MB: u64 = 8_192;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum Difficulty {
+    Easy,
+    Medium,
+    Hard,
+}
+
+impl Difficulty {
+    pub const ALL: [Self; 3] = [Self::Easy, Self::Medium, Self::Hard];
+
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::Easy => "Easy",
+            Self::Medium => "Medium",
+            Self::Hard => "Hard",
+        }
+    }
+}
+
 #[derive(Debug, Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Problem {
     pub schema_version: u32,
     pub id: String,
+    pub difficulty: Difficulty,
     pub title: String,
     pub statement: String,
     #[serde(default)]
@@ -173,12 +194,13 @@ pub fn find_problem<'a>(problems: &'a [Problem], id: &str) -> Result<&'a Problem
 
 #[cfg(test)]
 mod tests {
-    use super::{Problem, TestCase};
+    use super::{Difficulty, Problem, TestCase};
 
     fn valid_problem() -> Problem {
         Problem {
             schema_version: 1,
             id: "sample".to_owned(),
+            difficulty: Difficulty::Easy,
             title: "Sample".to_owned(),
             statement: "Read two numbers and print their sum.".to_owned(),
             tags: Vec::new(),

@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-bitset-first-set
+difficulty: easy
 title: Find the First Set Bit in a Bitmap
 statement: |
   A bitmap is stored as W unsigned 32-bit words. Read W followed by the W words.

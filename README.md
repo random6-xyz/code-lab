@@ -38,6 +38,7 @@ Problems are stored as `.yaml` or `.yml` files anywhere under the problems direc
 ```yaml
 schema_version: 1
 id: sum-two
+difficulty: easy
 title: Sum Two
 statement: |
   Read two integers from standard input and print their sum.
@@ -57,11 +58,11 @@ test_cases:
     expected_output: "5\n"
 ```
 
-All fields except `tags` are required; tags default to an empty list and must be non-empty and unique when provided. Test case names must be unique within a problem. Time limits must be between 1 and 300,000 milliseconds; memory limits must be between 1 and 8,192 megabytes. Each limit applies independently to every test case. Compilation has separate fixed limits of 120 seconds and 2,048 MB.
+All fields except `tags` are required. `difficulty` must be `easy`, `medium`, or `hard`; tags default to an empty list and must be non-empty and unique when provided. Test case names must be unique within a problem. Time limits must be between 1 and 300,000 milliseconds; memory limits must be between 1 and 8,192 megabytes. Each limit applies independently to every test case. Compilation has separate fixed limits of 120 seconds and 2,048 MB.
 
 Output comparison is byte-exact except that one final line ending (`LF` or `CRLF`) is ignored. Other whitespace, including extra trailing spaces or additional blank lines, is significant.
 
-Use `code-lab show <id>` to view a problem's tags. The `list`, `show`, and `run` commands load and validate YAML problems recursively from the configured problems directory.
+Use `code-lab list` to view problems grouped by difficulty and `code-lab show <id>` to view a problem's difficulty, statement, limits, and the first test case as a sample input and expected output. All test cases remain available to the grader. The `list`, `show`, and `run` commands load and validate YAML problems recursively from the configured problems directory.
 
 ## Sandbox notes
 

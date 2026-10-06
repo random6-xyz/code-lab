@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-virtual-address-translation
+difficulty: medium
 title: Translate Addresses with a Page Map
 statement: |
   Read page size S, mapping count M, and query count Q. Each mapping gives a

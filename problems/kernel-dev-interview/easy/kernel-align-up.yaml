@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-align-up
+difficulty: easy
 title: Align an Address Upward
 statement: |
   Read an unsigned integer address x and a positive power-of-two alignment a.

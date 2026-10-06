@@ -1,5 +1,6 @@
 schema_version: 1
 id: kernel-file-descriptor-table
+difficulty: hard
 title: Simulate a File Descriptor Table
 statement: |
   Simulate a process file-descriptor table mapping integer descriptors to named
