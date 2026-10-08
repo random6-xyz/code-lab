@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-implement-trie-prefix-tree"
+difficulty: medium
+title: "Implement Trie (Prefix Tree)"
+statement: "Implement a trie supporting insert word, search word, and startsWith prefix commands. Input: q followed by q commands. Output one true/false line for each search or startsWith command."
+tags:
+  - "grind75"
+  - "week-4"
+  - "trie"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "basic-operations"
+    input: "7\ninsert apple\nsearch apple\nsearch app\nstartsWith app\ninsert app\nsearch app\nstartsWith apr\n"
+    expected_output: "true\nfalse\ntrue\ntrue\nfalse\n"
+  - name: "shared-prefix"
+    input: "6\ninsert car\ninsert cart\nsearch car\nsearch cart\nstartsWith ca\nstartsWith cat\n"
+    expected_output: "true\ntrue\ntrue\nfalse\n"
+  - name: "prefix-check"
+    input: "3\ninsert dog\nstartsWith d\nsearch dog\n"
+    expected_output: "true\ntrue\n"
+  - name: "missing-word"
+    input: "4\ninsert bat\nsearch bad\nstartsWith ba\nstartsWith ad\n"
+    expected_output: "false\ntrue\nfalse\n"
+  - name: "overwrite"
+    input: "4\ninsert tree\ninsert tree\nsearch tree\nstartsWith tree\n"
+    expected_output: "true\ntrue\n"
+  - name: "prefix-not-word"
+    input: "4\ninsert apple\nsearch app\nstartsWith app\nsearch apple\n"
+    expected_output: "false\ntrue\ntrue\n"

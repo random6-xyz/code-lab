@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-unique-paths"
+difficulty: medium
+title: "Unique Paths"
+statement: "Count paths from the top-left to bottom-right of an m by n grid when each move is one cell right or down. Input: m n, both positive. Output: the number of paths."
+tags:
+  - "grind75"
+  - "week-6"
+  - "dynamic-programming"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "3 7\n"
+    expected_output: "28\n"
+  - name: "single-cell"
+    input: "1 1\n"
+    expected_output: "1\n"
+  - name: "single-row"
+    input: "1 8\n"
+    expected_output: "1\n"
+  - name: "single-column"
+    input: "6 1\n"
+    expected_output: "1\n"
+  - name: "two-by-two"
+    input: "2 2\n"
+    expected_output: "2\n"
+  - name: "three-by-three"
+    input: "3 3\n"
+    expected_output: "6\n"

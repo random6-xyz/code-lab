@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-valid-palindrome"
+difficulty: easy
+title: "Valid Palindrome"
+statement: "Given one line of text, determine whether it is a palindrome after keeping only ASCII letters and digits and ignoring letter case. Input: one line. Output: true or false."
+tags:
+  - "grind75"
+  - "week-1"
+  - "string"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "A man, a plan, a canal: Panama\n"
+    expected_output: "true\n"
+  - name: "not-palindrome"
+    input: "race a car\n"
+    expected_output: "false\n"
+  - name: "punctuation-only"
+    input: "!!!\n"
+    expected_output: "true\n"
+  - name: "mixed-case"
+    input: "Madam\n"
+    expected_output: "true\n"
+  - name: "digit-mismatch"
+    input: "0P\n"
+    expected_output: "false\n"
+  - name: "empty"
+    input: "\n"
+    expected_output: "true\n"

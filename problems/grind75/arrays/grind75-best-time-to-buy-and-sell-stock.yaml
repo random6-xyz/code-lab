@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-best-time-to-buy-and-sell-stock"
+difficulty: easy
+title: "Best Time to Buy and Sell Stock"
+statement: "Given daily prices, choose one day to buy and a later day to sell, or make no trade. Input: n followed by n nonnegative prices. Output: the maximum profit."
+tags:
+  - "grind75"
+  - "week-1"
+  - "array"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "6\n7 1 5 3 6 4\n"
+    expected_output: "5\n"
+  - name: "declining"
+    input: "5\n9 7 4 3 1\n"
+    expected_output: "0\n"
+  - name: "single-day"
+    input: "1\n8\n"
+    expected_output: "0\n"
+  - name: "buy-at-start"
+    input: "4\n1 5 2 8\n"
+    expected_output: "7\n"
+  - name: "repeated-prices"
+    input: "5\n3 3 3 3 3\n"
+    expected_output: "0\n"
+  - name: "best-late-sale"
+    input: "6\n8 2 6 1 7 9\n"
+    expected_output: "8\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-longest-palindrome"
+difficulty: easy
+title: "Longest Palindrome"
+statement: "Given a string, return the length of the longest palindrome that can be built using its characters. Input: one line of ASCII letters. Output: the maximum length."
+tags:
+  - "grind75"
+  - "week-2"
+  - "string"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "abccccdd\n"
+    expected_output: "7\n"
+  - name: "single-character"
+    input: "a\n"
+    expected_output: "1\n"
+  - name: "all-distinct"
+    input: "abcdef\n"
+    expected_output: "1\n"
+  - name: "even-counts"
+    input: "aabbcc\n"
+    expected_output: "6\n"
+  - name: "one-center"
+    input: "aaabbbb\n"
+    expected_output: "7\n"
+  - name: "empty"
+    input: "\n"
+    expected_output: "0\n"

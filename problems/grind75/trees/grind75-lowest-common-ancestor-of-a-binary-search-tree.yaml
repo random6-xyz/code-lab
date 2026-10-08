@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-lowest-common-ancestor-of-a-binary-search-tree"
+difficulty: medium
+title: "Lowest Common Ancestor of a Binary Search Tree"
+statement: "Insert the given distinct keys into an initially empty binary search tree in the listed order, then find the lowest common ancestor of p and q. Input: n, n keys, then p q; both query keys exist. Output: the ancestor key."
+tags:
+  - "grind75"
+  - "week-1"
+  - "binary-search-tree"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "split-at-root"
+    input: "6\n6 2 8 0 4 7\n2 8\n"
+    expected_output: "6\n"
+  - name: "same-subtree"
+    input: "6\n6 2 8 0 4 7\n2 4\n"
+    expected_output: "2\n"
+  - name: "one-is-ancestor"
+    input: "7\n20 10 30 5 15 25 35\n10 15\n"
+    expected_output: "10\n"
+  - name: "right-subtree"
+    input: "7\n20 10 30 5 15 25 35\n25 35\n"
+    expected_output: "30\n"
+  - name: "root-query"
+    input: "5\n8 4 12 2 6\n8 2\n"
+    expected_output: "8\n"
+  - name: "single-node"
+    input: "1\n42\n42 42\n"
+    expected_output: "42\n"

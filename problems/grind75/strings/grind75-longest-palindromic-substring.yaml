@@ -1,0 +1,30 @@
+schema_version: 1
+id: grind75-longest-palindromic-substring
+difficulty: medium
+title: Longest Palindromic Substring
+statement: "Return the longest palindromic substring; if several have the same length, return the one with the earliest start. Input: one string. Output: the substring."
+tags:
+  - grind75
+  - week-6
+  - string
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "babad\n"
+    expected_output: "bab\n"
+  - name: even-length
+    input: "cbbd\n"
+    expected_output: "bb\n"
+  - name: single
+    input: "a\n"
+    expected_output: "a\n"
+  - name: edge-long-palindrome
+    input: "forgeeksskeegfor\n"
+    expected_output: "geeksskeeg\n"
+  - name: edge-earliest-tie
+    input: "abacdfgdcaba\n"
+    expected_output: "aba\n"
+  - name: edge-two-characters
+    input: "ab\n"
+    expected_output: "a\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: grind75-letter-combinations-of-a-phone-number
+difficulty: medium
+title: Letter Combinations of a Phone Number
+statement: "Map digits 2 through 9 to standard telephone letters and generate all combinations in lexicographic order. Input: a digit string. Output: count followed by combinations; an empty input has count 0."
+tags:
+  - grind75
+  - week-7
+  - recursion
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "23\n"
+    expected_output: "9\nad\nae\naf\nbd\nbe\nbf\ncd\nce\ncf\n"
+  - name: one-digit
+    input: "7\n"
+    expected_output: "4\np\nq\nr\ns\n"
+  - name: empty
+    input: "\n"
+    expected_output: "0\n"
+  - name: edge-digit-nine
+    input: "1\n9\n"
+    expected_output: "4\nw\nx\ny\nz\n"
+  - name: edge-two-digits
+    input: "2\n79\n"
+    expected_output: "16\npw\npx\npy\npz\nqw\nqx\nqy\nqz\nrw\nrx\nry\nrz\nsw\nsx\nsy\nsz\n"
+  - name: edge-empty-digits
+    input: "8\n"
+    expected_output: "3\nt\nu\nv\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-ransom-note"
+difficulty: easy
+title: "Ransom Note"
+statement: "Given a lowercase note and a lowercase magazine, determine whether the magazine letters can construct the note, using each magazine letter at most once. Input: note and magazine on separate lines. Output: true or false."
+tags:
+  - "grind75"
+  - "week-2"
+  - "hash-table"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "a\nb\n"
+    expected_output: "false\n"
+  - name: "constructible"
+    input: "aa\naab\n"
+    expected_output: "true\n"
+  - name: "insufficient-duplicates"
+    input: "aa\nab\n"
+    expected_output: "false\n"
+  - name: "empty-note"
+    input: "\n\n"
+    expected_output: "true\n"
+  - name: "same-words"
+    input: "hello\nhello\n"
+    expected_output: "true\n"
+  - name: "extra-letters"
+    input: "cat\nscatter\n"
+    expected_output: "true\n"

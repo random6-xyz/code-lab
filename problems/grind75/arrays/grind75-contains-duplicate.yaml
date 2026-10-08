@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-contains-duplicate"
+difficulty: easy
+title: "Contains Duplicate"
+statement: "Determine whether an integer array contains any repeated value. Input: n followed by n integers. Output: true or false."
+tags:
+  - "grind75"
+  - "week-2"
+  - "array"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "duplicate"
+    input: "4\n1 2 3 1\n"
+    expected_output: "true\n"
+  - name: "all-distinct"
+    input: "4\n1 2 3 4\n"
+    expected_output: "false\n"
+  - name: "empty"
+    input: "0\n\n"
+    expected_output: "false\n"
+  - name: "single"
+    input: "1\n0\n"
+    expected_output: "false\n"
+  - name: "negative-duplicate"
+    input: "5\n-1 4 -1 7 8\n"
+    expected_output: "true\n"
+  - name: "repeated-at-end"
+    input: "6\n1 2 3 4 5 5\n"
+    expected_output: "true\n"

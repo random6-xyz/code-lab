@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-word-ladder"
+difficulty: hard
+title: "Word Ladder"
+statement: "Find the length of the shortest transformation from begin to end, changing one lowercase letter at a time and requiring every intermediate word to be in the dictionary. Input: begin, end, n, then n words. Output the number of words in the shortest sequence, or 0 if unreachable."
+tags:
+  - "grind75"
+  - "week-8"
+  - "graph"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "hit\ncog\n6\nhot dot dog lot log cog\n"
+    expected_output: "5\n"
+  - name: "unreachable"
+    input: "hit\ncog\n5\nhot dot dog lot log\n"
+    expected_output: "0\n"
+  - name: "direct"
+    input: "a\nc\n1\nc\n"
+    expected_output: "2\n"
+  - name: "same-word"
+    input: "same\nsame\n0\n\n"
+    expected_output: "1\n"
+  - name: "one-change-chain"
+    input: "cat\ndog\n5\ncot cog dog dat dot\n"
+    expected_output: "4\n"
+  - name: "end-absent"
+    input: "a\nb\n0\n\n"
+    expected_output: "0\n"

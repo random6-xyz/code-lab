@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-add-binary"
+difficulty: easy
+title: "Add Binary"
+statement: "Add two nonempty binary strings. Input: the two strings on separate lines. Output: their binary sum without leading zeroes, except that zero is written as 0."
+tags:
+  - "grind75"
+  - "week-2"
+  - "binary"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "11\n1\n"
+    expected_output: "100\n"
+  - name: "both-zero"
+    input: "0\n0\n"
+    expected_output: "0\n"
+  - name: "carry-chain"
+    input: "1111\n1\n"
+    expected_output: "10000\n"
+  - name: "unequal-length"
+    input: "1010\n101\n"
+    expected_output: "1111\n"
+  - name: "leading-zeroes"
+    input: "00101\n00011\n"
+    expected_output: "1000\n"
+  - name: "longer-sum"
+    input: "100000000000000000000\n111111111111111111111\n"
+    expected_output: "1011111111111111111111\n"

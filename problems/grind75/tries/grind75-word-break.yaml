@@ -1,0 +1,30 @@
+schema_version: 1
+id: grind75-word-break
+difficulty: medium
+title: Word Break
+statement: "Determine whether a string can be segmented into one or more dictionary words; words may be reused. Input: the string, dictionary size, then dictionary words. Output: true or false."
+tags:
+  - grind75
+  - week-5
+  - trie
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "leetcode\n2\nleet code\n"
+    expected_output: "true\n"
+  - name: overlapping
+    input: "catsanddog\n5\ncat cats and sand dog\n"
+    expected_output: "true\n"
+  - name: impossible
+    input: "catsandog\n5\ncats dog sand and cat\n"
+    expected_output: "false\n"
+  - name: edge-repeated-prefix
+    input: "aaaaab\n2\na aa\n"
+    expected_output: "false\n"
+  - name: edge-one-letter
+    input: "a\n1\na\n"
+    expected_output: "true\n"
+  - name: edge-segmentation-choice
+    input: "applepenapple\n2\napple pen\n"
+    expected_output: "true\n"

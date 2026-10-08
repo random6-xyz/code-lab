@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-balanced-binary-tree"
+difficulty: easy
+title: "Balanced Binary Tree"
+statement: "Given a binary tree in level-order form, determine whether it is height-balanced: at every node, the heights of its two subtrees differ by at most one. Input: one line of space-separated values, using null for absent nodes. Output: true or false."
+tags:
+  - "grind75"
+  - "week-1"
+  - "binary-tree"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "balanced-sample"
+    input: "3 9 20 null null 15 7\n"
+    expected_output: "true\n"
+  - name: "unbalanced-chain"
+    input: "1 2 null 3 null 4\n"
+    expected_output: "false\n"
+  - name: "empty"
+    input: "null\n"
+    expected_output: "true\n"
+  - name: "single-node"
+    input: "5\n"
+    expected_output: "true\n"
+  - name: "perfect-tree"
+    input: "1 2 3 4 5 6 7\n"
+    expected_output: "true\n"
+  - name: "small-imbalance"
+    input: "1 2 3 4 null null null 5\n"
+    expected_output: "false\n"

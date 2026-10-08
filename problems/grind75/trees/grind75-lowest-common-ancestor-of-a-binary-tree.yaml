@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-lowest-common-ancestor-of-a-binary-tree"
+difficulty: medium
+title: "Lowest Common Ancestor of a Binary Tree"
+statement: "Given a binary tree with unique values and two existing node values p and q, find their lowest common ancestor. Input: one line of level-order tree values using null, then p q on the next line. Output: the ancestor value."
+tags:
+  - "grind75"
+  - "week-5"
+  - "binary-tree"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "different-subtrees"
+    input: "3 5 1 6 2 0 8 null null 7 4\n5 1\n"
+    expected_output: "3\n"
+  - name: "one-is-ancestor"
+    input: "3 5 1 6 2 0 8 null null 7 4\n5 4\n"
+    expected_output: "5\n"
+  - name: "deep-branch"
+    input: "1 2 3 4 5\n4 5\n"
+    expected_output: "2\n"
+  - name: "root-with-leaf"
+    input: "1 2 3\n1 3\n"
+    expected_output: "1\n"
+  - name: "same-node"
+    input: "1 2 3\n2 2\n"
+    expected_output: "2\n"
+  - name: "right-subtree"
+    input: "8 4 12 null null 10 14\n10 14\n"
+    expected_output: "12\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-spiral-matrix"
+difficulty: medium
+title: "Spiral Matrix"
+statement: "Return all entries of a rectangular matrix in clockwise spiral order. Input: rows cols followed by the matrix. Output: the values on one line separated by spaces."
+tags:
+  - "grind75"
+  - "week-6"
+  - "matrix"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "3 3\n1 2 3\n4 5 6\n7 8 9\n"
+    expected_output: "1 2 3 6 9 8 7 4 5\n"
+  - name: "single-row"
+    input: "1 4\n1 2 3 4\n"
+    expected_output: "1 2 3 4\n"
+  - name: "single-column"
+    input: "4 1\n1\n2\n3\n4\n"
+    expected_output: "1 2 3 4\n"
+  - name: "two-by-three"
+    input: "2 3\n1 2 3\n4 5 6\n"
+    expected_output: "1 2 3 6 5 4\n"
+  - name: "one-cell"
+    input: "1 1\n-7\n"
+    expected_output: "-7\n"
+  - name: "rectangular"
+    input: "3 4\n1 2 3 4\n5 6 7 8\n9 10 11 12\n"
+    expected_output: "1 2 3 4 8 12 11 10 9 5 6 7\n"

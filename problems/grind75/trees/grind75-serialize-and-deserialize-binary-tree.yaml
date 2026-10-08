@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-serialize-and-deserialize-binary-tree"
+difficulty: hard
+title: "Serialize and Deserialize Binary Tree"
+statement: "Input: one line encoding a binary tree in preorder with comma-separated integer values and # markers for null children. Construct the tree and output its canonical level-order encoding, separating values with spaces, writing null for absent nodes, and omitting trailing nulls. The single token # denotes an empty tree."
+tags:
+  - "grind75"
+  - "week-8"
+  - "binary-tree"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "1,2,#,#,3,4,#,#,5,#,#\n"
+    expected_output: "1 2 3 null null 4 5\n"
+  - name: "single"
+    input: "7,#,#\n"
+    expected_output: "7\n"
+  - name: "empty"
+    input: "#\n"
+    expected_output: "null\n"
+  - name: "left-child"
+    input: "1,2,#,#,#\n"
+    expected_output: "1 2\n"
+  - name: "right-chain"
+    input: "1,#,2,#,3,#,#\n"
+    expected_output: "1 null 2 null 3\n"
+  - name: "negative-values"
+    input: "-1,-2,#,#,3,#,#\n"
+    expected_output: "-1 -2 3\n"

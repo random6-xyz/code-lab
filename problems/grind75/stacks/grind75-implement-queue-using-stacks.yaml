@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-implement-queue-using-stacks"
+difficulty: easy
+title: "Implement Queue using Stacks"
+statement: "Process queue commands using two stacks. Input: q followed by q commands: push x, pop, peek, or empty. Output one line for each pop, peek, or empty command; empty prints true or false."
+tags:
+  - "grind75"
+  - "week-2"
+  - "stack"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "mixed-operations"
+    input: "8\npush 1\npush 2\npeek\npop\nempty\npop\nempty\npush 9\n"
+    expected_output: "1\n1\nfalse\n2\ntrue\n"
+  - name: "single-item"
+    input: "3\npush -4\npeek\npop\n"
+    expected_output: "-4\n-4\n"
+  - name: "fifo-order"
+    input: "6\npush 3\npush 5\npop\npush 7\npop\npop\n"
+    expected_output: "3\n5\n7\n"
+  - name: "empty-checks"
+    input: "3\nempty\npush 0\nempty\n"
+    expected_output: "true\nfalse\n"
+  - name: "alternating"
+    input: "6\npush 8\npop\npush 9\npeek\npop\nempty\n"
+    expected_output: "8\n9\n9\ntrue\n"
+  - name: "negative-values"
+    input: "4\npush -1\npush -2\npop\npeek\n"
+    expected_output: "-1\n-2\n"

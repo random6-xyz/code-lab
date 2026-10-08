@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-course-schedule"
+difficulty: medium
+title: "Course Schedule"
+statement: "Determine whether all n courses can be completed. Each pair (course, prerequisite) means the prerequisite must be taken first. Input: n m followed by m pairs. Output: true if the directed graph is acyclic, otherwise false."
+tags:
+  - "grind75"
+  - "week-4"
+  - "graph"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "acyclic-chain"
+    input: "4 3\n1 0\n2 1\n3 2\n"
+    expected_output: "true\n"
+  - name: "cycle"
+    input: "2 2\n1 0\n0 1\n"
+    expected_output: "false\n"
+  - name: "no-prerequisites"
+    input: "3 0\n"
+    expected_output: "true\n"
+  - name: "self-loop"
+    input: "1 1\n0 0\n"
+    expected_output: "false\n"
+  - name: "disconnected-cycle"
+    input: "4 3\n1 0\n3 2\n2 3\n"
+    expected_output: "false\n"
+  - name: "multiple-components"
+    input: "5 2\n1 0\n4 3\n"
+    expected_output: "true\n"

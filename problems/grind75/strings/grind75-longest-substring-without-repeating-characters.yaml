@@ -1,0 +1,30 @@
+schema_version: 1
+id: grind75-longest-substring-without-repeating-characters
+difficulty: medium
+title: Longest Substring Without Repeating Characters
+statement: "Find the maximum length of a substring with no repeated character. Input: one string. Output: the length."
+tags:
+  - grind75
+  - week-3
+  - string
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "abcabcbb\n"
+    expected_output: "3\n"
+  - name: all-same
+    input: "bbbbb\n"
+    expected_output: "1\n"
+  - name: empty
+    input: "\n"
+    expected_output: "0\n"
+  - name: overlap
+    input: "dvdf\n"
+    expected_output: "3\n"
+  - name: repeat-separated
+    input: "abba\n"
+    expected_output: "2\n"
+  - name: one-character
+    input: "z\n"
+    expected_output: "1\n"

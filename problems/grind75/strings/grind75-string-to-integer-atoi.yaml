@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-string-to-integer-atoi"
+difficulty: medium
+title: "String to Integer (atoi)"
+statement: "Parse a signed 32-bit integer from one line: ignore leading spaces, read an optional sign and consecutive decimal digits, and stop at the first other character. Return 0 if no digits are read and clamp to [-2147483648, 2147483647]."
+tags:
+  - "grind75"
+  - "week-6"
+  - "string"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "42\n"
+    expected_output: "42\n"
+  - name: "leading-spaces"
+    input: "   -42 words\n"
+    expected_output: "-42\n"
+  - name: "trailing-text"
+    input: "4193 with words\n"
+    expected_output: "4193\n"
+  - name: "no-digits"
+    input: "words and 987\n"
+    expected_output: "0\n"
+  - name: "positive-clamp"
+    input: "91283472332\n"
+    expected_output: "2147483647\n"
+  - name: "negative-clamp"
+    input: "-91283472332\n"
+    expected_output: "-2147483648\n"

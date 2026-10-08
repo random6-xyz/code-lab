@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-basic-calculator"
+difficulty: hard
+title: "Basic Calculator"
+statement: "Evaluate an expression containing nonnegative integers, +, -, parentheses, and spaces. Unary plus and minus are allowed. Input: one expression line. Output: its integer value."
+tags:
+  - "grind75"
+  - "week-8"
+  - "stack"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "1 + 1\n"
+    expected_output: "2\n"
+  - name: "parentheses"
+    input: "(1+(4+5+2)-3)+(6+8)\n"
+    expected_output: "23\n"
+  - name: "negative-result"
+    input: "2-5\n"
+    expected_output: "-3\n"
+  - name: "unary-minus"
+    input: "-(3+(2-5))\n"
+    expected_output: "0\n"
+  - name: "spaces-and-unary"
+    input: "  - ( 2 - 5 ) + 4 \n"
+    expected_output: "7\n"
+  - name: "nested-negative"
+    input: "1-(2-(3-(4-5)))\n"
+    expected_output: "3\n"

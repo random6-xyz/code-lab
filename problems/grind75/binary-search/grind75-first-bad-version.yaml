@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-first-bad-version"
+difficulty: easy
+title: "First Bad Version"
+statement: "Versions 1 through n are ordered so every version at or after bad is bad. Input: n bad, where 1 <= bad <= n. Output: the first bad version."
+tags:
+  - "grind75"
+  - "week-2"
+  - "binary-search"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "5 4\n"
+    expected_output: "4\n"
+  - name: "first-version"
+    input: "1 1\n"
+    expected_output: "1\n"
+  - name: "last-version"
+    input: "8 8\n"
+    expected_output: "8\n"
+  - name: "middle"
+    input: "10 6\n"
+    expected_output: "6\n"
+  - name: "two-versions"
+    input: "2 1\n"
+    expected_output: "1\n"
+  - name: "large-range"
+    input: "1000000 123456\n"
+    expected_output: "123456\n"

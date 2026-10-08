@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-clone-graph"
+difficulty: medium
+title: "Clone Graph"
+statement: "Clone an undirected graph with vertices numbered 0 through n-1. Input: n m followed by m undirected edges. Output one line per vertex: its degree followed by its sorted neighbor labels. Include isolated vertices."
+tags:
+  - "grind75"
+  - "week-3"
+  - "graph"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "triangle"
+    input: "3 3\n0 1\n1 2\n2 0\n"
+    expected_output: "2 1 2\n2 0 2\n2 0 1\n"
+  - name: "single-vertex"
+    input: "1 0\n"
+    expected_output: "0\n"
+  - name: "disconnected"
+    input: "4 2\n0 1\n2 3\n"
+    expected_output: "1 1\n1 0\n1 3\n1 2\n"
+  - name: "self-contained-component"
+    input: "3 1\n1 2\n"
+    expected_output: "0\n1 2\n1 1\n"
+  - name: "path"
+    input: "4 3\n0 1\n1 2\n2 3\n"
+    expected_output: "1 1\n2 0 2\n2 1 3\n1 2\n"
+  - name: "empty-graph"
+    input: "0 0\n"
+    expected_output: ""

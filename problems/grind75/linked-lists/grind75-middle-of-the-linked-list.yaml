@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-middle-of-the-linked-list"
+difficulty: easy
+title: "Middle of the Linked List"
+statement: "Find the middle node of a nonempty singly linked list; for an even length, return the second middle node. Input: n followed by n integer values. Output: the middle value."
+tags:
+  - "grind75"
+  - "week-2"
+  - "linked-list"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "odd-length"
+    input: "5\n1 2 3 4 5\n"
+    expected_output: "3\n"
+  - name: "even-length"
+    input: "6\n1 2 3 4 5 6\n"
+    expected_output: "4\n"
+  - name: "single"
+    input: "1\n8\n"
+    expected_output: "8\n"
+  - name: "two-nodes"
+    input: "2\n-3 7\n"
+    expected_output: "7\n"
+  - name: "duplicate-values"
+    input: "4\n5 5 9 9\n"
+    expected_output: "9\n"
+  - name: "negative-values"
+    input: "3\n-8 -4 -2\n"
+    expected_output: "-4\n"

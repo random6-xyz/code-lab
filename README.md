@@ -98,6 +98,12 @@ Use `code-lab list` to view problems grouped by difficulty and `code-lab show <i
 
 Each problem is an independent YAML file with stdin/stdout instructions and multiple grading cases. Its topic directory is also included as a tag.
 
+## Grind 75 Practice Set
+
+`problems/grind75/` contains all 75 questions from the default Grind 75 plan, organized by the original eight-week schedule and topic. The entries use unique `grind75-` IDs so the complete set can coexist with the existing SWE practice set. Each problem has a code-lab stdin/stdout contract and at least six grading cases. See [`docs/grind75.md`](docs/grind75.md) for the source links, weekly ordering, difficulty, topic, and recommended time per problem.
+
+The question list and weekly grouping are attributed to [Grind 75](https://www.techinterviewhandbook.org/grind75/) by Tech Interview Handbook. The larger customizable pool is not included; this directory contains the default 75-question plan.
+
 ## Sandbox notes
 
 - Submitted code runs as UID/GID 65534. `/usr`, `/lib`, `/lib64`, and the solution file are read-only mounts. The Rust sysroot is mounted read-only only while compiling Rust submissions.
@@ -115,4 +121,4 @@ cargo test
 
 ## License
 
-Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for the full text.
+Original code and content in this project are licensed under the Apache License, Version 2.0; see [LICENSE](LICENSE). Third-party materials retain their respective licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

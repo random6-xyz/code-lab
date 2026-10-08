@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-invert-binary-tree"
+difficulty: easy
+title: "Invert Binary Tree"
+statement: "Given a binary tree in level-order form, swap the left and right child of every node. Input: one line of space-separated values, using null for absent nodes; null alone denotes an empty tree. Output: the resulting tree in the same level-order form, omitting trailing nulls."
+tags:
+  - "grind75"
+  - "week-1"
+  - "binary-tree"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "4 2 7 1 3 6 9\n"
+    expected_output: "4 7 2 9 6 3 1\n"
+  - name: "single-node"
+    input: "1\n"
+    expected_output: "1\n"
+  - name: "empty"
+    input: "null\n"
+    expected_output: "null\n"
+  - name: "left-chain"
+    input: "1 2 null 3\n"
+    expected_output: "1 null 2 null 3\n"
+  - name: "two-children"
+    input: "1 2 3\n"
+    expected_output: "1 3 2\n"
+  - name: "sparse"
+    input: "5 null 8 9\n"
+    expected_output: "5 8 null null 9\n"

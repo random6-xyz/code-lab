@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-construct-binary-tree-from-preorder-and-inorder-traversal"
+difficulty: medium
+title: "Construct Binary Tree from Preorder and Inorder Traversal"
+statement: "Construct the unique binary tree from its preorder and inorder traversals; node values are distinct. Input: n, the n preorder values, then the n inorder values. Output the tree in level-order form, omitting trailing nulls; output null for an empty tree."
+tags:
+  - "grind75"
+  - "week-6"
+  - "binary-tree"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "5\n3 9 20 15 7\n9 3 15 20 7\n"
+    expected_output: "3 9 20 null null 15 7\n"
+  - name: "single-node"
+    input: "1\n5\n5\n"
+    expected_output: "5\n"
+  - name: "empty"
+    input: "0\n\n\n"
+    expected_output: "null\n"
+  - name: "left-skewed"
+    input: "4\n4 3 2 1\n1 2 3 4\n"
+    expected_output: "4 3 null 2 null 1\n"
+  - name: "right-skewed"
+    input: "4\n1 2 3 4\n1 2 3 4\n"
+    expected_output: "1 null 2 null 3 null 4\n"
+  - name: "balanced"
+    input: "7\n4 2 1 3 6 5 7\n1 2 3 4 5 6 7\n"
+    expected_output: "4 2 6 1 3 5 7\n"

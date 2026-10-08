@@ -1,0 +1,30 @@
+schema_version: 1
+id: grind75-combination-sum
+difficulty: medium
+title: Combination Sum
+statement: "Choose candidate values unlimited times so they sum to target. Candidates are distinct positive integers. Sort each combination and output combinations lexicographically. Input: n and target followed by candidates. Output: count and combinations."
+tags:
+  - grind75
+  - week-5
+  - array
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4 7\n2 3 6 7\n"
+    expected_output: "2\n2 2 3\n7\n"
+  - name: multiple
+    input: "3 8\n2 3 5\n"
+    expected_output: "3\n2 2 2 2\n2 3 3\n3 5\n"
+  - name: none
+    input: "2 1\n2 3\n"
+    expected_output: "0\n"
+  - name: edge-single-candidate
+    input: "1 8\n2\n"
+    expected_output: "1\n2 2 2 2\n"
+  - name: edge-target-one
+    input: "3 1\n2 3 5\n"
+    expected_output: "0\n"
+  - name: edge-candidate-equals-target
+    input: "3 9\n2 4 9\n"
+    expected_output: "1\n9\n"

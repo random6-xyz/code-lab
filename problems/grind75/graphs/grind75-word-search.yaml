@@ -1,0 +1,30 @@
+schema_version: 1
+id: grind75-word-search
+difficulty: medium
+title: Word Search
+statement: "Determine whether a word can be formed by adjacent horizontal or vertical board cells without using a cell more than once. Input: rows, columns, board rows, then the word. Output: true or false."
+tags:
+  - grind75
+  - week-7
+  - graph
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3 4\nABCE\nSFCS\nADEE\nABCCED\n"
+    expected_output: "true\n"
+  - name: another-path
+    input: "3 4\nABCE\nSFCS\nADEE\nSEE\n"
+    expected_output: "true\n"
+  - name: reuse-forbidden
+    input: "3 4\nABCE\nSFCS\nADEE\nABCB\n"
+    expected_output: "false\n"
+  - name: edge-one-row
+    input: "1 4\nABCD\n4\nABCD\n"
+    expected_output: "true\n"
+  - name: edge-repeated-cell-needed
+    input: "2 2\nAB\nCD\n3\nABA\n"
+    expected_output: "false\n"
+  - name: edge-single-cell-mismatch
+    input: "1 1\na\nb\n"
+    expected_output: "false\n"

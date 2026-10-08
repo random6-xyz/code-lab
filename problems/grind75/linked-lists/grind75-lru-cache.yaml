@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-lru-cache"
+difficulty: medium
+title: "LRU Cache"
+statement: "Implement an LRU cache. Input: capacity and q, followed by q operations: put key value or get key. A get returns the value or -1; put evicts the least-recently-used entry when over capacity. Output each get result on its own line."
+tags:
+  - "grind75"
+  - "week-7"
+  - "linked-list"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "2 7\nput 1 1\nput 2 2\nget 1\nput 3 3\nget 2\nput 4 4\nget 1\n"
+    expected_output: "1\n-1\n-1\n"
+  - name: "capacity-one"
+    input: "1 5\nput 1 10\nget 1\nput 2 20\nget 1\nget 2\n"
+    expected_output: "10\n-1\n20\n"
+  - name: "zero-capacity"
+    input: "0 3\nput 1 2\nget 1\nget 2\n"
+    expected_output: "-1\n-1\n"
+  - name: "update-value"
+    input: "2 4\nput 1 3\nput 1 8\nget 1\nget 2\n"
+    expected_output: "8\n-1\n"
+  - name: "refresh-recency"
+    input: "2 6\nput 1 1\nput 2 2\nget 1\nput 3 3\nget 1\nget 2\n"
+    expected_output: "1\n1\n-1\n"
+  - name: "several-evictions"
+    input: "2 7\nput 1 1\nput 2 2\nput 3 3\nget 1\nget 2\nput 4 4\nget 3\n"
+    expected_output: "-1\n2\n-1\n"

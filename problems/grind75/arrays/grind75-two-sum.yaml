@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-two-sum"
+difficulty: easy
+title: "Two Sum"
+statement: "Given an integer array with exactly one solution, return the two distinct zero-based indices whose values sum to target. Input: n target, then n integers. Output: the smaller index followed by the larger index."
+tags:
+  - "grind75"
+  - "week-1"
+  - "array"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "4 9\n2 7 11 15\n"
+    expected_output: "0 1\n"
+  - name: "not-adjacent"
+    input: "4 6\n3 2 4 8\n"
+    expected_output: "1 2\n"
+  - name: "duplicate-values"
+    input: "2 6\n3 3\n"
+    expected_output: "0 1\n"
+  - name: "negative-values"
+    input: "4 0\n-3 4 3 90\n"
+    expected_output: "0 2\n"
+  - name: "middle-pair"
+    input: "5 15\n1 4 6 9 12\n"
+    expected_output: "2 3\n"
+  - name: "negative-target"
+    input: "4 -5\n-8 1 3 9\n"
+    expected_output: "0 2\n"

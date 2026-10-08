@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-time-based-key-value-store"
+difficulty: medium
+title: "Time Based Key-Value Store"
+statement: "Support set key value timestamp and get key timestamp operations. For a get, return the value stored for that key at the greatest timestamp not exceeding the query timestamp, or - if none exists. Input: q followed by q operations; timestamps for each key are strictly increasing."
+tags:
+  - "grind75"
+  - "week-5"
+  - "binary-search"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "7\nset foo bar 1\nget foo 1\nget foo 3\nset foo bar2 4\nget foo 4\nget foo 5\nget missing 2\n"
+    expected_output: "bar\nbar\nbar2\nbar2\n-\n"
+  - name: "before-first"
+    input: "3\nset a x 5\nget a 4\nget a 5\n"
+    expected_output: "-\nx\n"
+  - name: "multiple-keys"
+    input: "5\nset a one 1\nset b two 2\nget b 3\nget a 3\nget c 1\n"
+    expected_output: "two\none\n-\n"
+  - name: "latest-not-after"
+    input: "4\nset k v1 2\nset k v2 8\nget k 7\nget k 9\n"
+    expected_output: "v1\nv2\n"
+  - name: "exact-time"
+    input: "3\nset x exact 10\nget x 10\nget x 11\n"
+    expected_output: "exact\nexact\n"
+  - name: "empty-store"
+    input: "2\nget none 0\nget other 100\n"
+    expected_output: "-\n-\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-merge-k-sorted-lists"
+difficulty: hard
+title: "Merge k Sorted Lists"
+statement: "Merge k nondecreasing integer lists into one nondecreasing list. Input: k, then for each list its length followed by its values. Output all merged values on one line separated by spaces."
+tags:
+  - "grind75"
+  - "week-8"
+  - "heap"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "3\n3 1 4 5\n3 1 3 4\n2 2 6\n"
+    expected_output: "1 1 2 3 4 4 5 6\n"
+  - name: "no-lists"
+    input: "0\n"
+    expected_output: "\n"
+  - name: "all-empty"
+    input: "3\n0\n0\n0\n"
+    expected_output: "\n"
+  - name: "one-list"
+    input: "1\n4 -2 0 3 9\n"
+    expected_output: "-2 0 3 9\n"
+  - name: "duplicates"
+    input: "2\n3 1 1 2\n4 1 2 2 3\n"
+    expected_output: "1 1 1 2 2 2 3\n"
+  - name: "empty-between"
+    input: "3\n2 1 5\n0\n2 2 4\n"
+    expected_output: "1 2 4 5\n"

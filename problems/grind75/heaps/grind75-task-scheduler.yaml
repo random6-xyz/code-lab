@@ -1,0 +1,30 @@
+schema_version: 1
+id: grind75-task-scheduler
+difficulty: medium
+title: Task Scheduler
+statement: "Each identical task needs a cooldown of n intervals; idle intervals may be inserted. Find the shortest schedule length. Input: task count, cooldown n, then one uppercase task per token. Output: minimum intervals."
+tags:
+  - grind75
+  - week-7
+  - heap
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6 2\nA A A B B B\n"
+    expected_output: "8\n"
+  - name: no-cooldown
+    input: "4 0\nA A B B\n"
+    expected_output: "4\n"
+  - name: single-kind
+    input: "4 3\nA A A A\n"
+    expected_output: "13\n"
+  - name: edge-cooldown-zero
+    input: "3 0\nA A A\n"
+    expected_output: "3\n"
+  - name: edge-all-distinct
+    input: "4 3\nA B C D\n"
+    expected_output: "4\n"
+  - name: edge-two-max-frequency
+    input: "4 1\nA A B B\n"
+    expected_output: "4\n"

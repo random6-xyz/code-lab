@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-maximum-subarray"
+difficulty: medium
+title: "Maximum Subarray"
+statement: "Find the largest sum of any nonempty contiguous subarray. Input: n followed by n integers (n >= 1). Output: the maximum sum."
+tags:
+  - "grind75"
+  - "week-3"
+  - "dynamic-programming"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "9\n-2 1 -3 4 -1 2 1 -5 4\n"
+    expected_output: "6\n"
+  - name: "all-negative"
+    input: "4\n-8 -3 -6 -2\n"
+    expected_output: "-2\n"
+  - name: "single"
+    input: "1\n7\n"
+    expected_output: "7\n"
+  - name: "all-positive"
+    input: "5\n1 2 3 4 5\n"
+    expected_output: "15\n"
+  - name: "zero-separated"
+    input: "5\n2 -5 0 4 3\n"
+    expected_output: "7\n"
+  - name: "large-negative-prefix"
+    input: "6\n-10 5 4 -1 2 -20\n"
+    expected_output: "10\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-valid-anagram"
+difficulty: easy
+title: "Valid Anagram"
+statement: "Given two lowercase strings, determine whether the second is an anagram of the first. Input: two lines. Output: true or false."
+tags:
+  - "grind75"
+  - "week-1"
+  - "string"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "sample"
+    input: "anagram\nnagaram\n"
+    expected_output: "true\n"
+  - name: "different-counts"
+    input: "rat\ncar\n"
+    expected_output: "false\n"
+  - name: "repeated-letters"
+    input: "aabbcc\nbacbac\n"
+    expected_output: "true\n"
+  - name: "different-length"
+    input: "ab\naaa\n"
+    expected_output: "false\n"
+  - name: "single-letter"
+    input: "z\nz\n"
+    expected_output: "true\n"
+  - name: "empty-strings"
+    input: "\n\n"
+    expected_output: "true\n"

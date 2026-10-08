@@ -1,0 +1,30 @@
+schema_version: 1
+id: "grind75-climbing-stairs"
+difficulty: easy
+title: "Climbing Stairs"
+statement: "Starting at step 0, you may climb either 1 or 2 steps at a time. Input: n, the destination step (1 <= n <= 90). Output: the number of distinct ways to reach it."
+tags:
+  - "grind75"
+  - "week-2"
+  - "dynamic-programming"
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: "one-step"
+    input: "1\n"
+    expected_output: "1\n"
+  - name: "two-steps"
+    input: "2\n"
+    expected_output: "2\n"
+  - name: "sample"
+    input: "5\n"
+    expected_output: "8\n"
+  - name: "three-steps"
+    input: "3\n"
+    expected_output: "3\n"
+  - name: "ten-steps"
+    input: "10\n"
+    expected_output: "89\n"
+  - name: "larger-value"
+    input: "20\n"
+    expected_output: "10946\n"
