@@ -40,3 +40,6 @@ test_cases:
       ./a/..
     expected_output: |
       .
+  - name: multiple-leading-parent-components
+    input: "a/../../b\n"
+    expected_output: "../b\n"

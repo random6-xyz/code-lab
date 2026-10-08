@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-math-integer-to-roman
+difficulty: medium
+title: Integer to Roman
+statement: "Convert an integer from 1 through 3999 to its canonical Roman numeral. Input: one integer. Output: its Roman numeral."
+tags:
+  - swe-interview
+  - math-geometry
+  - number-conversion
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "1994\n"
+    expected_output: "MCMXCIV\n"
+  - name: repeated-symbols
+    input: "58\n"
+    expected_output: "LVIII\n"
+  - name: smallest
+    input: "4\n"
+    expected_output: "IV\n"
+  - name: edge-maximum-value
+    input: "3999\n"
+    expected_output: "MMMCMXCIX\n"
+  - name: edge-subtractive-hundreds
+    input: "944\n"
+    expected_output: "CMXLIV\n"
+  - name: edge-nine
+    input: "9\n"
+    expected_output: "IX\n"

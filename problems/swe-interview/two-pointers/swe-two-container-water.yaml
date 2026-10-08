@@ -1,0 +1,29 @@
+schema_version: 1
+id: swe-two-container-water
+difficulty: medium
+title: Container With Most Water
+statement: "Choose two vertical lines that hold the largest area of water. Input: n followed by n nonnegative heights. Output: the maximum area."
+tags:
+  - swe-interview
+  - two-pointers
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "9\n1 8 6 2 5 4 8 3 7\n"
+    expected_output: "49\n"
+  - name: equal-heights
+    input: "2\n1 1\n"
+    expected_output: "1\n"
+  - name: wide-basin
+    input: "5\n4 3 2 1 4\n"
+    expected_output: "16\n"
+  - name: zero-heights
+    input: "3\n0 0 0\n"
+    expected_output: "0\n"
+  - name: two-lines
+    input: "2\n5 1\n"
+    expected_output: "1\n"
+  - name: descending
+    input: "5\n5 4 3 2 1\n"
+    expected_output: "6\n"

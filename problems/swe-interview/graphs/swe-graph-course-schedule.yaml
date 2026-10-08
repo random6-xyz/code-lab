@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-graph-course-schedule
+difficulty: medium
+title: Course Schedule Feasibility
+statement: "Determine whether all courses can be completed given prerequisite pairs in course prerequisite order; each pair means the prerequisite must be completed first. Input: course count n and edge count m, then m pairs. Output: true if no cycle exists."
+tags:
+  - swe-interview
+  - graphs
+  - topological-sort
+  - cycle-detection
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: acyclic
+    input: "4 3\n1 0\n2 1\n3 2\n"
+    expected_output: "true\n"
+  - name: cycle
+    input: "2 2\n1 0\n0 1\n"
+    expected_output: "false\n"
+  - name: no-edges
+    input: "3 0\n"
+    expected_output: "true\n"
+  - name: edge-self-prerequisite
+    input: "1 1\n0 0\n"
+    expected_output: "false\n"
+  - name: edge-independent-courses
+    input: "5 0\n"
+    expected_output: "true\n"
+  - name: edge-disconnected-cycle
+    input: "4 3\n1 0\n3 2\n2 3\n"
+    expected_output: "false\n"

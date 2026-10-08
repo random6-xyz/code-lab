@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-binary-ship-capacity
+difficulty: medium
+title: Ship Packages Within D Days
+statement: "Find the smallest ship capacity that transports packages in order within d days. Input: n and d followed by package weights. Output: the minimum capacity."
+tags:
+  - swe-interview
+  - binary-search
+  - answer-space-search
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6 3\n1 2 3 4 5 6\n"
+    expected_output: "6\n"
+  - name: one-day
+    input: "4 1\n1 2 3 4\n"
+    expected_output: "10\n"
+  - name: many-days
+    input: "5 5\n3 2 2 4 1\n"
+    expected_output: "4\n"
+  - name: edge-one-day
+    input: "3 1\n2 3 4\n"
+    expected_output: "9\n"
+  - name: edge-one-package-per-day
+    input: "4 4\n5 1 4 2\n"
+    expected_output: "5\n"
+  - name: edge-single-package
+    input: "1 1\n7\n"
+    expected_output: "7\n"

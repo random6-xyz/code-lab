@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-window-character-replacement
+difficulty: medium
+title: Longest Repeating Character Replacement
+statement: "Given an uppercase string and k, find the longest substring that can be made of one repeated letter by replacing at most k characters. Input: string and k. Output: maximum length."
+tags:
+  - swe-interview
+  - sliding-window
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "ABAB 2\n"
+    expected_output: "4\n"
+  - name: limited
+    input: "AABABBA 1\n"
+    expected_output: "4\n"
+  - name: all-replaced
+    input: "ABC 3\n"
+    expected_output: "3\n"
+  - name: zero-replacements
+    input: "ABCD 0\n"
+    expected_output: "1\n"
+  - name: all-same
+    input: "AAAA 0\n"
+    expected_output: "4\n"
+  - name: replace-entire-short-string
+    input: "AB 2\n"
+    expected_output: "2\n"

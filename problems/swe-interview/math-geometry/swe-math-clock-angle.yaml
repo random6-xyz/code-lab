@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-math-clock-angle
+difficulty: medium
+title: Angle Between Clock Hands
+statement: "Find the smaller angle in degrees between hour and minute hands. Hours are 0..23 and minutes 0..59. Input: hour and minute. Output: the angle to exactly three decimal places."
+tags:
+  - swe-interview
+  - math-geometry
+  - geometry
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3 15\n"
+    expected_output: "7.500\n"
+  - name: half-hour
+    input: "12 30\n"
+    expected_output: "165.000\n"
+  - name: straight-angle
+    input: "6 0\n"
+    expected_output: "180.000\n"
+  - name: edge-midnight
+    input: "0 0\n"
+    expected_output: "0.000\n"
+  - name: edge-noon
+    input: "12 0\n"
+    expected_output: "0.000\n"
+  - name: edge-one-minute-before-midnight
+    input: "23 59\n"
+    expected_output: "5.500\n"

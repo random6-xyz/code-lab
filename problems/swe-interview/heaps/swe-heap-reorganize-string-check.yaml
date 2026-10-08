@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-heap-reorganize-string-check
+difficulty: medium
+title: Reorganize String Feasibility
+statement: "Determine whether the characters can be rearranged so that no two adjacent characters are equal. Input: one lowercase string. Output: YES or NO."
+tags:
+  - swe-interview
+  - heaps
+  - frequency
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: possible
+    input: "aab\n"
+    expected_output: "YES\n"
+  - name: impossible
+    input: "aaab\n"
+    expected_output: "NO\n"
+  - name: already-valid
+    input: "abc\n"
+    expected_output: "YES\n"
+  - name: edge-single-character
+    input: "a\n"
+    expected_output: "YES\n"
+  - name: edge-two-equal
+    input: "aa\n"
+    expected_output: "NO\n"
+  - name: edge-balanced-frequencies
+    input: "aaabbc\n"
+    expected_output: "YES\n"

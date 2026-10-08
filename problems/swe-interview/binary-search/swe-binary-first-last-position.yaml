@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-binary-first-last-position
+difficulty: medium
+title: Find First and Last Position
+statement: "In a sorted array, find the first and last index of target. Input: n and target followed by n sorted integers. Output: the two indices, or -1 -1."
+tags:
+  - swe-interview
+  - binary-search
+  - search
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6 8\n5 7 7 8 8 10\n"
+    expected_output: "3 4\n"
+  - name: single-match
+    input: "4 2\n1 2 3 4\n"
+    expected_output: "1 1\n"
+  - name: absent
+    input: "3 5\n1 2 3\n"
+    expected_output: "-1 -1\n"
+  - name: edge-all-equal
+    input: "5 2\n2 2 2 2 2\n"
+    expected_output: "0 4\n"
+  - name: edge-single
+    input: "1 5\n5\n"
+    expected_output: "0 0\n"
+  - name: edge-target-smaller
+    input: "3 0\n1 2 3\n"
+    expected_output: "-1 -1\n"

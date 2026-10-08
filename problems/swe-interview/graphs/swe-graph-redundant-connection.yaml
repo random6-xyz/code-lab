@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-graph-redundant-connection
+difficulty: medium
+title: Redundant Connection
+statement: "An undirected tree has one extra edge. Find the edge that creates a cycle; if more than one qualifies, return the last such edge in input order. Input: m followed by m edges on labels 1..n. Output: the redundant edge."
+tags:
+  - swe-interview
+  - graphs
+  - union-find
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\n1 2\n1 3\n2 3\n"
+    expected_output: "2 3\n"
+  - name: triangle
+    input: "4\n1 2\n2 3\n3 4\n1 4\n"
+    expected_output: "1 4\n"
+  - name: parallel
+    input: "2\n1 2\n1 2\n"
+    expected_output: "1 2\n"
+  - name: edge-four-cycle
+    input: "4\n1 2\n2 3\n3 4\n4 1\n"
+    expected_output: "4 1\n"
+  - name: edge-last-duplicate-cycle
+    input: "4\n1 2\n2 3\n1 3\n1 2\n"
+    expected_output: "1 2\n"
+  - name: edge-small-labels
+    input: "3\n1 2\n2 3\n1 3\n"
+    expected_output: "1 3\n"

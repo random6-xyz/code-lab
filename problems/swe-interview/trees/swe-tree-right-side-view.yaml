@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-tree-right-side-view
+difficulty: medium
+title: Binary Tree Right Side View
+statement: "Return the value visible at each depth when viewing the tree from the right. Input: n followed by level-order tokens. Output: visible values from top to bottom."
+tags:
+  - swe-interview
+  - trees
+  - bfs
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "7\n1 2 3 null 5 null 4\n"
+    expected_output: "1 3 4\n"
+  - name: single
+    input: "1\n1\n"
+    expected_output: "1\n"
+  - name: left-heavy
+    input: "5\n1 2 null 3 null\n"
+    expected_output: "1 2 3\n"
+  - name: edge-right-chain
+    input: "3\n1 null 2\n"
+    expected_output: "1 2\n"
+  - name: edge-wide-level
+    input: "7\n1 2 3 4 5 6 7\n"
+    expected_output: "1 3 7\n"
+  - name: edge-left-child-visible
+    input: "3\n1 2 null\n"
+    expected_output: "1 2\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-binary-search-row-major-matrix
+difficulty: medium
+title: Search a Row-Major Sorted Matrix
+statement: "Search for target in a matrix whose rows are sorted and whose first value in each row exceeds the last value in the previous row. Input: m, n, target, then the matrix. Output: true or false."
+tags:
+  - swe-interview
+  - binary-search
+  - matrix-search
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3 4 3\n1 3 5 7\n10 11 16 20\n23 30 34 60\n"
+    expected_output: "true\n"
+  - name: missing
+    input: "2 3 13\n1 3 5\n7 9 11\n"
+    expected_output: "false\n"
+  - name: one-cell
+    input: "1 1 -2\n-2\n"
+    expected_output: "true\n"
+  - name: edge-single-row
+    input: "1 4 6\n1 3 6 8\n"
+    expected_output: "true\n"
+  - name: edge-single-column
+    input: "3 1 5\n1\n3\n5\n"
+    expected_output: "true\n"
+  - name: edge-outside-range
+    input: "2 2 0\n1 2\n3 4\n"
+    expected_output: "false\n"

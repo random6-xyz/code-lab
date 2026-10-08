@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-stack-asteroid-collision
+difficulty: medium
+title: Asteroid Collision
+statement: "Asteroids move in their signed direction; when two moving toward each other collide, the smaller one explodes, and equal sizes both explode. Input: n followed by signed sizes. Output: survivors in order on one line; print an empty line if none survive."
+tags:
+  - swe-interview
+  - stacks-queues
+  - stack
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n5 10 -5 -8 8\n"
+    expected_output: "5 10 8\n"
+  - name: mutual-destruction
+    input: "2\n8 -8\n"
+    expected_output: "\n"
+  - name: no-collision
+    input: "3\n-2 -1 1\n"
+    expected_output: "-2 -1 1\n"
+  - name: edge-left-moving-only
+    input: "3\n-5 -2 -7\n"
+    expected_output: "-5 -2 -7\n"
+  - name: edge-equal-collision
+    input: "2\n6 -6\n"
+    expected_output: "\n"
+  - name: edge-chain-collision
+    input: "4\n10 2 -5 -20\n"
+    expected_output: "-20\n"

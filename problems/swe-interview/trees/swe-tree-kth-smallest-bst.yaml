@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-tree-kth-smallest-bst
+difficulty: medium
+title: Kth Smallest Value in a BST
+statement: "Find the kth smallest value in a BST with distinct keys. Input: n and k followed by level-order tokens. Output: the value."
+tags:
+  - swe-interview
+  - trees
+  - bst
+  - inorder
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "8 3\n5 3 6 2 4 null null 1\n"
+    expected_output: "3\n"
+  - name: minimum
+    input: "3 1\n2 1 3\n"
+    expected_output: "1\n"
+  - name: maximum
+    input: "3 3\n2 1 3\n"
+    expected_output: "3\n"
+  - name: edge-single-node
+    input: "1 1\n5\n"
+    expected_output: "5\n"
+  - name: edge-smallest-left-chain
+    input: "8 1\n5 3 7 2 null 6 null 1\n"
+    expected_output: "1\n"
+  - name: edge-largest-value
+    input: "5 4\n4 2 6 1 3\n"
+    expected_output: "4\n"

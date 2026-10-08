@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-tree-lca-bst
+difficulty: medium
+title: Lowest Common Ancestor in a BST
+statement: "Find the lowest node that is an ancestor of both p and q in a BST; both values exist. Input: n, p, q, then level-order tokens. Output: the ancestor value."
+tags:
+  - swe-interview
+  - trees
+  - bst
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "7 2 8\n6 2 8 0 4 7 9\n"
+    expected_output: "6\n"
+  - name: ancestor-is-target
+    input: "7 2 4\n6 2 8 0 4 7 9\n"
+    expected_output: "2\n"
+  - name: same-branch
+    input: "7 7 9\n6 2 8 0 4 7 9\n"
+    expected_output: "8\n"
+  - name: edge-same-node
+    input: "7 4 4\n6 2 8 0 4 7 9\n"
+    expected_output: "4\n"
+  - name: edge-root-and-descendant
+    input: "7 6 0\n6 2 8 0 4 7 9\n"
+    expected_output: "6\n"
+  - name: edge-right-subtree
+    input: "7 0 9\n6 2 8 0 4 7 9\n"
+    expected_output: "6\n"

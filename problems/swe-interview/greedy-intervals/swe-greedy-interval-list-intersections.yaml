@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-greedy-interval-list-intersections
+difficulty: medium
+title: Interval List Intersections
+statement: "Find all nonempty intersections of two lists of closed intervals; each list is sorted and internally disjoint. Input: n and m, then n intervals and m intervals. Output: intersection count and pairs."
+tags:
+  - swe-interview
+  - greedy-intervals
+  - two-pointers
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4 4\n0 2\n5 10\n13 23\n24 25\n1 5\n8 12\n15 24\n25 26\n"
+    expected_output: "6\n1 2\n5 5\n8 10\n15 23\n24 24\n25 25\n"
+  - name: touching
+    input: "1 1\n1 3\n3 5\n"
+    expected_output: "1\n3 3\n"
+  - name: none
+    input: "1 1\n1 2\n3 4\n"
+    expected_output: "0\n"
+  - name: edge-empty-first-list
+    input: "0 2\n1 3\n5 7\n"
+    expected_output: "0\n"
+  - name: edge-empty-second-list
+    input: "1 0\n1 4\n"
+    expected_output: "0\n"
+  - name: edge-point-intersection
+    input: "1 1\n-1 0\n0 2\n"
+    expected_output: "1\n0 0\n"

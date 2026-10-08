@@ -60,3 +60,9 @@ test_cases:
       WAKE
     expected_output: |
       ERROR NEW
+  - name: dispatch-preempt-and-exit
+    input: "READY 4\nDISPATCH\nPREEMPT\nDISPATCH\nEXIT\n"
+    expected_output: "RUNNING\nREADY\nRUNNING\nEXITED\n"
+  - name: no-events
+    input: "BLOCKED 0\n"
+    expected_output: ""

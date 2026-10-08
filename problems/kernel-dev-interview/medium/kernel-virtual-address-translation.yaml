@@ -57,3 +57,9 @@ test_cases:
     expected_output: |
       -1
       -1
+  - name: page-boundaries-and-next-unmapped-page
+    input: "4096 1 3\n2 7\n8192\n12287\n12288\n"
+    expected_output: "28672\n32767\n-1\n"
+  - name: empty-map-multiple-queries
+    input: "16 0 2\n0\n4095\n"
+    expected_output: "-1\n-1\n"

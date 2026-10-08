@@ -69,3 +69,9 @@ test_cases:
     expected_output: |
       0
       6
+  - name: coalesce-aligned-allocations-back-to-full-range
+    input: "16 5\nALLOC a 4 8\nALLOC b 4 8\nFREE a\nFREE b\nALLOC c 16 16\n"
+    expected_output: "0\n8\nOK\nOK\n0\n"
+  - name: aligned-fit-around-fragmentation
+    input: "10 6\nALLOC a 3 1\nALLOC b 2 1\nFREE a\nALLOC c 2 4\nALLOC d 2 4\nFREE b\n"
+    expected_output: "0\n3\nOK\n0\n8\nOK\n"

@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-tree-build-preorder-inorder
+difficulty: medium
+title: Build Tree From Traversals
+statement: "Construct a binary tree from its unique-valued preorder and inorder traversals. Input: n, preorder values, then inorder values. Output: the tree as level-order tokens with trailing null tokens omitted."
+tags:
+  - swe-interview
+  - trees
+  - dfs
+  - tree-construction
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n3 9 20 15 7\n9 3 15 20 7\n"
+    expected_output: "3 9 20 null null 15 7\n"
+  - name: three-nodes
+    input: "3\n1 2 3\n2 1 3\n"
+    expected_output: "1 2 3\n"
+  - name: single
+    input: "1\n5\n5\n"
+    expected_output: "5\n"
+  - name: edge-left-skewed
+    input: "4\n4 3 2 1\n1 2 3 4\n"
+    expected_output: "4 3 null 2 null 1\n"
+  - name: edge-right-skewed
+    input: "4\n1 2 3 4\n1 2 3 4\n"
+    expected_output: "1 null 2 null 3 null 4\n"
+  - name: edge-two-nodes
+    input: "2\n1 2\n1 2\n"
+    expected_output: "1 null 2\n"

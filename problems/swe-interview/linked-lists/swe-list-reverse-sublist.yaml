@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-list-reverse-sublist
+difficulty: medium
+title: Reverse a Linked List Sublist
+statement: "Reverse the nodes from positions left through right, using 1-based positions. Input: n, then n values, then left and right. Output: the resulting list."
+tags:
+  - swe-interview
+  - linked-lists
+  - pointers
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n1 2 3 4 5\n2 4\n"
+    expected_output: "1 4 3 2 5\n"
+  - name: whole-list
+    input: "4\n1 2 3 4\n1 4\n"
+    expected_output: "4 3 2 1\n"
+  - name: single-node
+    input: "3\n1 2 3\n2 2\n"
+    expected_output: "1 2 3\n"
+  - name: edge-two-node-reverse
+    input: "2\n1 2\n1 2\n"
+    expected_output: "2 1\n"
+  - name: edge-prefix
+    input: "4\n1 2 3 4\n1 3\n"
+    expected_output: "3 2 1 4\n"
+  - name: edge-suffix
+    input: "4\n1 2 3 4\n2 4\n"
+    expected_output: "1 4 3 2\n"

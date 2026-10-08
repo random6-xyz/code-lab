@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-graph-evaluate-division
+difficulty: medium
+title: Evaluate Division
+statement: "Given equations a/b=value, answer each query; return -1 when no relation is known. Input: equation count, then a b value lines; query count, then query pairs. Output: one result per query with six decimal places."
+tags:
+  - swe-interview
+  - graphs
+  - graph-traversal
+  - weighted-graph
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "2\na b 2.0\nb c 3.0\n3\na c\nb a\na e\n"
+    expected_output: "6.000000\n0.500000\n-1.000000\n"
+  - name: self-query
+    input: "1\nx y 4.0\n2\nx x\ny y\n"
+    expected_output: "1.000000\n1.000000\n"
+  - name: disconnected
+    input: "2\na b 2.0\nc d 3.0\n1\na d\n"
+    expected_output: "-1.000000\n"
+  - name: edge-unknown-variable
+    input: "1\na b 2.0\n2\na z\nz z\n"
+    expected_output: "-1.000000\n-1.000000\n"
+  - name: edge-long-chain
+    input: "3\na b 2.0\nb c 3.0\nc d 4.0\n2\na d\nd a\n"
+    expected_output: "24.000000\n0.041667\n"
+  - name: edge-negative-ratio
+    input: "1\nx y -2.0\n1\nx y\n"
+    expected_output: "-2.000000\n"

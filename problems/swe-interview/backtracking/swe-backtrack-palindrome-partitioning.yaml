@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-backtrack-palindrome-partitioning
+difficulty: medium
+title: Palindrome Partitioning
+statement: "Split a string into substrings so every part is a palindrome. Order partitions lexicographically by their sequence of parts; join parts with |. Input: one lowercase string. Output: count and one partition per line."
+tags:
+  - swe-interview
+  - backtracking
+  - recursion
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "aab\n"
+    expected_output: "2\na|a|b\naa|b\n"
+  - name: single
+    input: "a\n"
+    expected_output: "1\na\n"
+  - name: two-letters
+    input: "ab\n"
+    expected_output: "1\na|b\n"
+  - name: edge-even-palindrome
+    input: "abba\n"
+    expected_output: "3\na|b|b|a\na|bb|a\nabba\n"
+  - name: edge-no-long-palindrome
+    input: "abc\n"
+    expected_output: "1\na|b|c\n"
+  - name: edge-repeated-letters
+    input: "aaa\n"
+    expected_output: "4\na|a|a\na|aa\naa|a\naaa\n"

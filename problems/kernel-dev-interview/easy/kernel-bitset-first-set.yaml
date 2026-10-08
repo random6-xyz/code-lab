@@ -44,3 +44,6 @@ test_cases:
       1
     expected_output: |
       0
+  - name: lowest-bit-among-many-set-bits
+    input: "2 12 1\n"
+    expected_output: "2\n"

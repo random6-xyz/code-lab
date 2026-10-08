@@ -45,3 +45,9 @@ test_cases:
     expected_output: |
       10
       5 5 2 9
+  - name: only-request-is-at-head
+    input: "5 DOWN 1\n5\n"
+    expected_output: "0\n5\n"
+  - name: downward-then-upward
+    input: "50 DOWN 5\n10 20 40 60 90\n"
+    expected_output: "120\n40 20 10 60 90\n"

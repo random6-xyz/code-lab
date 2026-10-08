@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-two-backspace-compare
+difficulty: medium
+title: Backspace String Compare
+statement: "In each string, # deletes the previous character if one exists. Determine whether the resulting strings are equal. Input: two strings on separate lines. Output: true or false."
+tags:
+  - swe-interview
+  - two-pointers
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "ab#c\nad#c\n"
+    expected_output: "true\n"
+  - name: different
+    input: "a#c\nb\n"
+    expected_output: "false\n"
+  - name: leading-backspaces
+    input: "###a\na\n"
+    expected_output: "true\n"
+  - name: both-empty-after-deletes
+    input: "#\n##\n"
+    expected_output: "true\n"
+  - name: same-after-multiple-deletes
+    input: "ab##c\na#c\n"
+    expected_output: "true\n"
+  - name: different-lengths
+    input: "xy##\nx\n"
+    expected_output: "false\n"

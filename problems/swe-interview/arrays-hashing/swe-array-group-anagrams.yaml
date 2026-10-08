@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-array-group-anagrams
+difficulty: medium
+title: Group Anagrams
+statement: "Group words that contain the same letters. Sort words within each group and order groups by their first word. Input: n followed by n lowercase words. Output: group count, then one space-separated group per line."
+tags:
+  - swe-interview
+  - arrays-hashing
+  - hash-map
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6\neat tea tan ate nat bat\n"
+    expected_output: "3\nate eat tea\nbat\nnat tan\n"
+  - name: single-group
+    input: "4\nabc bca cab abc\n"
+    expected_output: "1\nabc abc bca cab\n"
+  - name: empty
+    input: "0\n\n"
+    expected_output: "0\n"
+  - name: single-anagram-group
+    input: "3\nlisten silent enlist\n"
+    expected_output: "1\nenlist listen silent\n"
+  - name: separate-words
+    input: "3\ncat dog act\n"
+    expected_output: "2\nact cat\ndog\n"
+  - name: one-word-case
+    input: "1\nsolo\n"
+    expected_output: "1\nsolo\n"

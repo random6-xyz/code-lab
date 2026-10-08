@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-trie-word-search
+difficulty: medium
+title: Word Search With Trie
+statement: "Given a character board and a list of distinct words, return all dictionary words that can be formed by moving horizontally or vertically without reusing a cell. Sort results lexicographically. Input: rows, columns, board rows, word count, words. Output: count and one word per line."
+tags:
+  - swe-interview
+  - tries
+  - prefix-tree
+  - backtracking
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4 4\noaan\netae\nihkr\niflv\n4\noath pea eat rain\n"
+    expected_output: "2\neat\noath\n"
+  - name: single-match
+    input: "2 2\nab\ncd\n2\nab\nac\n"
+    expected_output: "2\nab\nac\n"
+  - name: none
+    input: "1 2\nab\n2\nzz\nyy\n"
+    expected_output: "0\n"
+  - name: edge-one-cell-match
+    input: "1 1\na\n1\na\n"
+    expected_output: "1\na\n"
+  - name: edge-word-longer-than-board
+    input: "1 2\nab\n1\naba\n"
+    expected_output: "0\n"
+  - name: edge-diagonal-not-allowed
+    input: "2 2\nab\ncd\n1\nad\n"
+    expected_output: "0\n"

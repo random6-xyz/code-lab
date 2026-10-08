@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-trie-wildcard-dictionary
+difficulty: medium
+title: Wildcard Word Dictionary
+statement: "Support addWord and search operations; search patterns may use . to match any single character. Input: q commands, each add word or search pattern. Output: one boolean per search."
+tags:
+  - swe-interview
+  - tries
+  - design
+  - prefix-tree
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\nadd bad\nadd dad\nsearch pad\nsearch bad\nsearch .ad\n"
+    expected_output: "false\ntrue\ntrue\n"
+  - name: length-check
+    input: "3\nadd a\nsearch .\nsearch ..\n"
+    expected_output: "true\nfalse\n"
+  - name: multiple-wildcards
+    input: "3\nadd code\nsearch c..e\nsearch ....\n"
+    expected_output: "true\ntrue\n"
+  - name: edge-wildcard-first
+    input: "4\nadd abc\nadd adc\nsearch .bc\nsearch a..\n"
+    expected_output: "true\ntrue\n"
+  - name: edge-no-match
+    input: "2\nadd cat\nsearch d.t\n"
+    expected_output: "false\n"
+  - name: edge-dot-count
+    input: "3\nadd ab\nsearch .\nsearch ..\n"
+    expected_output: "false\ntrue\n"

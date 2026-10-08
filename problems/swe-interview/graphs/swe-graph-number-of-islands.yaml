@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-graph-number-of-islands
+difficulty: medium
+title: Number of Islands
+statement: "Count connected groups of land in a grid; cells connect horizontally and vertically. Input: rows, columns, then rows of 0/1 characters. Output: island count."
+tags:
+  - swe-interview
+  - graphs
+  - dfs
+  - bfs
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4 5\n11000\n11000\n00100\n00011\n"
+    expected_output: "3\n"
+  - name: all-water
+    input: "2 3\n000\n000\n"
+    expected_output: "0\n"
+  - name: one-component
+    input: "2 3\n101\n111\n"
+    expected_output: "1\n"
+  - name: edge-diagonal-islands
+    input: "2 2\n10\n01\n"
+    expected_output: "2\n"
+  - name: edge-single-land
+    input: "1 1\n1\n"
+    expected_output: "1\n"
+  - name: edge-one-row
+    input: "1 5\n11011\n"
+    expected_output: "2\n"

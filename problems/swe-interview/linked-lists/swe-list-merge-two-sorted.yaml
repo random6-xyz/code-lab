@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-list-merge-two-sorted
+difficulty: medium
+title: Merge Two Sorted Lists
+statement: "Merge two ascending linked lists into one ascending list. Input: n, first list, m, second list. Output: the merged values."
+tags:
+  - swe-interview
+  - linked-lists
+  - merge
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\n1 2 4\n3\n1 3 4\n"
+    expected_output: "1 1 2 3 4 4\n"
+  - name: one-empty
+    input: "0\n\n2\n-1 5\n"
+    expected_output: "-1 5\n"
+  - name: interleaved
+    input: "2\n2 6\n3\n1 3 7\n"
+    expected_output: "1 2 3 6 7\n"
+  - name: edge-both-empty
+    input: "0\n\n0\n\n"
+    expected_output: "\n"
+  - name: edge-duplicates
+    input: "3\n1 2 2\n3\n2 2 3\n"
+    expected_output: "1 2 2 2 2 3\n"
+  - name: edge-all-negative
+    input: "2\n-5 -1\n2\n-4 -2\n"
+    expected_output: "-5 -4 -2 -1\n"

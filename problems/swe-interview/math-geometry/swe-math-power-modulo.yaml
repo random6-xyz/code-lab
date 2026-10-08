@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-math-power-modulo
+difficulty: medium
+title: Fast Power Modulo
+statement: "Compute base^exponent modulo 1,000,000,007. The exponent is nonnegative and the base may be negative. Input: base and exponent. Output: the normalized modular result."
+tags:
+  - swe-interview
+  - math-geometry
+  - number-theory
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "2 10\n"
+    expected_output: "1024\n"
+  - name: zero-exponent
+    input: "3 0\n"
+    expected_output: "1\n"
+  - name: negative-base
+    input: "-2 5\n"
+    expected_output: "999999975\n"
+  - name: edge-unit-base
+    input: "1 1000000000\n"
+    expected_output: "1\n"
+  - name: edge-zero-base
+    input: "0 42\n"
+    expected_output: "0\n"
+  - name: edge-negative-unit
+    input: "-1 999\n"
+    expected_output: "1000000006\n"

@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-dp-longest-common-subsequence
+difficulty: medium
+title: Longest Common Subsequence
+statement: "Find the length of the longest sequence that appears in both strings in the same order, not necessarily contiguously. Input: two strings. Output: the length."
+tags:
+  - swe-interview
+  - dynamic-programming
+  - 2d-dp
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "abcde\nace\n"
+    expected_output: "3\n"
+  - name: no-match
+    input: "abc\ndef\n"
+    expected_output: "0\n"
+  - name: identical
+    input: "banana\nbanana\n"
+    expected_output: "6\n"
+  - name: edge-empty-first
+    input: "\nabc\n"
+    expected_output: "0\n"
+  - name: edge-repeated-letters
+    input: "4\naaaa\n2\naa\n"
+    expected_output: "2\n"
+  - name: edge-one-character-match
+    input: "abc\nzbc\n"
+    expected_output: "2\n"

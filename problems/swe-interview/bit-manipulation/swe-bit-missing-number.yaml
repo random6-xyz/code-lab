@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-bit-missing-number
+difficulty: medium
+title: Missing Number
+statement: "An array contains distinct values from 0 through n with one value missing. Find the missing value. Input: n followed by n values. Output: the missing value."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - bitwise
+  - xor
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\n3 0 1\n"
+    expected_output: "2\n"
+  - name: zero-missing
+    input: "3\n1 2 3\n"
+    expected_output: "0\n"
+  - name: last-missing
+    input: "4\n0 1 2 3\n"
+    expected_output: "4\n"
+  - name: edge-empty-array
+    input: "0\n\n"
+    expected_output: "0\n"
+  - name: edge-middle-missing
+    input: "5\n0 1 3 4 5\n"
+    expected_output: "2\n"
+  - name: edge-first-missing
+    input: "4\n1 2 3 4\n"
+    expected_output: "0\n"

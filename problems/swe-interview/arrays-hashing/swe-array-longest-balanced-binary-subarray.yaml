@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-array-longest-balanced-binary-subarray
+difficulty: medium
+title: Longest Balanced Binary Subarray
+statement: "Find the longest contiguous subarray containing the same number of zeroes and ones. Input: n followed by n binary values. Output: its length."
+tags:
+  - swe-interview
+  - arrays-hashing
+  - prefix-sum
+  - hash-map
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "2\n0 1\n"
+    expected_output: "2\n"
+  - name: overlap
+    input: "3\n0 1 0\n"
+    expected_output: "2\n"
+  - name: longer
+    input: "8\n0 0 1 0 0 0 1 1\n"
+    expected_output: "6\n"
+  - name: all-zeroes
+    input: "4\n0 0 0 0\n"
+    expected_output: "0\n"
+  - name: alternating
+    input: "4\n1 0 1 0\n"
+    expected_output: "4\n"
+  - name: single-value
+    input: "1\n1\n"
+    expected_output: "0\n"

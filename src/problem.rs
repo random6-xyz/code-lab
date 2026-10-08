@@ -9,6 +9,7 @@ use serde::Deserialize;
 
 const MAX_TIME_LIMIT_MS: u64 = 300_000;
 const MAX_MEMORY_LIMIT_MB: u64 = 8_192;
+const MIN_TEST_CASES: usize = 6;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]
 #[serde(rename_all = "lowercase")]
@@ -100,8 +101,11 @@ impl Problem {
                 self.id
             );
         }
-        if self.test_cases.is_empty() {
-            bail!("problem '{}' must define at least one test case", self.id);
+        if self.test_cases.len() < MIN_TEST_CASES {
+            bail!(
+                "problem '{}' must define at least {MIN_TEST_CASES} test cases",
+                self.id
+            );
         }
 
         let mut names = HashSet::new();
@@ -194,7 +198,7 @@ pub fn find_problem<'a>(problems: &'a [Problem], id: &str) -> Result<&'a Problem
 
 #[cfg(test)]
 mod tests {
-    use super::{Difficulty, Problem, TestCase};
+    use super::{Difficulty, MIN_TEST_CASES, Problem, TestCase};
 
     fn valid_problem() -> Problem {
         Problem {
@@ -206,11 +210,13 @@ mod tests {
             tags: Vec::new(),
             time_limit_ms: 1_000,
             memory_limit_mb: 128,
-            test_cases: vec![TestCase {
-                name: "example".to_owned(),
-                input: "2 3\n".to_owned(),
-                expected_output: "5\n".to_owned(),
-            }],
+            test_cases: (0..MIN_TEST_CASES)
+                .map(|index| TestCase {
+                    name: format!("example-{index}"),
+                    input: "2 3\n".to_owned(),
+                    expected_output: "5\n".to_owned(),
+                })
+                .collect(),
         }
     }
 
@@ -256,15 +262,15 @@ mod tests {
     }
 
     #[test]
-    fn rejects_empty_tests_and_duplicate_names() {
+    fn rejects_fewer_than_six_tests_and_duplicate_names() {
         let mut problem = valid_problem();
-        problem.test_cases.clear();
+        problem.test_cases.truncate(5);
         assert!(
             problem
                 .validate()
                 .unwrap_err()
                 .to_string()
-                .contains("at least one")
+                .contains("at least 6")
         );
 
         let mut problem = valid_problem();

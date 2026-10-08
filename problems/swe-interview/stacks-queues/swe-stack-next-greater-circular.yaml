@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-stack-next-greater-circular
+difficulty: medium
+title: Next Greater Element II
+statement: "For each value in a circular array, find the next greater value while scanning forward; use -1 if none exists. Input: n followed by n integers. Output: the answers in order."
+tags:
+  - swe-interview
+  - stacks-queues
+  - monotonic-stack
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n1 2 1 3 2\n"
+    expected_output: "2 3 3 -1 3\n"
+  - name: decreasing
+    input: "3\n3 2 1\n"
+    expected_output: "-1 3 3\n"
+  - name: single
+    input: "1\n7\n"
+    expected_output: "-1\n"
+  - name: edge-increasing
+    input: "3\n1 2 3\n"
+    expected_output: "2 3 -1\n"
+  - name: edge-equal-values
+    input: "4\n5 5 5 5\n"
+    expected_output: "-1 -1 -1 -1\n"
+  - name: edge-negative
+    input: "3\n-3 -1 -2\n"
+    expected_output: "-1 -1 -1\n"

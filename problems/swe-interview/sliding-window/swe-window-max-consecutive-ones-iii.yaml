@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-window-max-consecutive-ones-iii
+difficulty: medium
+title: Max Consecutive Ones III
+statement: "Find the longest subarray containing only ones after flipping at most k zeroes. Input: n and k followed by n binary values. Output: the maximum length."
+tags:
+  - swe-interview
+  - sliding-window
+  - binary-array
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "11 2\n1 1 1 0 0 0 1 1 1 1 0\n"
+    expected_output: "6\n"
+  - name: all-ones
+    input: "5 0\n1 1 1 1 1\n"
+    expected_output: "5\n"
+  - name: flip-all
+    input: "4 4\n0 0 0 0\n"
+    expected_output: "4\n"
+  - name: no-flips
+    input: "4 0\n1 0 1 1\n"
+    expected_output: "2\n"
+  - name: all-ones-zero-budget
+    input: "3 0\n1 1 1\n"
+    expected_output: "3\n"
+  - name: empty-array
+    input: "0 2\n\n"
+    expected_output: "0\n"

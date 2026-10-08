@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-bit-counting-bits
+difficulty: medium
+title: Counting Bits
+statement: "For every integer from 0 through n, count its set bits. Input: n. Output: n+1 counts in order."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - popcount
+  - dynamic-programming
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n"
+    expected_output: "0 1 1 2 1 2\n"
+  - name: zero
+    input: "0\n"
+    expected_output: "0\n"
+  - name: power-of-two
+    input: "8\n"
+    expected_output: "0 1 1 2 1 2 2 3 1\n"
+  - name: edge-one
+    input: "1\n"
+    expected_output: "0 1\n"
+  - name: edge-ten
+    input: "10\n"
+    expected_output: "0 1 1 2 1 2 2 3 1 2 2\n"
+  - name: edge-power-of-two-neighbor
+    input: "3\n"
+    expected_output: "0 1 1 2\n"

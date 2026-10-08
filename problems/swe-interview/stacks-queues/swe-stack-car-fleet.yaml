@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-stack-car-fleet
+difficulty: medium
+title: Car Fleet
+statement: "Cars travel toward a target at constant speeds and cannot pass one another. Count the fleets that reach the target. Input: target, n, then n positions and n speeds. Output: fleet count."
+tags:
+  - swe-interview
+  - stacks-queues
+  - monotonic-stack
+  - sorting
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "12 5\n10 8 0 5 3\n2 4 1 1 3\n"
+    expected_output: "3\n"
+  - name: single
+    input: "10 1\n3\n3\n"
+    expected_output: "1\n"
+  - name: one-fleet
+    input: "10 3\n0 4 8\n2 2 2\n"
+    expected_output: "1\n"
+  - name: edge-same-arrival-time
+    input: "10 2\n0 5\n2 1\n"
+    expected_output: "1\n"
+  - name: edge-no-catch-up
+    input: "10 3\n0 3 6\n1 1 1\n"
+    expected_output: "3\n"
+  - name: edge-same-position-not-allowed
+    input: "10 2\n1 4\n2 2\n"
+    expected_output: "2\n"

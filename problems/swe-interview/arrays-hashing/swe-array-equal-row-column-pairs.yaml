@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-array-equal-row-column-pairs
+difficulty: medium
+title: Equal Row and Column Pairs
+statement: "Count pairs (r, c) for which row r is identical to column c. Input: n followed by an n-by-n integer matrix. Output: the pair count."
+tags:
+  - swe-interview
+  - arrays-hashing
+  - hash-map
+  - matrix
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\n3 2 1\n1 7 6\n2 7 7\n"
+    expected_output: "1\n"
+  - name: identity
+    input: "3\n1 0 0\n0 1 0\n0 0 1\n"
+    expected_output: "3\n"
+  - name: no-match
+    input: "2\n1 2\n3 4\n"
+    expected_output: "0\n"
+  - name: all-rows-equal
+    input: "2\n1 1\n1 1\n"
+    expected_output: "4\n"
+  - name: single-cell
+    input: "1\n-4\n"
+    expected_output: "1\n"
+  - name: reversed-identity
+    input: "2\n0 1\n1 0\n"
+    expected_output: "2\n"

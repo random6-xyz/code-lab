@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-two-three-sum-closest
+difficulty: medium
+title: Three Sum Closest
+statement: "Choose three values whose sum is closest to target; ties choose the smaller sum. Input: n and target followed by n integers. Output: the chosen sum."
+tags:
+  - swe-interview
+  - two-pointers
+  - sorting
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4 1\n-1 2 1 -4\n"
+    expected_output: "2\n"
+  - name: exact
+    input: "5 10\n1 2 3 4 5\n"
+    expected_output: "10\n"
+  - name: negative-target
+    input: "3 -10\n-8 -2 1\n"
+    expected_output: "-9\n"
+  - name: tie-chooses-smaller-sum
+    input: "4 6\n0 1 4 6\n"
+    expected_output: "5\n"
+  - name: all-negative
+    input: "4 -10\n-8 -5 -2 1\n"
+    expected_output: "-9\n"
+  - name: exact-negative
+    input: "3 -6\n-5 -2 1\n"
+    expected_output: "-6\n"

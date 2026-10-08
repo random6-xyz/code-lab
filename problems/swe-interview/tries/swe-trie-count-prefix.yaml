@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-trie-count-prefix
+difficulty: medium
+title: Count Words With Each Prefix
+statement: "For every query prefix, count how many dictionary words start with it. Input: n and q, n words, then q prefixes. Output: one count per query."
+tags:
+  - swe-interview
+  - tries
+  - prefix-tree
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5 3\napple app apply apt bat\napp ap b\n"
+    expected_output: "3\n4\n1\n"
+  - name: duplicates
+    input: "4 2\ncat cat car dog\nca cat\n"
+    expected_output: "3\n2\n"
+  - name: missing
+    input: "2 2\na ab\nz abc\n"
+    expected_output: "0\n0\n"
+  - name: edge-prefix-is-whole-word
+    input: "3 3\ncar cart carbon\ncar cart carbon\n"
+    expected_output: "3\n2\n1\n"
+  - name: edge-empty-match
+    input: "4 2\na ab b ba\na z\n"
+    expected_output: "2\n0\n"
+  - name: edge-overlap
+    input: "4 2\napp apple apply ape\nap ap\n"
+    expected_output: "4\n4\n"

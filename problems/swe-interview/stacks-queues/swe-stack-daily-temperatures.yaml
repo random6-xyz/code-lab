@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-stack-daily-temperatures
+difficulty: medium
+title: Daily Temperatures
+statement: "For each day, find how many days pass until a warmer temperature; use 0 if none exists. Input: n followed by n temperatures. Output: the waits in order."
+tags:
+  - swe-interview
+  - stacks-queues
+  - monotonic-stack
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "8\n73 74 75 71 69 72 76 73\n"
+    expected_output: "1 1 4 2 1 1 0 0\n"
+  - name: decreasing
+    input: "4\n5 4 3 2\n"
+    expected_output: "0 0 0 0\n"
+  - name: equal
+    input: "3\n4 4 5\n"
+    expected_output: "2 1 0\n"
+  - name: edge-all-warmer
+    input: "3\n30 40 50\n"
+    expected_output: "1 1 0\n"
+  - name: edge-equal-before-warmer
+    input: "3\n70 70 71\n"
+    expected_output: "2 1 0\n"
+  - name: edge-single
+    input: "1\n100\n"
+    expected_output: "0\n"

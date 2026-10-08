@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-binary-search-row-column-matrix
+difficulty: medium
+title: Search a Row and Column Sorted Matrix
+statement: "Search for target in a matrix whose rows and columns are each strictly increasing. Input: m, n, target, then the matrix. Output: true or false."
+tags:
+  - swe-interview
+  - binary-search
+  - matrix-search
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5 5 5\n1 4 7 11 15\n2 5 8 12 19\n3 6 9 16 22\n10 13 14 17 24\n18 21 23 26 30\n"
+    expected_output: "true\n"
+  - name: missing
+    input: "2 3 20\n1 4 7\n2 5 9\n"
+    expected_output: "false\n"
+  - name: corner
+    input: "2 2 1\n1 3\n4 6\n"
+    expected_output: "true\n"
+  - name: edge-single-cell-hit
+    input: "1 1 4\n4\n"
+    expected_output: "true\n"
+  - name: edge-single-cell-miss
+    input: "1 1 5\n4\n"
+    expected_output: "false\n"
+  - name: edge-single-column
+    input: "3 1 2\n1\n2\n3\n"
+    expected_output: "true\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-heap-smallest-range-k-lists
+difficulty: medium
+title: Smallest Range Covering K Lists
+statement: "Choose a range containing at least one value from every sorted list; minimize its width, then its start. Input: k, then each list length and sorted values. Output: the range endpoints."
+tags:
+  - swe-interview
+  - heaps
+  - k-way-merge
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\n5 4 10 15 24 26\n4 0 9 12 20\n5 5 18 22 30 35\n"
+    expected_output: "20 24\n"
+  - name: single-value-lists
+    input: "3\n1 1\n1 2\n1 3\n"
+    expected_output: "1 3\n"
+  - name: negative
+    input: "2\n3 -5 -2 0\n3 -4 -1 2\n"
+    expected_output: "-5 -4\n"
+  - name: edge-one-list
+    input: "1\n4 -3 -1 2 8\n"
+    expected_output: "-3 -3\n"
+  - name: edge-identical-values
+    input: "2\n2 5 9\n2 5 10\n"
+    expected_output: "5 5\n"
+  - name: edge-negative-range
+    input: "2\n2 -8 -4\n2 -7 -3\n"
+    expected_output: "-8 -7\n"

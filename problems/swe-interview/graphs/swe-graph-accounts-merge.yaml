@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-graph-accounts-merge
+difficulty: medium
+title: Accounts Merge
+statement: "Accounts with a shared email belong to the same person. Merge connected accounts, sort emails in each result, and order groups by their smallest email. Input: n, then for each account a name, email count, and emails. Output: group count, then name followed by emails."
+tags:
+  - swe-interview
+  - graphs
+  - union-find
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\nJohn 2 johnsmith@mail.com john_newyork@mail.com\nJohn 2 johnsmith@mail.com john00@mail.com\nMary 1 mary@mail.com\n"
+    expected_output: "2\nJohn john00@mail.com john_newyork@mail.com johnsmith@mail.com\nMary mary@mail.com\n"
+  - name: same-name-separate
+    input: "2\nAlex 1 a@mail.com\nAlex 1 b@mail.com\n"
+    expected_output: "2\nAlex a@mail.com\nAlex b@mail.com\n"
+  - name: transitive
+    input: "3\nA 2 x@mail.com y@mail.com\nB 2 y@mail.com z@mail.com\nC 1 q@mail.com\n"
+    expected_output: "2\nC q@mail.com\nA x@mail.com y@mail.com z@mail.com\n"
+  - name: edge-single-account
+    input: "1\nTaylor 2 t@mail.com x@mail.com\n"
+    expected_output: "1\nTaylor t@mail.com x@mail.com\n"
+  - name: edge-two-accounts-merge
+    input: "2\nSam 1 s@mail.com\nSam 2 s@mail.com a@mail.com\n"
+    expected_output: "1\nSam a@mail.com s@mail.com\n"
+  - name: edge-unrelated-groups
+    input: "2\nB 1 b@mail.com\nA 1 a@mail.com\n"
+    expected_output: "2\nA a@mail.com\nB b@mail.com\n"

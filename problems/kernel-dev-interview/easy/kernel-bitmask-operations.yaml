@@ -59,3 +59,9 @@ test_cases:
       128
       0
       0
+  - name: set-test-and-clear-bit-zero
+    input: "0 3\nSET 0\nTEST 0\nCLEAR 0\n"
+    expected_output: "1\n1\n0\n"
+  - name: no-operations
+    input: "123 0\n"
+    expected_output: ""

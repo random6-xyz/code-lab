@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-stack-evaluate-rpn
+difficulty: medium
+title: Evaluate Reverse Polish Notation
+statement: "Evaluate an expression of integer tokens and +, -, *, /. Division truncates toward zero. Input: n followed by n tokens. Output: the integer result."
+tags:
+  - swe-interview
+  - stacks-queues
+  - stack
+  - parsing
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n2 1 + 3 *\n"
+    expected_output: "9\n"
+  - name: negative-division
+    input: "5\n-7 2 / 3 +\n"
+    expected_output: "0\n"
+  - name: subtraction
+    input: "3\n8 3 -\n"
+    expected_output: "5\n"
+  - name: edge-subtract-order
+    input: "3\n3 8 -\n"
+    expected_output: "-5\n"
+  - name: edge-negative-truncation
+    input: "3\n-7 2 /\n"
+    expected_output: "-3\n"
+  - name: edge-single-token
+    input: "1\n42\n"
+    expected_output: "42\n"

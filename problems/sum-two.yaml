@@ -20,3 +20,15 @@ test_cases:
       -4 9
     expected_output: |
       5
+  - name: zero-operands
+    input: "0 0\n"
+    expected_output: "0\n"
+  - name: both-negative
+    input: "-8 -5\n"
+    expected_output: "-13\n"
+  - name: opposite-sign-cancellation
+    input: "123 -123\n"
+    expected_output: "0\n"
+  - name: large-positive-result
+    input: "999999999 1\n"
+    expected_output: "1000000000\n"

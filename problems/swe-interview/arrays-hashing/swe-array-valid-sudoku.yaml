@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-array-valid-sudoku
+difficulty: medium
+title: Valid Sudoku Board
+statement: "Check whether a partially filled 9-by-9 Sudoku board obeys the row, column, and 3-by-3 box uniqueness rules. Input: nine strings of nine characters, using digits or dots. Output: true or false."
+tags:
+  - swe-interview
+  - arrays-hashing
+  - matrix
+  - validation
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: valid
+    input: "53..7....\n6..195...\n.98....6.\n8...6...3\n4..8.3..1\n7...2...6\n.6....28.\n...419..5\n....8..79\n"
+    expected_output: "true\n"
+  - name: duplicate-row
+    input: "55..7....\n6..195...\n.98....6.\n8...6...3\n4..8.3..1\n7...2...6\n.6....28.\n...419..5\n....8..79\n"
+    expected_output: "false\n"
+  - name: empty-board
+    input: ".........\n.........\n.........\n.........\n.........\n.........\n.........\n.........\n.........\n"
+    expected_output: "true\n"
+  - name: duplicate-box
+    input: "1........\n.1.......\n.........\n.........\n.........\n.........\n.........\n.........\n.........\n"
+    expected_output: "false\n"
+  - name: duplicate-column
+    input: "1........\n.........\n.........\n.........\n.........\n.........\n1........\n.........\n.........\n"
+    expected_output: "false\n"
+  - name: single-digit
+    input: ".........\n.........\n.........\n.........\n....5....\n.........\n.........\n.........\n.........\n"
+    expected_output: "true\n"

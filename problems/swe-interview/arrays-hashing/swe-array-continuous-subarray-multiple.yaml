@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-array-continuous-subarray-multiple
+difficulty: medium
+title: Continuous Subarray Sum Multiple
+statement: "Determine whether an array has a contiguous subarray of length at least two whose sum is divisible by k. When k is zero, look for a subarray with sum zero. Input: n and k followed by n integers. Output: true or false."
+tags:
+  - swe-interview
+  - arrays-hashing
+  - prefix-sum
+  - hash-map
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5 6\n23 2 4 6 7\n"
+    expected_output: "true\n"
+  - name: zero-modulus
+    input: "3 0\n1 -1 0\n"
+    expected_output: "true\n"
+  - name: no-match
+    input: "3 6\n1 2 12\n"
+    expected_output: "false\n"
+  - name: length-one-is-not-enough
+    input: "1 0\n0\n"
+    expected_output: "false\n"
+  - name: unit-divisor
+    input: "3 1\n5 8 -2\n"
+    expected_output: "true\n"
+  - name: negative-multiple
+    input: "3 5\n2 -7 4\n"
+    expected_output: "true\n"

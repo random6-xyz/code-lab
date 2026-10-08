@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-greedy-gas-station
+difficulty: medium
+title: Gas Station Circuit
+statement: "A car uses one unit of fuel per distance unit. Find the smallest station index from which a full circular route is possible, or -1. Input: n, n gas amounts, then n costs to the next station. Output: the index."
+tags:
+  - swe-interview
+  - greedy-intervals
+  - greedy
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n1 2 3 4 5\n3 4 5 1 2\n"
+    expected_output: "3\n"
+  - name: start-zero
+    input: "3\n2 3 4\n1 2 3\n"
+    expected_output: "0\n"
+  - name: impossible
+    input: "2\n1 2\n2 2\n"
+    expected_output: "-1\n"
+  - name: edge-single-feasible
+    input: "1\n5\n4\n"
+    expected_output: "0\n"
+  - name: edge-single-impossible
+    input: "1\n3\n4\n"
+    expected_output: "-1\n"
+  - name: edge-exact-balance
+    input: "3\n2 2 2\n2 2 2\n"
+    expected_output: "0\n"

@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-trie-prefix-operations
+difficulty: medium
+title: Prefix Trie Operations
+statement: "Maintain a trie with insert, search, and startsWith operations. Input: q followed by commands; insert has no result line. Output: true or false for each search and startsWith command."
+tags:
+  - swe-interview
+  - tries
+  - design
+  - prefix-tree
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6\ninsert apple\nsearch apple\nsearch app\nstartsWith app\ninsert app\nsearch app\n"
+    expected_output: "true\nfalse\ntrue\ntrue\n"
+  - name: prefix-only
+    input: "3\ninsert cat\nstartsWith ca\nsearch ca\n"
+    expected_output: "true\nfalse\n"
+  - name: empty-result
+    input: "2\nsearch dog\nstartsWith dog\n"
+    expected_output: "false\nfalse\n"
+  - name: edge-duplicate-insert
+    input: "5\ninsert cat\ninsert cat\nsearch cat\nstartsWith ca\nsearch car\n"
+    expected_output: "true\ntrue\nfalse\n"
+  - name: edge-nearby-words
+    input: "4\ninsert apple\ninsert apply\nsearch app\nstartsWith appl\n"
+    expected_output: "false\ntrue\n"
+  - name: edge-empty-trie
+    input: "2\nsearch a\nstartsWith a\n"
+    expected_output: "false\nfalse\n"

@@ -39,3 +39,6 @@ test_cases:
       BE 128 0 0 0
     expected_output: |
       2147483648
+  - name: little-endian-mixed-bytes
+    input: "LE 1 2 3 4\n"
+    expected_output: "67305985\n"

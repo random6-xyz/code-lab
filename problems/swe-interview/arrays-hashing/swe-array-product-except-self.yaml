@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-array-product-except-self
+difficulty: medium
+title: Product of Array Except Self
+statement: "Given an integer array, return for every position the product of all other values without using division. Input: n followed by n integers. Output: the n products in order."
+tags:
+  - swe-interview
+  - arrays-hashing
+  - prefix-suffix
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4\n1 2 3 4\n"
+    expected_output: "24 12 8 6\n"
+  - name: zero
+    input: "4\n1 2 0 4\n"
+    expected_output: "0 0 8 0\n"
+  - name: negative-and-zero
+    input: "5\n-1 1 0 -3 3\n"
+    expected_output: "0 0 9 0 0\n"
+  - name: single-element
+    input: "1\n7\n"
+    expected_output: "1\n"
+  - name: two-negatives
+    input: "2\n-2 -3\n"
+    expected_output: "-3 -2\n"
+  - name: multiple-zeroes
+    input: "4\n0 2 0 5\n"
+    expected_output: "0 0 0 0\n"

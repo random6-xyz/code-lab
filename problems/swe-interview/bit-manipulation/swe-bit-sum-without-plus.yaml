@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-bit-sum-without-plus
+difficulty: medium
+title: Add Integers Without Plus
+statement: "Compute x+y using bitwise operations, with signed 32-bit wraparound. Input: x and y. Output: the signed 32-bit result."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - bitwise
+  - xor
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "1 2\n"
+    expected_output: "3\n"
+  - name: negative
+    input: "-2 3\n"
+    expected_output: "1\n"
+  - name: wraparound
+    input: "2147483647 1\n"
+    expected_output: "-2147483648\n"
+  - name: edge-two-negatives
+    input: "-5 -8\n"
+    expected_output: "-13\n"
+  - name: edge-cancel-to-zero
+    input: "123 -123\n"
+    expected_output: "0\n"
+  - name: edge-negative-overflow
+    input: "-2147483648 -1\n"
+    expected_output: "2147483647\n"

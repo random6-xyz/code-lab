@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-list-intersection
+difficulty: medium
+title: Linked List Intersection
+statement: "Two lists have separate prefixes followed by the same shared suffix nodes. Input: prefix lengths a and b, shared-suffix length c, then the a prefix values, b prefix values, and c shared values. Output: the value of the first shared node, or -1 if c is zero."
+tags:
+  - swe-interview
+  - linked-lists
+  - two-pointers
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: shared-suffix
+    input: "2 1 2\n4 1\n5\n8 9\n"
+    expected_output: "8\n"
+  - name: no-shared-node
+    input: "2 2 0\n1 2\n3 4\n\n"
+    expected_output: "-1\n"
+  - name: shared-one
+    input: "1 0 1\n7\n\n9\n"
+    expected_output: "9\n"
+  - name: edge-empty-prefixes
+    input: "0 0 2\n\n\n5 6\n"
+    expected_output: "5\n"
+  - name: edge-shared-tail
+    input: "2 2 1\n1 2\n3 4\n9\n"
+    expected_output: "9\n"
+  - name: edge-no-shared-tail
+    input: "1 1 0\n8\n9\n\n"
+    expected_output: "-1\n"

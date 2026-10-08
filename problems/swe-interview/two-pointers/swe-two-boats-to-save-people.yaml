@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-two-boats-to-save-people
+difficulty: medium
+title: Boats to Save People
+statement: "Each boat carries at most two people and has a weight limit. Find the minimum number of boats. Input: n and limit followed by n weights. Output: the boat count."
+tags:
+  - swe-interview
+  - two-pointers
+  - sorting
+  - greedy
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4 3\n3 2 2 1\n"
+    expected_output: "3\n"
+  - name: pairing
+    input: "4 5\n3 2 2 1\n"
+    expected_output: "2\n"
+  - name: single
+    input: "1 10\n7\n"
+    expected_output: "1\n"
+  - name: exact-capacity-pair
+    input: "3 5\n2 3 5\n"
+    expected_output: "2\n"
+  - name: all-single-boats
+    input: "3 3\n3 3 3\n"
+    expected_output: "3\n"
+  - name: two-people
+    input: "2 8\n4 4\n"
+    expected_output: "1\n"

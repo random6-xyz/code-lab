@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-two-remove-duplicates-twice
+difficulty: medium
+title: Remove Duplicates at Most Twice
+statement: "From a sorted array, keep at most two copies of each value while preserving order. Input: n followed by n sorted integers. Output: the new length, then the retained values."
+tags:
+  - swe-interview
+  - two-pointers
+  - in-place-array
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "7\n1 1 1 2 2 3 3\n"
+    expected_output: "6\n1 1 2 2 3 3\n"
+  - name: all-same
+    input: "5\n4 4 4 4 4\n"
+    expected_output: "2\n4 4\n"
+  - name: empty
+    input: "0\n\n"
+    expected_output: "0\n\n"
+  - name: single-value
+    input: "1\n9\n"
+    expected_output: "1\n9\n"
+  - name: all-duplicates
+    input: "6\n2 2 2 2 2 2\n"
+    expected_output: "2\n2 2\n"
+  - name: already-unique
+    input: "4\n1 2 3 4\n"
+    expected_output: "4\n1 2 3 4\n"

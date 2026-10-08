@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-window-minimum-size-subarray-sum
+difficulty: medium
+title: Minimum Size Subarray Sum
+statement: "For positive integers, find the shortest contiguous subarray whose sum is at least target. Input: target, n, then n positive integers. Output: its length, or 0 if none exists."
+tags:
+  - swe-interview
+  - sliding-window
+  - positive-array
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "7 6\n2 3 1 2 4 3\n"
+    expected_output: "2\n"
+  - name: single
+    input: "4 3\n1 4 5\n"
+    expected_output: "1\n"
+  - name: none
+    input: "20 3\n1 2 3\n"
+    expected_output: "0\n"
+  - name: single-meets-target
+    input: "7 1\n7\n"
+    expected_output: "1\n"
+  - name: target-one
+    input: "1 3\n5 6 7\n"
+    expected_output: "1\n"
+  - name: requires-whole-array
+    input: "11 4\n1 2 3 5\n"
+    expected_output: "4\n"

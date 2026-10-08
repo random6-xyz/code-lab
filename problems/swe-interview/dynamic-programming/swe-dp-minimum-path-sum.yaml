@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-dp-minimum-path-sum
+difficulty: medium
+title: Minimum Path Sum
+statement: "Find the smallest sum along a top-left to bottom-right path, moving only right or down. Input: rows, columns, then nonnegative grid values. Output: the minimum sum."
+tags:
+  - swe-interview
+  - dynamic-programming
+  - 2d-dp
+  - grid
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3 3\n1 3 1\n1 5 1\n4 2 1\n"
+    expected_output: "7\n"
+  - name: single-row
+    input: "1 4\n1 2 3 4\n"
+    expected_output: "10\n"
+  - name: single-cell
+    input: "1 1\n9\n"
+    expected_output: "9\n"
+  - name: edge-zero-costs
+    input: "2 3\n0 0 0\n0 0 0\n"
+    expected_output: "0\n"
+  - name: edge-single-column
+    input: "3 1\n2\n3\n4\n"
+    expected_output: "9\n"
+  - name: edge-single-row
+    input: "1 3\n5 1 2\n"
+    expected_output: "8\n"

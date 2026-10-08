@@ -56,3 +56,9 @@ test_cases:
       init
     expected_output: |
       init
+  - name: lexical-order-without-dependencies
+    input: "3 0\nz a m\n"
+    expected_output: "a\nm\nz\n"
+  - name: cycle-with-two-tasks
+    input: "2 2\nb a\na b\nb a\n"
+    expected_output: "CYCLE\n"

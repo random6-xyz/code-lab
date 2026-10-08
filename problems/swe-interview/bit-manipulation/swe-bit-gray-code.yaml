@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-bit-gray-code
+difficulty: medium
+title: Gray Code
+statement: "Generate the n-bit Gray code sequence in canonical order, where consecutive values differ in one bit. Input: n. Output: the 2^n values."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - bitwise
+  - sequence
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "2\n"
+    expected_output: "0 1 3 2\n"
+  - name: one-bit
+    input: "1\n"
+    expected_output: "0 1\n"
+  - name: zero-bit
+    input: "0\n"
+    expected_output: "0\n"
+  - name: edge-five-bits
+    input: "5\n"
+    expected_output: "0 1 3 2 6 7 5 4 12 13 15 14 10 11 9 8 24 25 27 26 30 31 29 28 20 21 23 22 18 19 17 16\n"
+  - name: edge-three-bits
+    input: "3\n"
+    expected_output: "0 1 3 2 6 7 5 4\n"
+  - name: edge-four-bits
+    input: "4\n"
+    expected_output: "0 1 3 2 6 7 5 4 12 13 15 14 10 11 9 8\n"

@@ -57,3 +57,9 @@ test_cases:
       1
       1
       0
+  - name: zero-count-with-valid-and-invalid-updates
+    input: "0 4\nINC\nGET\nDEC\nGET\n"
+    expected_output: "1\n1\nERROR 0\n0\n"
+  - name: positive-initial-count-no-operations
+    input: "5 0\n"
+    expected_output: ""

@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-list-palindrome
+difficulty: medium
+title: Palindrome Linked List
+statement: "Determine whether the list reads the same forward and backward. Input: n followed by n values. Output: true or false."
+tags:
+  - swe-interview
+  - linked-lists
+  - two-pointers
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n1 2 3 2 1\n"
+    expected_output: "true\n"
+  - name: not-palindrome
+    input: "4\n1 2 2 3\n"
+    expected_output: "false\n"
+  - name: single
+    input: "1\n9\n"
+    expected_output: "true\n"
+  - name: edge-even-palindrome
+    input: "4\n1 2 2 1\n"
+    expected_output: "true\n"
+  - name: edge-single-node
+    input: "1\n-3\n"
+    expected_output: "true\n"
+  - name: edge-empty-list
+    input: "0\n\n"
+    expected_output: "true\n"

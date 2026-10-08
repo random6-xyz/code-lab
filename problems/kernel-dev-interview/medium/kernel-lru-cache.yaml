@@ -59,3 +59,9 @@ test_cases:
     input: |
       3 0
     expected_output: ""
+  - name: get-refreshes-recency-before-eviction
+    input: "2 8\nPUT 1 10\nGET 1\nPUT 2 20\nGET 1\nPUT 3 30\nGET 2\nGET 1\nGET 3\n"
+    expected_output: "10\n10\n-1\n10\n30\n"
+  - name: capacity-one-overwrite-and-eviction
+    input: "1 7\nPUT 1 2\nGET 1\nPUT 1 3\nGET 1\nPUT 2 4\nGET 1\nGET 2\n"
+    expected_output: "2\n3\n-1\n4\n"

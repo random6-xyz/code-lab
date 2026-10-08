@@ -50,3 +50,9 @@ test_cases:
       solo 0 3
     expected_output: |
       solo 3
+  - name: same-arrival-input-order
+    input: "2 2\nB 0 1\nA 0 1\n"
+    expected_output: "B 1\nA 2\n"
+  - name: idle-single-process
+    input: "1 3\np 4 2\n"
+    expected_output: "p 6\n"

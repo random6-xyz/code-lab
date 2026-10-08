@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-stack-remove-k-digits
+difficulty: medium
+title: Remove K Digits
+statement: "Remove exactly k digits from a nonnegative decimal string to form the smallest possible number; remove leading zeroes, returning 0 if empty. Input: digit string and k. Output: the resulting number."
+tags:
+  - swe-interview
+  - stacks-queues
+  - monotonic-stack
+  - greedy
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "1432219 3\n"
+    expected_output: "1219\n"
+  - name: leading-zeroes
+    input: "10200 1\n"
+    expected_output: "200\n"
+  - name: remove-all
+    input: "10 2\n"
+    expected_output: "0\n"
+  - name: edge-remove-none
+    input: "4 0\n1234\n"
+    expected_output: "1234\n"
+  - name: edge-remove-one
+    input: "4 1\n1000\n"
+    expected_output: "0\n"
+  - name: edge-remove-all-but-one
+    input: "5 4\n98765\n"
+    expected_output: "5\n"

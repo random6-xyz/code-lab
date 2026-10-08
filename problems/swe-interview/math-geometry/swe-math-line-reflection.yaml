@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-math-line-reflection
+difficulty: medium
+title: Line Reflection
+statement: "Determine whether a set of distinct integer points is symmetric about some vertical line. Input: n followed by n x/y pairs. Output: true or false."
+tags:
+  - swe-interview
+  - math-geometry
+  - geometry
+  - hash-map
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: symmetric
+    input: "4\n1 1\n-1 1\n1 -1\n-1 -1\n"
+    expected_output: "true\n"
+  - name: asymmetric
+    input: "3\n0 0\n1 1\n2 0\n"
+    expected_output: "true\n"
+  - name: unmatched
+    input: "3\n0 0\n1 1\n3 0\n"
+    expected_output: "false\n"
+  - name: edge-single-point
+    input: "1\n7 -3\n"
+    expected_output: "true\n"
+  - name: edge-pair
+    input: "2\n-4 2\n6 2\n"
+    expected_output: "true\n"
+  - name: edge-missing-counterpart
+    input: "3\n-2 0\n2 0\n1 1\n"
+    expected_output: "false\n"

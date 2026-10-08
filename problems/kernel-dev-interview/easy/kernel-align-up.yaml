@@ -39,3 +39,6 @@ test_cases:
       17 8
     expected_output: |
       24
+  - name: round-across-large-page-boundary
+    input: "4097 4096\n"
+    expected_output: "8192\n"

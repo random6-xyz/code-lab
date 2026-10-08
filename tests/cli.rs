@@ -23,6 +23,18 @@ test_cases:
   - name: negative
     input: "-4 9\n"
     expected_output: "5\n"
+  - name: zero
+    input: "0 0\n"
+    expected_output: "0\n"
+  - name: one-negative
+    input: "-9 2\n"
+    expected_output: "-7\n"
+  - name: cancellation
+    input: "7 -7\n"
+    expected_output: "0\n"
+  - name: large-sum
+    input: "1000000 2000000\n"
+    expected_output: "3000000\n"
 "#
     );
     fs::write(directory.join(format!("{id}.yaml")), yaml).expect("write test problem");
@@ -134,6 +146,29 @@ fn list_rejects_unknown_difficulty() {
 }
 
 #[test]
+fn list_rejects_problem_with_fewer_than_six_test_cases() {
+    let directory = tempdir().expect("temporary directory");
+    write_problem(directory.path());
+    let path = directory.path().join("sample.yaml");
+    let yaml = fs::read_to_string(&path).expect("read test problem");
+    let truncated = yaml
+        .split("  - name: large-sum\n")
+        .next()
+        .expect("find final test case");
+    fs::write(path, truncated).expect("remove final test case");
+
+    let output = cli()
+        .arg("--problems-dir")
+        .arg(directory.path())
+        .arg("list")
+        .output()
+        .expect("run list command");
+
+    assert!(!output.status.success());
+    assert!(String::from_utf8_lossy(&output.stderr).contains("at least 6 test cases"));
+}
+
+#[test]
 fn list_validates_yaml_in_nested_directories() {
     let directory = tempdir().expect("temporary directory");
     let nested = directory.path().join("arrays");
@@ -177,7 +212,7 @@ fn show_displays_problem_statement_tags_and_limits() {
     assert!(stdout.contains("Tags: arithmetic, beginner"));
     assert!(stdout.contains("Time limit: 1000 ms"));
     assert!(stdout.contains("Memory limit: 128 MB"));
-    assert!(stdout.contains("Test cases: 2"));
+    assert!(stdout.contains("Test cases: 6"));
     assert!(stdout.contains("Example: basic"));
     assert!(stdout.contains("Input:\n```text\n2 3\n```"));
     assert!(stdout.contains("Expected output:\n```text\n5\n```"));

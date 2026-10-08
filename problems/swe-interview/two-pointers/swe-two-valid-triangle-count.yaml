@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-two-valid-triangle-count
+difficulty: medium
+title: Valid Triangle Count
+statement: "Count index triplets that can form a non-degenerate triangle from positive side lengths. Input: n followed by n lengths. Output: the count."
+tags:
+  - swe-interview
+  - two-pointers
+  - sorting
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4\n2 2 3 4\n"
+    expected_output: "3\n"
+  - name: duplicates
+    input: "4\n4 2 3 4\n"
+    expected_output: "4\n"
+  - name: impossible
+    input: "4\n1 1 3 4\n"
+    expected_output: "0\n"
+  - name: three-equal-sides
+    input: "3\n1 1 1\n"
+    expected_output: "1\n"
+  - name: degenerate-equality
+    input: "3\n2 2 4\n"
+    expected_output: "0\n"
+  - name: two-sides-only
+    input: "2\n3 4\n"
+    expected_output: "0\n"

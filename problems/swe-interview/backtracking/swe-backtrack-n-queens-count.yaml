@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-backtrack-n-queens-count
+difficulty: medium
+title: N-Queens Count
+statement: "Count placements of n queens on an n-by-n board so no two attack each other. Input: n. Output: the number of distinct placements."
+tags:
+  - swe-interview
+  - backtracking
+  - recursion
+  - bitmask
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: four-queens
+    input: "4\n"
+    expected_output: "2\n"
+  - name: one-queen
+    input: "1\n"
+    expected_output: "1\n"
+  - name: no-solution
+    input: "2\n"
+    expected_output: "0\n"
+  - name: edge-three-queens
+    input: "3\n"
+    expected_output: "0\n"
+  - name: edge-five-queens
+    input: "5\n"
+    expected_output: "10\n"
+  - name: edge-six-queens
+    input: "6\n"
+    expected_output: "4\n"

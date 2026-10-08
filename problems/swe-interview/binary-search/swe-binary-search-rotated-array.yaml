@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-binary-search-rotated-array
+difficulty: medium
+title: Search in Rotated Sorted Array
+statement: "Search for target in a strictly increasing array rotated at an unknown pivot. Input: n and target followed by the array. Output: its index, or -1."
+tags:
+  - swe-interview
+  - binary-search
+  - search
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "7 0\n4 5 6 7 0 1 2\n"
+    expected_output: "4\n"
+  - name: present
+    input: "5 3\n6 7 1 2 3\n"
+    expected_output: "4\n"
+  - name: absent
+    input: "5 8\n6 7 1 2 3\n"
+    expected_output: "-1\n"
+  - name: edge-two-elements
+    input: "2 1\n3 1\n"
+    expected_output: "1\n"
+  - name: edge-first-index
+    input: "5 4\n4 5 6 1 2\n"
+    expected_output: "0\n"
+  - name: edge-absent-between-values
+    input: "4 3\n4 5 1 2\n"
+    expected_output: "-1\n"

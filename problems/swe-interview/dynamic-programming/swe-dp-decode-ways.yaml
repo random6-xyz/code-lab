@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-dp-decode-ways
+difficulty: medium
+title: Decode Ways
+statement: "Digits map 1..26 to letters. Count decodings of the entire digit string; a code cannot begin with zero. Input: one digit string. Output: the number of decodings."
+tags:
+  - swe-interview
+  - dynamic-programming
+  - 1d-dp
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "226\n"
+    expected_output: "3\n"
+  - name: leading-zero
+    input: "06\n"
+    expected_output: "0\n"
+  - name: zero-inside
+    input: "11106\n"
+    expected_output: "2\n"
+  - name: edge-ten
+    input: "10\n"
+    expected_output: "1\n"
+  - name: edge-no-leading-zero
+    input: "27\n"
+    expected_output: "1\n"
+  - name: edge-zero-between
+    input: "100\n"
+    expected_output: "0\n"

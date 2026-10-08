@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-stack-online-stock-span
+difficulty: medium
+title: Online Stock Span
+statement: "For each price, report the number of consecutive days ending today whose prices were no greater than today's price. Input: n followed by n prices. Output: the spans."
+tags:
+  - swe-interview
+  - stacks-queues
+  - monotonic-stack
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "7\n100 80 60 70 60 75 85\n"
+    expected_output: "1 1 1 2 1 4 6\n"
+  - name: increasing
+    input: "4\n1 2 3 4\n"
+    expected_output: "1 2 3 4\n"
+  - name: equal
+    input: "3\n5 5 5\n"
+    expected_output: "1 2 3\n"
+  - name: edge-strictly-decreasing
+    input: "4\n9 7 5 3\n"
+    expected_output: "1 1 1 1\n"
+  - name: edge-plateau
+    input: "4\n4 4 4 4\n"
+    expected_output: "1 2 3 4\n"
+  - name: edge-single-price
+    input: "1\n20\n"
+    expected_output: "1\n"

@@ -63,3 +63,9 @@ test_cases:
       x 0
       y 2
       FREE 7 4
+  - name: move-only-block-after-hole
+    input: "3\nA x 3\nF 2\nA y 1\n"
+    expected_output: "1\nx 0\ny 3\nFREE 4 2\n"
+  - name: multiple-holes-and-moved-byte-count
+    input: "5\nF 2\nA a 2\nF 1\nA b 2\nF 1\n"
+    expected_output: "4\na 0\nb 2\nFREE 4 4\n"

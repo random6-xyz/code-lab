@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-graph-rotting-oranges
+difficulty: medium
+title: Rotting Oranges
+statement: "Each minute, rotten oranges infect adjacent fresh oranges. Return the minutes until no fresh oranges remain, or -1 if impossible. Input: rows, columns, then the grid (0 empty, 1 fresh, 2 rotten). Output: minutes."
+tags:
+  - swe-interview
+  - graphs
+  - bfs
+  - multi-source
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3 3\n2 1 1\n1 1 0\n0 1 1\n"
+    expected_output: "4\n"
+  - name: isolated
+    input: "1 2\n2 1\n"
+    expected_output: "1\n"
+  - name: unreachable
+    input: "1 3\n2 0 1\n"
+    expected_output: "-1\n"
+  - name: edge-no-fresh
+    input: "2 2\n2 0\n0 2\n"
+    expected_output: "0\n"
+  - name: edge-fresh-unreachable
+    input: "1 3\n1 0 2\n"
+    expected_output: "-1\n"
+  - name: edge-single-rotten
+    input: "1 1\n2\n"
+    expected_output: "0\n"

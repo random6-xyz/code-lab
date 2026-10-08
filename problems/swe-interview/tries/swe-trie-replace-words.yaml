@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-trie-replace-words
+difficulty: medium
+title: Replace Words With Roots
+statement: "Replace each sentence word with the shortest dictionary root that is its prefix; leave words unchanged when no root matches. Input: root count, roots, then one sentence line. Output: the replaced sentence."
+tags:
+  - swe-interview
+  - tries
+  - prefix-tree
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\ncat bat rat\nthe cattle was rattled by the battery\n"
+    expected_output: "the cat was rat by the bat\n"
+  - name: shortest-root
+    input: "3\na an ant\nanthology anthem ant\n"
+    expected_output: "a a a\n"
+  - name: no-match
+    input: "2\nblue green\nred yellow\n"
+    expected_output: "red yellow\n"
+  - name: edge-root-exact-match
+    input: "2\ncat car\ncatapult carpool dog\n"
+    expected_output: "cat car dog\n"
+  - name: edge-overlapping-roots
+    input: "3\na an ant\nantique angle apple\n"
+    expected_output: "a a a\n"
+  - name: edge-empty-dictionary
+    input: "0\n\nhello world\n"
+    expected_output: "hello world\n"

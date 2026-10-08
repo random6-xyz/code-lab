@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-trie-shortest-unique-prefix
+difficulty: medium
+title: Shortest Unique Prefixes
+statement: "For each distinct input word, find its shortest prefix that no other word shares. Input: n followed by n distinct words. Output: one prefix per word in input order."
+tags:
+  - swe-interview
+  - tries
+  - prefix-tree
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4\ndog dove duck zebra\n"
+    expected_output: "dog dov du z\n"
+  - name: shared-prefix
+    input: "3\napple apply apt\n"
+    expected_output: "apple apply apt\n"
+  - name: single
+    input: "1\nhello\n"
+    expected_output: "h\n"
+  - name: edge-shared-first-letter
+    input: "3\na abc abd\n"
+    expected_output: "a abc abd\n"
+  - name: edge-diverge-early
+    input: "3\ncar cat dog\n"
+    expected_output: "car cat d\n"
+  - name: edge-long-prefix
+    input: "3\ncar cat cab\n"
+    expected_output: "cab car cat\n"

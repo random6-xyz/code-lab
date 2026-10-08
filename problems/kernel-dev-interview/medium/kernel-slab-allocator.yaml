@@ -76,3 +76,9 @@ test_cases:
       OK
       0 0
       OK
+  - name: unknown-and-repeated-free
+    input: "2 5\nFREE x\nALLOC a\nFREE a\nALLOC b\nFREE a\n"
+    expected_output: "INVALID\n0 0\nOK\n0 0\nINVALID\n"
+  - name: no-commands
+    input: "4 0\n"
+    expected_output: ""

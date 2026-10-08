@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-greedy-non-overlapping-intervals
+difficulty: medium
+title: Non-Overlapping Intervals
+statement: "Remove the fewest intervals so the remaining half-open intervals [start,end) do not overlap; intervals that only touch do not overlap. Input: n followed by start/end pairs. Output: the minimum removals."
+tags:
+  - swe-interview
+  - greedy-intervals
+  - sorting
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4\n1 2\n2 3\n3 4\n1 3\n"
+    expected_output: "1\n"
+  - name: all-overlap
+    input: "3\n1 4\n2 3\n3 5\n"
+    expected_output: "1\n"
+  - name: none
+    input: "3\n1 2\n3 4\n5 6\n"
+    expected_output: "0\n"
+  - name: edge-touching-half-open
+    input: "3\n1 2\n2 3\n3 4\n"
+    expected_output: "0\n"
+  - name: edge-empty
+    input: "0\n"
+    expected_output: "0\n"
+  - name: edge-identical-intervals
+    input: "3\n1 4\n1 4\n1 4\n"
+    expected_output: "2\n"

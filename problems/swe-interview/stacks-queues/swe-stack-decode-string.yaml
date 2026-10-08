@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-stack-decode-string
+difficulty: medium
+title: Decode String
+statement: "Decode expressions where k[ text ] repeats text k times; brackets may be nested. Input: one encoded string. Output: the decoded string."
+tags:
+  - swe-interview
+  - stacks-queues
+  - parsing
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: nested
+    input: "3[a2[c]]\n"
+    expected_output: "accaccacc\n"
+  - name: multiple
+    input: "2[ab]3[c]\n"
+    expected_output: "ababccc\n"
+  - name: plain
+    input: "xyz\n"
+    expected_output: "xyz\n"
+  - name: edge-plain-text
+    input: "abc\n"
+    expected_output: "abc\n"
+  - name: edge-ten-repeats
+    input: "10[a]\n"
+    expected_output: "aaaaaaaaaa\n"
+  - name: edge-mixed
+    input: "2[a]3[bc]\n"
+    expected_output: "aabcbcbc\n"

@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-graph-word-ladder
+difficulty: medium
+title: Word Ladder Length
+statement: "Transform beginWord to endWord by changing one letter at a time; every intermediate word must be in the dictionary. Return the number of words in the shortest sequence, or 0 if impossible. Input: begin, end, n, then n words. Output: length."
+tags:
+  - swe-interview
+  - graphs
+  - bfs
+  - shortest-path
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "hit cog 6\nhot dot dog lot log cog\n"
+    expected_output: "5\n"
+  - name: direct
+    input: "cat cot 1\ncot\n"
+    expected_output: "2\n"
+  - name: impossible
+    input: "hit cog 2\nhot dot\n"
+    expected_output: "0\n"
+  - name: edge-begin-is-end
+    input: "hit hit 1\nhit\n"
+    expected_output: "1\n"
+  - name: edge-one-change
+    input: "a c 2\nb c\n"
+    expected_output: "2\n"
+  - name: edge-end-missing
+    input: "a z 2\nb c\n"
+    expected_output: "0\n"

@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-trie-longest-buildable-word
+difficulty: medium
+title: Longest Buildable Word
+statement: "Find the longest word for which every nonempty prefix is also present in the set. Ties choose the lexicographically smallest word. Input: n followed by n lowercase words. Output: the word, or - if none exists."
+tags:
+  - swe-interview
+  - tries
+  - prefix-tree
+  - sorting
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6\nw wo wor worl world banana\n"
+    expected_output: "world\n"
+  - name: tie
+    input: "5\na ap app appl apple\n"
+    expected_output: "apple\n"
+  - name: none
+    input: "2\nabc xyz\n"
+    expected_output: "-\n"
+  - name: edge-lexicographic-tie
+    input: "6\na ab abc b ba bac\n"
+    expected_output: "abc\n"
+  - name: edge-one-letter-words
+    input: "3\nz x a\n"
+    expected_output: "a\n"
+  - name: edge-long-chain
+    input: "4\na ab abc abcd\n"
+    expected_output: "abcd\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-stack-min-stack-operations
+difficulty: medium
+title: Min Stack Operations
+statement: "Process push x, pop, top, and getMin operations on a stack. For each top or getMin operation, print its result. Input: q followed by q operation lines. Output: one result per query."
+tags:
+  - swe-interview
+  - stacks-queues
+  - stack-design
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6\npush 3\npush 1\ngetMin\npop\ntop\ngetMin\n"
+    expected_output: "1\n3\n3\n"
+  - name: negative-values
+    input: "5\npush -2\npush -5\ngetMin\npop\ngetMin\n"
+    expected_output: "-5\n-2\n"
+  - name: single-value
+    input: "3\npush 8\ntop\ngetMin\n"
+    expected_output: "8\n8\n"
+  - name: edge-repeated-minimum
+    input: "7\npush 2\npush 2\ngetMin\npop\ngetMin\npop\ntop\n"
+    expected_output: "2\n2\n2\n"
+  - name: edge-negative-minimum
+    input: "5\npush -10\npush -3\ngetMin\npop\ntop\n"
+    expected_output: "-10\n-10\n"
+  - name: edge-interleaved-queries
+    input: "6\npush 5\ngetMin\npush 1\ntop\ngetMin\npop\n"
+    expected_output: "5\n1\n1\n"

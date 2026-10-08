@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-bit-range-and
+difficulty: medium
+title: Bitwise AND of a Number Range
+statement: "Compute the bitwise AND of all integers in the inclusive range [left, right]. Input: left and right. Output: the result."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - bitwise
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5 7\n"
+    expected_output: "4\n"
+  - name: same-value
+    input: "12 12\n"
+    expected_output: "12\n"
+  - name: cross-boundary
+    input: "0 1\n"
+    expected_output: "0\n"
+  - name: edge-wide-range
+    input: "26 30\n"
+    expected_output: "24\n"
+  - name: edge-single-high-value
+    input: "2147483648 2147483648\n"
+    expected_output: "2147483648\n"
+  - name: edge-cross-power-boundary
+    input: "7 8\n"
+    expected_output: "0\n"

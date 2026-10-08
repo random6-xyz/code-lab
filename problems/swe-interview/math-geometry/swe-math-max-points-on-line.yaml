@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-math-max-points-on-line
+difficulty: medium
+title: Max Points on a Line
+statement: "Find the largest number of distinct points lying on one straight line. Input: n followed by integer x/y pairs. Output: the maximum count."
+tags:
+  - swe-interview
+  - math-geometry
+  - geometry
+  - hash-map
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\n1 1\n2 2\n3 3\n"
+    expected_output: "3\n"
+  - name: horizontal
+    input: "5\n0 0\n1 1\n1 0\n2 0\n3 0\n"
+    expected_output: "4\n"
+  - name: two-points
+    input: "2\n-1 4\n5 4\n"
+    expected_output: "2\n"
+  - name: edge-vertical-line
+    input: "4\n2 0\n2 3\n2 -4\n0 1\n"
+    expected_output: "3\n"
+  - name: edge-diagonal-line
+    input: "5\n-2 -4\n-1 -2\n0 0\n1 2\n3 6\n"
+    expected_output: "5\n"
+  - name: edge-two-unique-points
+    input: "2\n0 0\n1 3\n"
+    expected_output: "2\n"

@@ -82,3 +82,9 @@ test_cases:
       OK
       OK
       3
+  - name: zero-commands
+    input: "0\n"
+    expected_output: ""
+  - name: duplicate-map-and-last-unmap
+    input: "8\nPAGES\nMAP 4096 3\nPAGES\nMAP 4096 4\nTRANSLATE 4100\nUNMAP 4096\nPAGES\nTRANSLATE 4096\n"
+    expected_output: "1\nOK\n2\nEXISTS\n12292\nOK\n1\nMISSING\n"

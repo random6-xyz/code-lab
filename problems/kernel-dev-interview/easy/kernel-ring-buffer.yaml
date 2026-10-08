@@ -72,3 +72,9 @@ test_cases:
     input: |
       2 0
     expected_output: ""
+  - name: capacity-one-full-and-empty
+    input: "1 6\nPOP\nPUSH 7\nFRONT\nPUSH 8\nPOP\nPOP\n"
+    expected_output: "EMPTY\nOK\n7\nFULL\n7\nEMPTY\n"
+  - name: zero-command-stream
+    input: "4 0\n"
+    expected_output: ""

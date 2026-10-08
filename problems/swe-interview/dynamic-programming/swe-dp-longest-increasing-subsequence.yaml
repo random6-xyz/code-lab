@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-dp-longest-increasing-subsequence
+difficulty: medium
+title: Longest Increasing Subsequence
+statement: "Find the length of the longest strictly increasing subsequence; elements need not be adjacent. Input: n followed by n integers. Output: the length."
+tags:
+  - swe-interview
+  - dynamic-programming
+  - 1d-dp
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "8\n10 9 2 5 3 7 101 18\n"
+    expected_output: "4\n"
+  - name: decreasing
+    input: "4\n4 3 2 1\n"
+    expected_output: "1\n"
+  - name: duplicates
+    input: "5\n2 2 2 2 2\n"
+    expected_output: "1\n"
+  - name: edge-one-negative
+    input: "1\n-8\n"
+    expected_output: "1\n"
+  - name: edge-alternating
+    input: "6\n1 3 2 4 3 5\n"
+    expected_output: "4\n"
+  - name: edge-duplicates-and-rise
+    input: "5\n2 2 3 3 4\n"
+    expected_output: "3\n"

@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-window-exactly-k-distinct
+difficulty: medium
+title: Subarrays With K Distinct Values
+statement: "Count contiguous subarrays containing exactly k distinct values. Input: n and k followed by n integers. Output: the count."
+tags:
+  - swe-interview
+  - sliding-window
+  - hash-map
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5 2\n1 2 1 2 3\n"
+    expected_output: "7\n"
+  - name: one-value
+    input: "4 1\n5 5 5 5\n"
+    expected_output: "4\n"
+  - name: too-many
+    input: "3 4\n1 2 3\n"
+    expected_output: "0\n"
+  - name: one-distinct-type
+    input: "5 1\n-2 -2 -2 -2 -2\n"
+    expected_output: "5\n"
+  - name: k-exceeds-length
+    input: "4 5\n1 1 2 2\n"
+    expected_output: "0\n"
+  - name: negative-values
+    input: "3 2\n-1 -2 -1\n"
+    expected_output: "2\n"

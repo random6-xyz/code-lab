@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-greedy-partition-labels
+difficulty: medium
+title: Partition Labels
+statement: "Split a lowercase string into as many parts as possible so each character appears in at most one part. Output the part lengths in order. Input: one string. Output: count followed by lengths."
+tags:
+  - swe-interview
+  - greedy-intervals
+  - greedy
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "ababcbacadefegdehijhklij\n"
+    expected_output: "3\n9 7 8\n"
+  - name: all-same
+    input: "aaaa\n"
+    expected_output: "1\n4\n"
+  - name: distinct
+    input: "abc\n"
+    expected_output: "3\n1 1 1\n"
+  - name: edge-one-character
+    input: "1\na\n"
+    expected_output: "1\n1\n"
+  - name: edge-repeated-blocks
+    input: "6\naabbcc\n"
+    expected_output: "3\n2 2 2\n"
+  - name: edge-overlapping-ranges
+    input: "8\nabacbade\n"
+    expected_output: "2\n7 1\n"

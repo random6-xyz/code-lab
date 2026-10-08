@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-trie-search-suggestions
+difficulty: medium
+title: Search Suggestions System
+statement: "After each character of searchWord, return up to three lexicographically smallest products with that prefix. Input: n, n products, then searchWord. Output: one line per prefix containing the suggestion count followed by suggestions."
+tags:
+  - swe-interview
+  - tries
+  - prefix-tree
+  - sorting
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\nmobile mouse moneypot monitor mousepad\nmouse\n"
+    expected_output: "3 mobile moneypot monitor\n3 mobile moneypot monitor\n2 mouse mousepad\n2 mouse mousepad\n2 mouse mousepad\n"
+  - name: few-matches
+    input: "2\napple apply\napp\n"
+    expected_output: "2 apple apply\n2 apple apply\n2 apple apply\n"
+  - name: none-after-prefix
+    input: "2\ncar cart\ndog\n"
+    expected_output: "0\n"
+  - name: edge-no-products
+    input: "0\n\nabc\n"
+    expected_output: "0\n0\n0\n"
+  - name: edge-one-product
+    input: "1\ncar\ncat\n"
+    expected_output: "1 car\n0\n0\n"
+  - name: edge-exact-prefix
+    input: "3\napp apple apply\napp\n"
+    expected_output: "3 app apple apply\n3 app apple apply\n3 app apple apply\n"

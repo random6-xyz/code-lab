@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-two-sort-colors
+difficulty: medium
+title: Sort Colors
+statement: "Sort an array containing only 0, 1, and 2 in place. Input: n followed by n values. Output: the sorted values."
+tags:
+  - swe-interview
+  - two-pointers
+  - in-place-array
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6\n2 0 2 1 1 0\n"
+    expected_output: "0 0 1 1 2 2\n"
+  - name: already-sorted
+    input: "4\n0 1 2 2\n"
+    expected_output: "0 1 2 2\n"
+  - name: one-color
+    input: "3\n1 1 1\n"
+    expected_output: "1 1 1\n"
+  - name: all-zeroes
+    input: "4\n0 0 0 0\n"
+    expected_output: "0 0 0 0\n"
+  - name: reverse-order
+    input: "3\n2 1 0\n"
+    expected_output: "0 1 2\n"
+  - name: single-color
+    input: "1\n2\n"
+    expected_output: "2\n"

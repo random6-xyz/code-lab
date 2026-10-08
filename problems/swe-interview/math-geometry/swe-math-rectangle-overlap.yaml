@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-math-rectangle-overlap
+difficulty: medium
+title: Rectangle Overlap
+statement: "Determine whether two axis-aligned rectangles have a positive-area intersection; sharing only an edge or point is not overlap. Input: x1 y1 x2 y2 for each rectangle. Output: true or false."
+tags:
+  - swe-interview
+  - math-geometry
+  - geometry
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: overlap
+    input: "0 0 2 2\n1 1 3 3\n"
+    expected_output: "true\n"
+  - name: touching
+    input: "0 0 1 1\n1 0 2 1\n"
+    expected_output: "false\n"
+  - name: separate
+    input: "0 0 1 1\n2 2 3 3\n"
+    expected_output: "false\n"
+  - name: edge-contained
+    input: "0 0 10 10\n2 2 3 3\n"
+    expected_output: "true\n"
+  - name: edge-negative-coordinates
+    input: "-4 -4 -1 -1\n-3 -3 0 0\n"
+    expected_output: "true\n"
+  - name: edge-point-touch
+    input: "0 0 2 2\n2 2 4 4\n"
+    expected_output: "false\n"

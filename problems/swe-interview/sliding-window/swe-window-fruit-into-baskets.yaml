@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-window-fruit-into-baskets
+difficulty: medium
+title: Fruit Into Baskets
+statement: "Find the longest contiguous range containing at most two distinct values. Input: n followed by n fruit types. Output: the maximum length."
+tags:
+  - swe-interview
+  - sliding-window
+  - hash-map
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n1 2 1 2 3\n"
+    expected_output: "4\n"
+  - name: one-type
+    input: "4\n7 7 7 7\n"
+    expected_output: "4\n"
+  - name: alternating
+    input: "6\n1 2 1 3 2 2\n"
+    expected_output: "3\n"
+  - name: all-same-type
+    input: "5\n3 3 3 3 3\n"
+    expected_output: "5\n"
+  - name: two-types-only
+    input: "4\n1 2 1 2\n"
+    expected_output: "4\n"
+  - name: many-types
+    input: "4\n1 2 3 4\n"
+    expected_output: "2\n"

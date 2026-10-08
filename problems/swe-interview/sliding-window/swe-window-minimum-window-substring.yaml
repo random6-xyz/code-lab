@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-window-minimum-window-substring
+difficulty: medium
+title: Minimum Window Substring
+statement: "Find the shortest substring of s containing every character of t with multiplicity; ties choose the earliest start. Input: s and t. Output: the substring, or an empty line if none exists."
+tags:
+  - swe-interview
+  - sliding-window
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "ADOBECODEBANC ABC\n"
+    expected_output: "BANC\n"
+  - name: multiplicity
+    input: "AAABBC AABC\n"
+    expected_output: "AABBC\n"
+  - name: none
+    input: "abc z\n"
+    expected_output: "\n"
+  - name: target-longer-than-source
+    input: "ab abc\n"
+    expected_output: "\n"
+  - name: exact-match
+    input: "xyz xyz\n"
+    expected_output: "xyz\n"
+  - name: repeated-target-letters
+    input: "aabcaac aa\n"
+    expected_output: "aa\n"

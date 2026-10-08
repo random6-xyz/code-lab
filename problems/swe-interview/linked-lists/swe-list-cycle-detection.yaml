@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-list-cycle-detection
+difficulty: medium
+title: Linked List Cycle Detection
+statement: "A list of n nodes links its final node to node pos, using zero-based indexing; pos = -1 means no cycle. Input: n and pos followed by n values. Output: true if a cycle exists, otherwise false."
+tags:
+  - swe-interview
+  - linked-lists
+  - fast-slow-pointers
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: cycle
+    input: "4 1\n3 2 0 -4\n"
+    expected_output: "true\n"
+  - name: no-cycle
+    input: "3 -1\n1 2 3\n"
+    expected_output: "false\n"
+  - name: self-cycle
+    input: "1 0\n8\n"
+    expected_output: "true\n"
+  - name: edge-cycle-at-head
+    input: "3 0\n1 2 3\n"
+    expected_output: "true\n"
+  - name: edge-cycle-at-tail-self
+    input: "2 1\n7 8\n"
+    expected_output: "true\n"
+  - name: edge-empty-list
+    input: "0 -1\n\n"
+    expected_output: "false\n"

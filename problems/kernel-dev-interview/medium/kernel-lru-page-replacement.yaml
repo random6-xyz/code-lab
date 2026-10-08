@@ -39,3 +39,9 @@ test_cases:
       2 0
     expected_output: |
       0
+  - name: zero-references
+    input: "3 0\n"
+    expected_output: "0\n"
+  - name: one-frame-alternating-pages
+    input: "1 4\n1 2 1 2\n"
+    expected_output: "4\n"

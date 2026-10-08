@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-bit-two-single-numbers
+difficulty: medium
+title: Two Single Numbers
+statement: "Every value appears twice except for two distinct values. Return the two unique values in ascending order. Input: n followed by n integers. Output: the two values."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - bitwise
+  - xor
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6\n1 2 1 3 2 5\n"
+    expected_output: "3 5\n"
+  - name: negative
+    input: "4\n-1 4 4 7\n"
+    expected_output: "-1 7\n"
+  - name: two-values
+    input: "2\n8 -3\n"
+    expected_output: "-3 8\n"
+  - name: edge-zero-and-negative
+    input: "4\n0 -1 3 3\n"
+    expected_output: "-1 0\n"
+  - name: edge-large-values
+    input: "6\n100 7 7 9 9 200\n"
+    expected_output: "100 200\n"
+  - name: edge-negative-pair
+    input: "4\n-8 2 -8 5\n"
+    expected_output: "2 5\n"

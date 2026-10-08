@@ -79,3 +79,9 @@ test_cases:
       COUNT missing
     expected_output: |
       0
+  - name: same-object-reference-count-after-close
+    input: "8\nOPEN 3 file\nOPEN 4 file\nCOUNT file\nCLOSE 3\nCOUNT file\nDUP 4 5\nCLOSE 4\nCOUNT file\n"
+    expected_output: "OK\nOK\n2\nOK\n1\nOK\nOK\n1\n"
+  - name: duplicate-source-and-occupied-target
+    input: "7\nDUP 1 2\nOPEN 1 x\nDUP 1 1\nDUP 1 2\nCOUNT x\nCLOSE 2\nCOUNT x\n"
+    expected_output: "FAIL\nOK\nFAIL\nOK\n2\nOK\n1\n"

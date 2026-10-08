@@ -1,0 +1,40 @@
+schema_version: 1
+id: swe-bit-maximum-xor-pair
+difficulty: medium
+title: Maximum XOR Pair
+statement: "Find the maximum bitwise XOR of any two distinct array positions. Values are nonnegative 32-bit integers. Input: n followed by n values. Output: the maximum XOR, or 0 when fewer than two values exist."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - xor
+  - trie
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4\n3 10 5 25\n"
+    expected_output: "28\n"
+  - name: duplicates
+    input: "3\n7 7 7\n"
+    expected_output: "0\n"
+  - name: high-bit
+    input: "3\n0 2147483648 1\n"
+    expected_output: "2147483649\n"
+  - name: edge-one-value
+    input: "1\n9\n"
+    expected_output: "0\n"
+  - name: edge-bits-at-ends
+    input: "2\n0 4294967295\n"
+    expected_output: "4294967295\n"
+  - name: edge-smallest-pair
+    input: "2\n1 2\n"
+    expected_output: "3\n"
+  - name: edge-maximum-uint32
+    input: "3\n0 4294967295 2147483648\n"
+    expected_output: "4294967295\n"
+  - name: edge-two-equal-values
+    input: "2\n42 42\n"
+    expected_output: "0\n"
+  - name: edge-negative-not-used
+    input: "2\n1 8\n"
+    expected_output: "9\n"

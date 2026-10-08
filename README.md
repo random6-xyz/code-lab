@@ -56,13 +56,47 @@ test_cases:
   - name: negative-number
     input: "-4 9\n"
     expected_output: "5\n"
+  - name: zero-operands
+    input: "0 0\n"
+    expected_output: "0\n"
+  - name: one-negative
+    input: "-9 2\n"
+    expected_output: "-7\n"
+  - name: cancellation
+    input: "7 -7\n"
+    expected_output: "0\n"
+  - name: large-sum
+    input: "1000000 2000000\n"
+    expected_output: "3000000\n"
 ```
 
-All fields except `tags` are required. `difficulty` must be `easy`, `medium`, or `hard`; tags default to an empty list and must be non-empty and unique when provided. Test case names must be unique within a problem. Time limits must be between 1 and 300,000 milliseconds; memory limits must be between 1 and 8,192 megabytes. Each limit applies independently to every test case. Compilation has separate fixed limits of 120 seconds and 2,048 MB.
+All fields except `tags` are required. `difficulty` must be `easy`, `medium`, or `hard`; tags default to an empty list and must be non-empty and unique when provided. Every problem must define at least six test cases, with cases covering representative behavior and edge conditions. Test case names must be unique within a problem. Time limits must be between 1 and 300,000 milliseconds; memory limits must be between 1 and 8,192 megabytes. Each limit applies independently to every test case. Compilation has separate fixed limits of 120 seconds and 2,048 MB.
 
 Output comparison is byte-exact except that one final line ending (`LF` or `CRLF`) is ignored. Other whitespace, including extra trailing spaces or additional blank lines, is significant.
 
 Use `code-lab list` to view problems grouped by difficulty and `code-lab show <id>` to view a problem's difficulty, statement, limits, and the first test case as a sample input and expected output. All test cases remain available to the grader. The `list`, `show`, and `run` commands load and validate YAML problems recursively from the configured problems directory.
+
+## SWE Interview Practice Set
+
+`problems/swe-interview/` contains 150 medium-difficulty coding interview problems, organized into 15 topic directories with 10 problems each:
+
+- Arrays and hashing
+- Two pointers
+- Sliding window
+- Stacks and queues
+- Binary search
+- Linked lists
+- Trees
+- Tries
+- Heaps and priority queues
+- Graphs
+- Backtracking
+- Dynamic programming
+- Greedy algorithms and intervals
+- Bit manipulation
+- Math and geometry
+
+Each problem is an independent YAML file with stdin/stdout instructions and multiple grading cases. Its topic directory is also included as a tag.
 
 ## Sandbox notes
 

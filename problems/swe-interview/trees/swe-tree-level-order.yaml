@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-tree-level-order
+difficulty: medium
+title: Binary Tree Level Order Traversal
+statement: "Read a binary tree in level-order notation, where null marks a missing node. Print each depth on one line. Input: n followed by n level-order tokens. Output: depth count, then values by level."
+tags:
+  - swe-interview
+  - trees
+  - bfs
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "7\n3 9 20 null null 15 7\n"
+    expected_output: "3\n3\n9 20\n15 7\n"
+  - name: single
+    input: "1\n-2\n"
+    expected_output: "1\n-2\n"
+  - name: left-skewed
+    input: "5\n1 2 null 3 null\n"
+    expected_output: "3\n1\n2\n3\n"
+  - name: edge-right-child-only
+    input: "3\n1 null 2\n"
+    expected_output: "2\n1\n2\n"
+  - name: edge-two-levels
+    input: "3\n1 2 3\n"
+    expected_output: "2\n1\n2 3\n"
+  - name: edge-sparse-depth
+    input: "6\n1 2 3 null null 4\n"
+    expected_output: "3\n1\n2 3\n4\n"

@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-backtrack-partition-k-subsets
+difficulty: medium
+title: Partition to K Equal Sum Subsets
+statement: "Determine whether all positive values can be partitioned into k nonempty groups with equal sums. Input: n and k followed by n values. Output: true or false."
+tags:
+  - swe-interview
+  - backtracking
+  - recursion
+  - pruning
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "7 4\n4 3 2 3 5 2 1\n"
+    expected_output: "true\n"
+  - name: not-divisible
+    input: "4 3\n1 2 3 4\n"
+    expected_output: "false\n"
+  - name: equal-items
+    input: "4 2\n2 2 2 2\n"
+    expected_output: "true\n"
+  - name: edge-one-bucket-per-value
+    input: "4 4\n1 1 1 1\n"
+    expected_output: "true\n"
+  - name: edge-too-many-buckets
+    input: "3 4\n1 1 1\n"
+    expected_output: "false\n"
+  - name: edge-uneven-partition
+    input: "5 2\n1 2 3 4 5\n"
+    expected_output: "false\n"

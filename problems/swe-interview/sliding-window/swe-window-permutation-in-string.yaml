@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-window-permutation-in-string
+difficulty: medium
+title: Permutation in String
+statement: "Determine whether s2 contains a permutation of s1. Input: s1 and s2. Output: true or false."
+tags:
+  - swe-interview
+  - sliding-window
+  - strings
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "ab eidbaooo\n"
+    expected_output: "true\n"
+  - name: shorter
+    input: "abc ab\n"
+    expected_output: "false\n"
+  - name: repeated
+    input: "aab caabx\n"
+    expected_output: "true\n"
+  - name: pattern-longer-than-text
+    input: "abcd abc\n"
+    expected_output: "false\n"
+  - name: exact-permutation
+    input: "abc bca\n"
+    expected_output: "true\n"
+  - name: same-multiset-not-contiguous
+    input: "abc axbycz\n"
+    expected_output: "false\n"

@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-heap-top-k-frequent-words
+difficulty: medium
+title: Top K Frequent Words
+statement: "Return the k most frequent words, ordered by frequency descending and then lexicographically ascending. Input: n and k followed by n lowercase words. Output: the k words."
+tags:
+  - swe-interview
+  - heaps
+  - frequency
+  - sorting
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6 2\ni love leetcode i love coding\n"
+    expected_output: "i love\n"
+  - name: lexical-tie
+    input: "5 2\nb a b a c\n"
+    expected_output: "a b\n"
+  - name: single
+    input: "3 1\nx y x\n"
+    expected_output: "x\n"
+  - name: edge-single-distinct
+    input: "4 1\nhi hi hi hi\n"
+    expected_output: "hi\n"
+  - name: edge-equal-counts
+    input: "4 3\nz a c b\n"
+    expected_output: "a b c\n"
+  - name: edge-prefix-order
+    input: "5 2\na ab a ab ac\n"
+    expected_output: "a ab\n"

@@ -49,3 +49,9 @@ test_cases:
       2 0
     expected_output: |
       9 9 4
+  - name: four-process-transitive-chain
+    input: "4 3\n1 2 3 9\n3 2\n2 1\n1 0\n"
+    expected_output: "9 9 9 9\n"
+  - name: multiple-donors-and-duplicate-edge
+    input: "3 3\n5 1 4\n0 1\n2 1\n2 1\n"
+    expected_output: "5 5 4\n"

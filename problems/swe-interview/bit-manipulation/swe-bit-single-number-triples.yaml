@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-bit-single-number-triples
+difficulty: medium
+title: Single Number Among Triples
+statement: "Every value appears exactly three times except one value. Find the unique value using 32-bit signed integer semantics. Input: n followed by n integers. Output: the unique value."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - bitwise
+  - xor
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "4\n2 2 3 2\n"
+    expected_output: "3\n"
+  - name: negative
+    input: "4\n-2 -2 -2 -7\n"
+    expected_output: "-7\n"
+  - name: large
+    input: "4\n1000000000 5 5 5\n"
+    expected_output: "1000000000\n"
+  - name: edge-int-minimum
+    input: "4\n-2147483648 2 2 2\n"
+    expected_output: "-2147483648\n"
+  - name: edge-negative-unique
+    input: "4\n5 -4 5 5\n"
+    expected_output: "-4\n"
+  - name: edge-zero-unique
+    input: "4\n8 0 8 8\n"
+    expected_output: "0\n"

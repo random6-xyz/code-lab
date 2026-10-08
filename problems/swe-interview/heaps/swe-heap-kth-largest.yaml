@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-heap-kth-largest
+difficulty: medium
+title: Kth Largest Element
+statement: "Find the kth largest value in an unsorted array, counting duplicates. Input: n and k followed by n integers. Output: the value."
+tags:
+  - swe-interview
+  - heaps
+  - selection
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "6 2\n3 2 1 5 6 4\n"
+    expected_output: "5\n"
+  - name: duplicates
+    input: "5 3\n3 2 3 1 2\n"
+    expected_output: "2\n"
+  - name: minimum
+    input: "4 4\n-1 -2 -3 -4\n"
+    expected_output: "-4\n"
+  - name: edge-single-value
+    input: "1 1\n-9\n"
+    expected_output: "-9\n"
+  - name: edge-all-equal
+    input: "4 2\n7 7 7 7\n"
+    expected_output: "7\n"
+  - name: edge-k-is-one
+    input: "5 1\n-5 0 9 2 3\n"
+    expected_output: "9\n"

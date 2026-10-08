@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-tree-diameter
+difficulty: medium
+title: Diameter of a Binary Tree
+statement: "Find the number of edges on the longest path between any two tree nodes. Input: n followed by level-order tokens. Output: the diameter."
+tags:
+  - swe-interview
+  - trees
+  - dfs
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n1 2 3 4 5\n"
+    expected_output: "3\n"
+  - name: single
+    input: "1\n1\n"
+    expected_output: "0\n"
+  - name: chain
+    input: "5\n1 2 null 3 null\n"
+    expected_output: "3\n"
+  - name: edge-two-node-tree
+    input: "3\n1 2 3\n"
+    expected_output: "2\n"
+  - name: edge-single-node
+    input: "1\n8\n"
+    expected_output: "0\n"
+  - name: edge-right-chain
+    input: "3\n1 null 2 null 3\n"
+    expected_output: "2\n"

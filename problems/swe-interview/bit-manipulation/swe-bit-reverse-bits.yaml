@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-bit-reverse-bits
+difficulty: medium
+title: Reverse Bits
+statement: "Reverse the 32 bits of an unsigned 32-bit integer. Input: an unsigned decimal integer. Output: the reversed unsigned decimal value."
+tags:
+  - swe-interview
+  - bit-manipulation
+  - bitwise
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "43261596\n"
+    expected_output: "964176192\n"
+  - name: high-bit
+    input: "2147483648\n"
+    expected_output: "1\n"
+  - name: zero
+    input: "0\n"
+    expected_output: "0\n"
+  - name: edge-lowest-bit
+    input: "1\n"
+    expected_output: "2147483648\n"
+  - name: edge-all-ones
+    input: "4294967295\n"
+    expected_output: "4294967295\n"
+  - name: edge-alternating-bits
+    input: "1431655765\n"
+    expected_output: "2863311530\n"

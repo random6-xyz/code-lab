@@ -1,0 +1,31 @@
+schema_version: 1
+id: swe-greedy-minimum-taps
+difficulty: medium
+title: Minimum Number of Taps to Water a Garden
+statement: "Tap i covers [max(0,i-r[i]), min(n,i+r[i])]. Find the minimum taps covering [0,n], or -1. Input: n followed by n+1 ranges. Output: tap count."
+tags:
+  - swe-interview
+  - greedy-intervals
+  - greedy
+  - intervals
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n3 4 1 1 0 0\n"
+    expected_output: "1\n"
+  - name: multiple
+    input: "3\n0 0 0 0\n"
+    expected_output: "-1\n"
+  - name: segments
+    input: "5\n1 1 1 1 1 1\n"
+    expected_output: "3\n"
+  - name: edge-zero-length-garden
+    input: "0\n0\n"
+    expected_output: "1\n"
+  - name: edge-one-tap-covers-all
+    input: "4\n0 4 0 0 0\n"
+    expected_output: "1\n"
+  - name: edge-only-short-ranges
+    input: "4\n2 0 0 0 2\n"
+    expected_output: "2\n"

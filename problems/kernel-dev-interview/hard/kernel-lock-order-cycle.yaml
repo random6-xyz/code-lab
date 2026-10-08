@@ -63,3 +63,9 @@ test_cases:
       SAFE
       SAFE
       CYCLE
+  - name: cycle-closes-after-longer-chain
+    input: "3 4\n0 1\n1 2\n2 0\n0 2\n"
+    expected_output: "SAFE\nSAFE\nCYCLE\nCYCLE\n"
+  - name: no-observed-lock-orders
+    input: "4 0\n"
+    expected_output: ""

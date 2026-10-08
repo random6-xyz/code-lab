@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-list-reorder
+difficulty: medium
+title: Reorder Linked List
+statement: "Reorder nodes as first, last, second, second-last, continuing inward. Input: n followed by n values. Output: the reordered list."
+tags:
+  - swe-interview
+  - linked-lists
+  - pointers
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "5\n1 2 3 4 5\n"
+    expected_output: "1 5 2 4 3\n"
+  - name: even-length
+    input: "4\n1 2 3 4\n"
+    expected_output: "1 4 2 3\n"
+  - name: two-nodes
+    input: "2\n7 9\n"
+    expected_output: "7 9\n"
+  - name: edge-three-nodes
+    input: "3\n1 2 3\n"
+    expected_output: "1 3 2\n"
+  - name: edge-six-nodes
+    input: "6\n1 2 3 4 5 6\n"
+    expected_output: "1 6 2 5 3 4\n"
+  - name: edge-single-node
+    input: "1\n7\n"
+    expected_output: "7\n"

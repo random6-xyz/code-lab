@@ -1,0 +1,30 @@
+schema_version: 1
+id: swe-backtrack-generate-parentheses
+difficulty: medium
+title: Generate Parentheses
+statement: "Generate all well-formed strings containing n pairs of parentheses in lexicographic order. Input: n. Output: count followed by one string per line."
+tags:
+  - swe-interview
+  - backtracking
+  - recursion
+time_limit_ms: 1000
+memory_limit_mb: 128
+test_cases:
+  - name: sample
+    input: "3\n"
+    expected_output: "5\n((()))\n(()())\n(())()\n()(())\n()()()\n"
+  - name: one-pair
+    input: "1\n"
+    expected_output: "1\n()\n"
+  - name: zero-pairs
+    input: "0\n"
+    expected_output: "1\n\n"
+  - name: edge-two-pairs
+    input: "2\n"
+    expected_output: "2\n(())\n()()\n"
+  - name: edge-four-pairs-count
+    input: "4\n"
+    expected_output: "14\n(((())))\n((()()))\n((())())\n((()))()\n(()(()))\n(()()())\n(()())()\n(())(())\n(())()()\n()((()))\n()(()())\n()(())()\n()()(())\n()()()()\n"
+  - name: edge-five-pairs
+    input: "5\n"
+    expected_output: "42\n((((()))))\n(((()())))\n(((())()))\n(((()))())\n(((())))()\n((()(())))\n((()()()))\n((()())())\n((()()))()\n((())(()))\n((())()())\n((())())()\n((()))(())\n((()))()()\n(()((())))\n(()(()()))\n(()(())())\n(()(()))()\n(()()(()))\n(()()()())\n(()()())()\n(()())(())\n(()())()()\n(())((()))\n(())(()())\n(())(())()\n(())()(())\n(())()()()\n()(((())))\n()((()()))\n()((())())\n()((()))()\n()(()(()))\n()(()()())\n()(()())()\n()(())(())\n()(())()()\n()()((()))\n()()(()())\n()()(())()\n()()()(())\n()()()()()\n"
